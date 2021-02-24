@@ -7,6 +7,13 @@
     <br>
     <div class="col-md-12">
         <div class="card">
+          <div class="card-header" align="center">
+                <strong>Doctoral Research Programme in Climate Change and Human Habitat</strong>
+                <p>Application Form</p>
+                <p>Doctor of Philosophy (Ph.D) in Climate Change and Human Habitat 
+                Federal University of Technology, Minna (FUT Minna), Niger State, Nigeria.
+                </p>
+            </div>
             <div class="card-header">
                 <strong>7. Contact Details of Referees </strong>
                 
@@ -28,6 +35,21 @@
                     <br>
 
                      <div class="row">
+
+                      <div class="col-md-3">
+                        <strong>Referee</strong> <br><br>
+                        <select name="referees_type" class="standardSelect" required>
+                            <option value="" disabled selected hidden>Please select</option>
+                            <option value="Head of the Department">Head of the Department </option>
+                            <option value="Master Degree Supervisor">Master Degree Supervisor</option>
+                            <option value="boss">supervisor/boss (If Employed) </option>
+                            <option value="MRP">MRP (ALUMNI of WASCAL MRPs)</option>
+                        </select>
+                       
+                        <br><br>
+
+                     
+                    </div>
                     
                     <div class="col-md-3"><strong>Full Name</strong> <br><br>
                          <input type="text" id="referees_name" name="referees_name" placeholder="Full Name" class="form-control" value="{{ old('referees_name') }}" required>
@@ -69,6 +91,7 @@
             @if($referee_data->count() > 0)
 
                  <div class="table-responsive">
+                  <caption><b> Kindly download the respective Reference letter to be filled by referee. </caption></b>
                     <table class="table table-striped">
                       <thead>
                         <tr>
@@ -78,6 +101,8 @@
                           <th>Rank</th>
                           <th>Email</th>
                           <th>Phone Number</th>
+                          <th>Download</th>
+                          <th>Actions</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -94,7 +119,19 @@
                           <td>{{ $row->referees_rank }}</td>
                           <td>{{ $row->referees_email }}</td>
                           <td>{{ $row->referees_phone }}</td>
-                          <td><a href="{{ route('delete.referee', ['id' => $row->id]) }}"  onclick="return confirm('Are you sure?')" class="btn btn-outline-danger btn-icon-text"> Delete</a></td>
+                          <td>
+                          @if($row->referees_type == 'Head of the Department')
+                          <a href="#" class="btn btn-outline-primary btn-icon-text btn-sm"> Download HOD Form </a>
+                          @elseif($row->referees_type == 'Master Degree Supervisor')
+                          <a href="#" class="btn btn-outline-primary btn-icon-text btn-sm"> Download Spervisor Form</a>
+                          @elseif($row->referees_type == 'boss')
+                          <a href="#" class="btn btn-outline-primary btn-icon-text btn-sm"> Download Boss Form</a>
+                          @elseif($row->referees_type == 'mrp')
+                          <a href="#" class="btn btn-outline-primary btn-icon-text btn-sm"> Download MRP Form</a>
+                          @endif
+
+                          </td>
+                          <td><a href="{{ route('delete.referee', ['id' => $row->id]) }}"  onclick="return confirm('Are you sure?')" class="btn btn-outline-danger btn-icon-text btn-sm"> Delete</a></td>
                         </tr>
                          @endforeach
                         
@@ -105,10 +142,7 @@
 
                  @else
                  @endif
-
-
-
-                  @if($referee_data->count() > 0)
+                  @if($referee_data->count() > 2)
 
                 <div align="center">
                   <button type="submit" class="btn btn-success btn-md">

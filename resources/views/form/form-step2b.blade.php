@@ -10,10 +10,10 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header" align="center">
-                <strong>Doctorate Research Programme in Climate Change and Human Habitat</strong>
-                <p>Application form</p>
+                <strong>Doctoral Research Programme in Climate Change and Human Habitat</strong>
+                <p>Application Form</p>
                 <p>Doctor of Philosophy (Ph.D) in Climate Change and Human Habitat 
-                Federal University of Technology, Minna (FUT Minna), Niger State, Nigeria 
+                Federal University of Technology, Minna (FUT Minna), Niger State, Nigeria.
                 </p>
             </div>
             <div class="card-header">
@@ -117,7 +117,7 @@
                           <td>{{ $result->ssce_subject }}</td>
                           <td>{{ $result->ssce_grade }} </td>
                           <td>{{ $result->ssce_yr }}</td>
-                          <td><a href="{{ route('delete.result', ['id' => $result->id]) }}"  onclick="return confirm('Are you sure?')" class="btn btn-outline-danger btn-icon-text"> Delete</a></td>
+                          <td><a href="{{ route('delete.result', ['id' => $result->id]) }}"  onclick="return confirm('Are you sure?')" class="btn btn-outline-danger btn-icon-text btn-sm"> Delete</a></td>
                         </tr>
                          @endforeach
                         
@@ -146,8 +146,4 @@
         </div>
     </div>
 </div>
-
 @endsection
-
-
-

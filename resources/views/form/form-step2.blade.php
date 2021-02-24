@@ -10,10 +10,10 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header" align="center">
-                <strong>Doctorate Research Programme in Climate Change and Human Habitat</strong>
+                <strong>Doctoral Research Programme in Climate Change and Human Habitat</strong>
                 <p>Application form</p>
                 <p>Doctor of Philosophy (Ph.D) in Climate Change and Human Habitat 
-                Federal University of Technology, Minna (FUT Minna), Niger State, Nigeria 
+                Federal University of Technology, Minna (FUT Minna), Niger State, Nigeria.
                 </p>
             </div>
             <div class="card-header">
@@ -106,7 +106,7 @@
                           <td>From {{ $row->secondary_from }} To {{ $row->secondary_to }}</td>
                           <td>{{ $row->secondary_title }} </td>
                           <td>{{ $row->secondary_date }}</td>
-                          <td><a href="{{ route('delete.school', ['id' => $row->id]) }}"  onclick="return confirm('Are you sure?')" class="btn btn-outline-danger btn-icon-text"> Delete</a></td>
+                          <td><a href="{{ route('delete.school', ['id' => $row->id]) }}"  onclick="return confirm('Are you sure?')" class="btn btn-outline-danger btn-icon-text btn-sm"> Delete</a></td>
                         </tr>
                          @endforeach
                         

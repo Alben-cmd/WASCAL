@@ -7,13 +7,37 @@
 <div class="content mt-4">
     <br>
     <br>
-    <div class="col-md-11">
+    <div class="col-md-12">
         <div class="card">
+          <div class="card-header" align="center">
+                <strong>Doctoral Research Programme in Climate Change and Human Habitat</strong>
+                <p>Application Form</p>
+                <p>Doctor of Philosophy (Ph.D) in Climate Change and Human Habitat 
+                Federal University of Technology, Minna (FUT Minna), Niger State, Nigeria.
+                </p>
+            </div>
             <div class="card-header" align="center">
 
             </div>
             <div class="card-header">
-                <strong>9. Application supporting documents</strong>
+                <strong>8. Application supporting documents</strong>
+                <p><b><i> (All relevant documents must be in<i style="color: crimson;"> PDF format</i> and uploaded for the applicant to be considered for admission)</i></b> </p>
+                <ol style="padding-left:45px ">
+                  <li> Completed Application form (Partially completed forms will be discarded) </li>
+                  <li> Candidates must Submit B.Sc. or B.Tech Certificate or Equivalent</li>
+                  <li> Candidates must Submit M.Sc. or M.Tech Certificate or Equivalent</li>
+                  <li> Candidates must Submit M.Sc. or M.Tech Official Transcript or Equivalent </li> 
+                  <li> Detailed Curriculum Vitae (CV)</li>
+                  <li> WASSCE or SSCE Certificate (Anglophone Countries)</li>
+                  <li> Baccalaureat Certificate (Francophone Countries)</li>
+                  <li> Baccalaureat (Releve du Notes)</li>
+                  <li> Letter of Motivation</li>
+                  <li> Letter of Attestation of Good Behaviour From the Applicant’s Parents/Guardian with Detailed contact Address and Phone Numbers(s)</li>
+                  <li> Support Letter from Employer (if Employed) Granting Study Leave for the Duration of the Programme, Excluding the Period for the Language Course. </li>
+                  <li> Copy of Certificate of Nationality/State of Origin</li>
+                  <li> Soft Copy of the Applicant’s Research Pre-Proposal/Research Interest. Note that the Centre Reserves the Right to Accept or Reject this, should you be Admitted.</li>
+                  <li> 3 Referee Letter</li>
+                </ol>
                 
             </div>
             <div class="card-body card-block">
@@ -39,14 +63,20 @@
                             <option value="B.Sc. or B.Tech Certificate">B.Sc. or B.Tech Certificate</option>
                             <option value="M.Sc. or M.Tech Certificate ">M.Sc. or M.Tech Certificate </option>
                             <option value="M.Sc. or M.Tech Official Transcript ">M.Sc. or M.Tech Official Transcript </option>
-                            <option value="Curriculum Vitae (CV) ">Curriculum Vitae (CV) </option>
+                            <option value="Curriculum Vitae (CV) ">Curriculum Vitae (CV)</option>
                             <option value="WASSCE or SSCE Certificate (Anglophone Countries)">WASSCE or SSCE Certificate (Anglophone Countries) </option>
                             <option value="Baccalaureat Certificate (Francophone countries)">Baccalaureat Certificate (Francophone countries) </option>
                             <option value="Baccalaureat (Releve du Notes)">Baccalaureat (Releve du Notes)</option>
-                            <option value="Letter of motivation ">Letter of motivation </option>
-                            <option value="Letter of attestation of good behaviour from parents/guardian">Letter of attestation of good behaviour from parents/guardian</option>
-                            <option value="Certificate of Nationality or State of Origin">Certificate of Nationality or State of Origin  </option>
-                            <option value="research pre-proposal/research interest ">research pre-proposal/research interest </option>
+                            <option value="Letter of Motivation ">Letter of Motivation </option>
+                            <option value="Letter from Employer">Letter from Employer</option>
+                            <option value="Letter of attestation of good behaviour from Parents/Guardian">Letter of Attestation of Good Behaviour From Parents/Guardian</option>
+                            <option value="Certificate of Nationality or State of Origin">Certificate of Nationality/State of Origin</option>
+                            <option value="Research Pre-Proposal/Research Interest ">Research Pre-Proposal/Research Interest </option>
+                            <option value="Applicant’s Research pre-Proposal/Research Interest">Applicant’s Research Pre-Proposal/Research Interest</option>
+                            <option value="Referee From HOD">Referee From HOD</option>
+                            <option value="Referee from Spervisor">Referee From Spervisor</option>
+                            <option value="Referee from Boss">Referee From Boss </option>
+                            <option value="Referee from MPF">Referee From MRP </option>
                         </select>
                         </div> 
                         <div class="col-md-3"><input type="file" id="doc_file" name="doc_file" class="form-control-file" required></div>
@@ -83,9 +113,9 @@
                             {{ $count++ }}
                           </td>
                           <td class="py-1">{{ $document->doc_name }}</td>
-                          <td> <a href="{{ asset('/files/'.$document->doc_file) }}">{{ $document->doc_name }}</a> </td>
+                          <td> <a href="{{ asset('/files/'.$document->doc_file) }}">Download</a> </td>
 
-                          <td><a href="{{ route('delete.document', ['id' => $document->id]) }}"  onclick="return confirm('Are you sure?')" class="btn btn-outline-danger btn-icon-text"> Delete</a></td>
+                          <td><a href="{{ route('delete.document', ['id' => $document->id]) }}"  onclick="return confirm('Are you sure?')" class="btn btn-outline-danger btn-icon-text btn-sm"> Delete</a></td>
                         </tr>
                          @endforeach
                         

@@ -36,7 +36,7 @@ class FormController extends Controller
             $originalImage = $request->file('passport_img');
             $name = time().$originalImage->getClientOriginalName();
             $image = Image::make($originalImage);
-            $image->resize(718, 486);
+            $image->resize(450, 450);
             $image->save($path.$name); 
             
             $form = new Passport();
@@ -467,6 +467,7 @@ class FormController extends Controller
             $form = new Referee();
 
             $form->pic_id = $request->pic_id;
+            $form->referees_type = $request->referees_type;
             $form->referees_name = $request->referees_name;
             $form->referees_address = $request->referees_address;
             $form->referees_rank = $request->referees_rank;
@@ -493,7 +494,7 @@ class FormController extends Controller
             $validatedData = $request->validate([
 
                  'doc_name'  => 'required',
-                 'doc_file'  => 'required|mimes:pdf,xlx,csv|max:2048',
+                 'doc_file'  => 'required|mimes:pdf|max:2048',
                  ]);
 
 

@@ -6,7 +6,13 @@
     <br>
     <br>
     <div class="col-md-12">
-        <div class="card">
+        <div class="card"><div class="card-header" align="center">
+                <strong>Doctoral Research Programme in Climate Change and Human Habitat</strong>
+                <p>Application Form</p>
+                <p>Doctor of Philosophy (Ph.D) in Climate Change and Human Habitat 
+                Federal University of Technology, Minna (FUT Minna), Niger State, Nigeria.
+                </p>
+            </div>
             <div class="card-header">
                 <strong>4. Language Skills </strong>
                 <p>Please indicate using abbreviation L, I or A (L=Low; I=Intermediate; A=Advanced).  For Applicants from Francophone Countries, possessing TOEFL Certificate is an added advantage.</p>
@@ -58,6 +64,7 @@
                         <strong>Notation</strong> <br><br>
                         <select name="notation" class="standardSelect">
                             <option value="" disabled selected hidden>Please select</option>
+                            <option value="Nill ">Nill </option>
                             <option value="Low ">Low </option>
                             <option value="Intermediate">Intermediate</option>
                             <option value="Advanced">Advanced</option>
@@ -99,7 +106,7 @@
                           <td class="py-1">{{ $row->language }}</td>
                           <td>{{ $row->ability }}</td>
                           <td>{{ $row->notation }} </td>
-                          <td><a href="{{ route('delete.language', ['id' => $row->id]) }}"  onclick="return confirm('Are you sure?')" class="btn btn-outline-danger btn-icon-text"> Delete</a></td>
+                          <td><a href="{{ route('delete.language', ['id' => $row->id]) }}"  onclick="return confirm('Are you sure?')" class="btn btn-outline-danger btn-icon-text btn-sm"> Delete</a></td>
                         </tr>
                          @endforeach
                         

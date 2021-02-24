@@ -29,6 +29,7 @@
               <div class="col-md-6" align="right">
                  @foreach($passport_data as $passport)
                 <img src="{{ asset('/images/'.$passport->passport_img) }}" style="height: 120px;">
+                <br>
                 @endforeach
                 <br>
               </div>
@@ -40,10 +41,30 @@
                 <div class="col-md-12">
                     <div class="card">
                             <div class="card-body">
-                              <strong><h4>Gender | Date of Birth | Nationality | Email </h4> </strong>
+                              <strong><h4>Personal Details </h4> </strong>
                               <div class="card">                              
                                 <div class="col-md-8">
-                                <div class="card-body my-3">{{ $personal->gender }} | {{ $personal->dob }} |  {{ $personal->nationality }} | {{ $personal->email }}</div>
+                                <div class="card-body my-3">
+                                  <table class="table">
+                                            <thead>
+                                              <tr>
+                                                <th>Gender</th>
+                                                <th>Date of Birth</th>
+                                                <th>Nationality</th>
+                                                <th>Email</th>
+                                               
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                              <tr>
+                                                <td>{{ $personal->gender }}</td>
+                                                <td>{{ $personal->dob }} </td>
+                                                <td>{{ $personal->nationality }}</td>
+                                                <td>{{ $personal->email }}</td>
+                                              </tr>
+                                            </tbody>
+                                      </table> 
+                                    </div>
                                 
                               </div>
                             </div>
@@ -54,10 +75,28 @@
                 <div class="col-md-12">
                     <div class="card">
                             <div class="card-body">
-                              <strong><h4>Marital Status | Number of Children | Ages</h4> </strong>
+                              <strong><h4></h4> </strong>
                               <div class="card">                              
                                 <div class="col-md-8">
-                                <div class="card-body my-3">{{ $personal->marital_status }} | {{ $personal->number_children }} | {{ $personal->age_children }} 
+                                <div class="card-body my-3">
+                                  <table class="table">
+                                            <thead>
+                                              <tr>
+                                                <th>Marital Status</th>
+                                                <th>Number of Children</th>
+                                                <th>Ages</th>
+                                               
+                                               
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                              <tr>
+                                                <td>{{ $personal->marital_status }}</td>
+                                                <td>{{ $personal->number_children }} </td>
+                                                <td>{{ $personal->age_children }} </td>
+                                              </tr>
+                                            </tbody>
+                                      </table> 
                                 
                               </div>
                               </div>
@@ -69,10 +108,29 @@
                 <div class="col-md-12">
                     <div class="card">
                             <div class="card-body">
-                              <strong><h4>Country of Residence | Address | Phone Number</h4> </strong>
+                              
                               <div class="card">                              
                                 <div class="col-md-8">
-                                <div class="card-body my-3">{{ $personal->country_residence }} | {{ $personal->address }} | {{ $personal->phone }} </div>
+                                <div class="card-body my-3">
+                                  <table class="table">
+                                            <thead>
+                                              <tr>
+                                                <th>Country of Residence</th>
+                                                <th>Address</th>
+                                                <th>Phone Number</th>
+                                                
+                                               
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                              <tr>
+                                                <td>{{ $personal->country_residence }}</td>
+                                                <td>{{ $personal->address }}  </td>
+                                                <td>{{ $personal->phone }} </td>
+                                              </tr>
+                                            </tbody>
+                                      </table>
+                                    </div>
                               
                             </div>
                             </div>
@@ -83,10 +141,29 @@
                 <div class="col-md-12">
                     <div class="card">
                             <div class="card-body">
-                              <strong><h4>Parent/Guidance name | Parent/Guidance email | Parent/Guidance Phone number</h4> </strong>
+                              <strong><h4>Parent/Guidance Profile</h4> </strong>
                               <div class="card">                              
                                 <div class="col-md-8">
-                                <div class="card-body my-3">{{ $personal->parent_name }} | {{ $personal->parent_email}} | {{ $personal->parent_number }} </div>
+                                <div class="card-body my-3">
+                                   <table class="table">
+                                            <thead>
+                                              <tr>
+                                                <th>Parent/Guidance name </th>
+                                                <th>Email</th>
+                                                <th> Phone Number</th>
+                                                
+                                               
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                              <tr>
+                                                <td>{{ $personal->parent_name }}</td>
+                                                <td>{{ $personal->parent_email}} </td>
+                                                <td>{{ $personal->parent_number }} </td>
+                                              </tr>
+                                            </tbody>
+                                      </table>
+                                    </div>
                             
                             </div>
                             </div>
@@ -98,10 +175,30 @@
                 <div class="col-md-12">
                     <div class="card">
                             <div class="card-body">
-                              <strong><h4>Contact Person Name | Contact person email | Contact person Phone number</h4> </strong>
+                              <strong><h4>Contact Profile</h4> </strong>
                               <div class="card">                              
                                 <div class="col-md-8">
-                                <div class="card-body my-3">{{ $personal->contact_person }} | {{ $personal->contact_email}} | {{ $personal->contact_number }} </div>  @endforeach
+                                <div class="card-body my-3">
+                                  <table class="table">
+                                            <thead>
+                                              <tr>
+                                                <th>Contact Person Name </th>
+                                                <th>email</th>
+                                                <th>Phone number</th>
+                                                
+                                               
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                              <tr>
+                                                <td>{{ $personal->contact_person }}</td>
+                                                <td>{{ $personal->contact_email}} </td>
+                                                <td>{{ $personal->contact_number }} </td>
+                                              </tr>
+                                            </tbody>
+                                      </table>
+                                    </div>  
+                                    @endforeach
                               </div>
                             </div>
                             <br>
@@ -114,13 +211,34 @@
                     <div class="card">
                             <div class="card-body">
                              
-                              <strong><h4> Secondary School | Period | Title | Grade| Date</h4> </strong>
+                              <strong><h4> Secondary School </h4> </strong>
                               <div class="card">                              
                                 <div class="col-md-8">
                                 <div class="card-body my-3">
-                                  @foreach($secondary_data as $secondary)
-                                  {{ $secondary->secondary_school }} | From:{{ $secondary->secondary_from}} To:{{ $secondary->secondary_to}} | {{ $secondary->secondary_title }} | {{ $secondary->secondary_grade }} | {{ $secondary->secondary_date }}<br><br>
-                                  @endforeach
+                                  
+                                  <table class="table">
+                                            <thead>
+                                              <tr>
+                                                <th>Secondary School </th>
+                                                <th>Period</th>
+                                                <th>Title</th>
+                                                <th>Date</th>
+                                                
+                                               
+                                              </tr>
+                                            </thead>
+                                            @foreach($secondary_data as $secondary)
+                                            <tbody>
+                                              <tr>
+                                                <td>{{ $secondary->secondary_school }}</td>
+                                                <td>{{ $secondary->secondary_from}} <b> - </b> {{ $secondary->secondary_to}} </td>
+                                                <td>{{ $secondary->secondary_title }} </td>
+                                                <td>{{ $secondary->secondary_date }}</td>
+                                              </tr>
+                                            </tbody>
+                                             @endforeach
+                                      </table>
+                                 
                                 </div>
                               </div>
                             </div>
@@ -136,10 +254,30 @@
                               <div class="card">                              
                                 <div class="col-md-8">
                                 <div class="card-body my-3">
-                                  @foreach($result_data as $result)
+                                  
+                                  <table class="table">
+                                            <thead>
+                                              <tr>
+                                                <th>Exam Type </th>
+                                                <th>Year</th>
+                                                <th>Subject</th>
+                                                <th>Grade</th>
+                                                
+                                               
+                                              </tr>
+                                            </thead>@foreach($result_data as $result)
+                                            <tbody>
 
-                                  <p>{{ $result->exam_type }} - {{ $result->ssce_subject }} - {{ $result->ssce_grade }} - {{ $result->ssce_yr }}</p>
-                                  @endforeach
+                                              <tr>
+                                                <td>{{ $result->exam_type }}</td>
+                                                <td>{{ $result->ssce_yr }} </td>
+                                                <td>{{ $result->ssce_subject }}</td>
+                                                <td>{{ $result->ssce_grade }}</td>
+                                              </tr>
+                                            </tbody> 
+                                            @endforeach
+                                      </table>
+                                 
                                   
                                 </div>
                               </div>
@@ -152,13 +290,38 @@
                 <div class="col-md-12">
                     <div class="card">
                             <div class="card-body">
-                              <strong><h4> University attended: Name |Year of Attendance | Qualification | Date | Title | Grade</h4> </strong>
+                              <strong><h4> University attended</h4> </strong>
                               <div class="card">                              
                                 <div class="col-md-8">
                                 <div class="card-body my-3">
-                                   @foreach($University_data as $University)
-                                   {{ $University->university }} | {{ $University->university_year}} | {{ $University->university_qualification }} | {{ $University->university_date}} | {{ $University->university_title}} | {{ $University->university_grade}}  
-                                   @endforeach
+                                   
+                                   <table class="table">
+                                            <thead>
+                                              <tr>
+                                                <th>University Name </th>
+                                                <th>Year</th>
+                                                <th>Qualification</th>
+                                                <th>Date</th>
+                                                <th>Title</th>
+                                                <th>Grade</th>
+                                                
+                                               
+                                              </tr>
+                                            </thead>
+                                            @foreach($University_data as $University)
+                                            <tbody>
+                                              <tr>
+                                                <td>{{ $University->university }}</td>
+                                                <td>{{ $University->university_year}} </td>
+                                                <td>{{ $University->university_qualification }} </td>
+                                                <td>{{ $University->university_date}}</td>
+                                                <td>{{ $University->university_title}}</td>
+                                                <td>{{ $University->university_grade}}  </td>
+                                              </tr>
+                                            </tbody>
+                                            @endforeach
+                                      </table>
+                                   
                                  </div>
                                 
                               </div>
@@ -171,13 +334,39 @@
                  <div class="col-md-12">
                     <div class="card">
                             <div class="card-body">
-                              <strong><h4> First Degree: Name |Course | Institution | Dissertation | Period</h4> </strong>
+                              <strong><h4> First Degree</h4> </strong>
                               <div class="card">                              
                                 <div class="col-md-8">
                                 <div class="card-body my-3">
-                                  @foreach($degree_data as $degree)
-                                  {{ $degree->btec_name }} | {{ $degree->btec_subject}} | {{ $degree->btec_institution }} | {{ $degree->btec_dissertation }} | From: {{ $degree->btec_date_from }} To: {{ $degree->btec_date_to }}
-                                  @endforeach
+                                  
+
+                                   <table class="table">
+                                            <thead>
+                                              <tr>
+                                                <th>Name</th>
+                                                <th>Course</th>
+                                                <th>Institution</th>
+                                                <th>Dissertation</th>
+                                                <th>Period</th>
+                                               
+                                                
+                                               
+                                              </tr>
+                                            </thead>
+                                           @foreach($degree_data as $degree)
+                                            <tbody>
+                                              <tr>
+                                                <td>{{ $degree->btec_name }}</td>
+                                                <td>{{ $degree->btec_subject}} </td>
+                                                <td>{{ $degree->btec_institution }} </td>
+                                                <td>{{ $degree->btec_dissertation }} </td>
+                                                <td>{{ $degree->btec_date_from }} <b> - </b> {{ $degree->btec_date_to }}</td>
+                                           
+                                              </tr>
+                                            </tbody>
+                                            @endforeach
+                                      </table>
+                                  
                                 </div>
                               </div>
                             </div>
@@ -189,13 +378,37 @@
                 <div class="col-md-12">
                     <div class="card">
                             <div class="card-body">
-                              <strong><h4> Secondary: Degree |Course | Institution | Period</h4> </strong>
+                              <strong><h4> Second Degree</h4> </strong>
                               <div class="card">                              
                                 <div class="col-md-8">
                                 <div class="card-body my-3">
-                                  @foreach($degree_data as $uni)
-                                  {{ $uni->master_name }} | {{ $uni->master_subject}} | {{ $uni->master_institution }} | {{ $uni->master_dissertation }} | From: {{ $uni->master_date_from}} To: {{ $uni->master_date_from}} 
-                                  @endforeach
+                                  
+                                   <table class="table">
+                                            <thead>
+                                              <tr>
+                                                <th>Name</th>
+                                                <th>Course</th>
+                                                <th>Institution</th>
+                                                <th>Dissertation</th>
+                                                <th>Period</th>
+                                               
+                                                
+                                               
+                                              </tr>
+                                            </thead>
+                                           @foreach($degree_data as $uni)
+                                            <tbody>
+                                              <tr>
+                                                <td>{{ $uni->master_name }}</td>
+                                                <td>{{ $uni->master_subject}} </td>
+                                                <td>{{ $uni->master_institution }} </td>
+                                                <td>{{ $uni->master_dissertation }}  </td>
+                                                <td>{{ $uni->master_date_from}} <b> - </b> {{ $uni->master_date_from}} </td>
+                                           
+                                              </tr>
+                                            </tbody>
+                                            @endforeach
+                                      </table>
                                 </div>
                               </div>
                             </div>
@@ -211,9 +424,26 @@
                               <div class="card">                              
                                 <div class="col-md-8">
                                 <div class="card-body my-3">
-                                  @foreach($language_data as $language)
-                                 {{ $language->language }} :{{ $language->ability}}: {{ $language->notation }} <br><br>
-                                 @endforeach
+                                  
+                                   <table class="table">
+                                            <thead>
+                                              <tr>
+                                                <th>Language</th>
+                                                <th>Ability</th>
+                                                <th>Notation</th>                                             
+                                              </tr>
+                                            </thead>
+                                          @foreach($language_data as $language)
+                                            <tbody>
+                                              <tr>
+                                                <td>{{ $language->language }}</td>
+                                                <td>{{ $language->ability}} </td>
+                                                <td>{{ $language->notation }}</td>
+                                           
+                                              </tr>
+                                            </tbody>
+                                            @endforeach
+                                      </table>
                                </div>
                               </div>
                             </div>
@@ -229,9 +459,24 @@
                               <div class="card">                              
                                 <div class="col-md-8">
                                 <div class="card-body my-3">
-                                  @foreach($computer_data as $computer)
-                                  {{ $computer->computer_skill }} - {{ $computer->proficiency}} <br><br> 
-                                  @endforeach
+                                  
+                                  <table class="table">
+                                            <thead>
+                                              <tr>
+                                                <th>Skill</th>
+                                                <th>Proficiency</th>                                            
+                                              </tr>
+                                            </thead>
+                                          @foreach($computer_data as $computer)
+                                            <tbody>
+                                              <tr>
+                                                <td>{{ $computer->computer_skill }}</td>
+                                                <td>{{ $computer->proficiency}} </td>
+                                           
+                                              </tr>
+                                            </tbody>
+                                            @endforeach
+                                      </table>
                                    </div>
                               </div>
                             </div>
@@ -247,9 +492,28 @@
                               <div class="card">                              
                                 <div class="col-md-8">
                                 <div class="card-body my-3">
-                                  @foreach($employment_data as $employment)
-                                   {{ $employment->employment_name }} - {{ $employment->employment_address }} -{{ $employment->employment_date }} -{{ $employment->employment_position }} <br><br>
-                                   @endforeach
+                                  
+                                  <table class="table">
+                                            <thead>
+                                              <tr>
+                                                <th>Name</th>
+                                                <th>Address</th>
+                                                <th>Date</th> 
+                                                <th>Position</th>                                           
+                                              </tr>
+                                            </thead>
+                                          @foreach($employment_data as $employment)
+                                            <tbody>
+                                              <tr>
+                                                <td>{{ $employment->employment_name }}</td>
+                                                <td>{{ $employment->employment_address }} </td>
+                                                <td>{{ $employment->employment_date }}</td>
+                                                <td>{{ $employment->employment_position }}</td>
+                                           
+                                              </tr>
+                                            </tbody>
+                                            @endforeach
+                                      </table>
                                     </div>
                               </div>
                             </div>
@@ -265,9 +529,30 @@
                               <div class="card">                              
                                 <div class="col-md-8">
                                 <div class="card-body my-3">
-                                  @foreach($referee_data as $referee)
-                                  {{ $referee->referees_name }} - {{ $referee->referees_address }} - {{ $referee->referees_rank }} -{{ $referee->referees_email }} -{{ $referee->referees_phone }}
-                                  @endforeach
+                                  
+                                  <table class="table">
+                                            <thead>
+                                              <tr>
+                                                <th>Name</th>
+                                                <th>Address</th>
+                                                <th>Rank/Position</th> 
+                                                <th>Email</th>
+                                                <th>Phone Number</th>                                           
+                                              </tr>
+                                            </thead>
+                                          @foreach($referee_data as $referee)
+                                            <tbody>
+                                              <tr>
+                                                <td>{{ $referee->referees_name }}</td>
+                                                <td>{{ $referee->referees_address }}</td>
+                                                <td>{{ $referee->referees_rank }}</td>
+                                                <td>{{ $referee->referees_email }}</td>
+                                                <td>{{ $referee->referees_phone }}</td>
+                                           
+                                              </tr>
+                                            </tbody>
+                                            @endforeach
+                                      </table>
 
                               </div>
                             </div>

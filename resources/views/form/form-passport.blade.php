@@ -10,10 +10,10 @@
     <div class="col-md-11">
         <div class="card">
             <div class="card-header" align="center">
-                <strong>Doctorate Research Programme in Climate Change and Human Habitat</strong>
-                <p>Application form</p>
+                <strong>Doctoral Research Programme in Climate Change and Human Habitat</strong>
+                <p>Application Form</p>
                 <p>Doctor of Philosophy (Ph.D) in Climate Change and Human Habitat 
-                Federal University of Technology, Minna (FUT Minna), Niger State, Nigeria 
+                Federal University of Technology, Minna (FUT Minna), Niger State, Nigeria. 
                 </p>
             </div>
             @if(Session::has('success'))
@@ -23,7 +23,7 @@
                   </div>
                   @endif
             <div class="card-header">
-                <strong>1. Passpport Upload</strong>
+                <strong>Passpport Upload</strong>
                 
             </div>
             <div class="card-body card-block">

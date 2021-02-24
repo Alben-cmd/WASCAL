@@ -7,9 +7,16 @@
     <br>
     <div class="col-md-12">
         <div class="card">
+          <div class="card-header" align="center">
+                <strong>Doctoral Research Programme in Climate Change and Human Habitat</strong>
+                <p>Application Form</p>
+                <p>Doctor of Philosophy (Ph.D) in Climate Change and Human Habitat 
+                Federal University of Technology, Minna (FUT Minna), Niger State, Nigeria.
+                </p>
+            </div>
             <div class="card-header">
                 <strong>6. Employment Record </strong>
-                <p>Name and Address of two previous employers (Please start with your most recent employment )</p>
+                <p>Name and Address of previous employers (Please start with your most recent employment )</p>
                 
             </div>
             <div class="card-body card-block">
@@ -89,7 +96,7 @@
                           <td>{{ $row->employment_address }}</td>
                           <td>{{ $row->employment_date }}</td>
                           <td>{{ $row->employment_position }}</td>
-                          <td><a href="{{ route('delete.employment', ['id' => $row->id]) }}"  onclick="return confirm('Are you sure?')" class="btn btn-outline-danger btn-icon-text"> Delete</a></td>
+                          <td><a href="{{ route('delete.employment', ['id' => $row->id]) }}"  onclick="return confirm('Are you sure?')" class="btn btn-outline-danger btn-icon-text btn-sm"> Delete</a></td>
                         </tr>
                          @endforeach
                         
@@ -102,7 +109,7 @@
                  @endif
 
 
-                  @if($employment_data->count() > 1)
+                  @if($employment_data->count() > 0)
 
                 <div align="center">
                   <button type="submit" class="btn btn-success btn-md">

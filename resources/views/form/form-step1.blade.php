@@ -10,10 +10,10 @@
     <div class="col-md-11">
         <div class="card">
             <div class="card-header" align="center">
-                <strong>Doctorate Research Programme in Climate Change and Human Habitat</strong>
-                <p>Application form</p>
+                <strong>Doctoral Research Programme in Climate Change and Human Habitat</strong>
+                <p>Application Form</p>
                 <p>Doctor of Philosophy (Ph.D) in Climate Change and Human Habitat 
-                Federal University of Technology, Minna (FUT Minna), Niger State, Nigeria 
+                Federal University of Technology, Minna (FUT Minna), Niger State, Nigeria.
                 </p>
             </div>
             <div class="card-header">
@@ -97,15 +97,15 @@
                     <div class="col-9 col-md-7"><input type="email" id="email" name="email" placeholder="Primary Email Address " value="{{ old('email') }}" class="form-control"></div>
                     </div>
                     <div class="row form-group">
-                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Name of Parent/ Guardian </label></div>
-                    <div class="col-9 col-md-7"><input type="text" id="parent_name" name="parent_name" placeholder="Name of Parent/ Guardian" value="{{ old('parent_name') }}" class="form-control"></div>
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Name of Parent/Guardian </label></div>
+                    <div class="col-9 col-md-7"><input type="text" id="parent_name" name="parent_name" placeholder="Name of Parent/Guardian" value="{{ old('parent_name') }}" class="form-control"></div>
                     </div>
                     <div class="row form-group">
-                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Parent/ Guidian GSM</label></div>
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Parent/Guardian GSM</label></div>
                     <div class="col-9 col-md-7"><input type="text" id="parent_number" name="parent_number" placeholder="Parent/ Guardian GSM" value="{{ old('parent_number') }}" class="form-control"></div>
                     </div>
                     <div class="row form-group">
-                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Parent Email </label></div>
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Parent/Guardian Email </label></div>
                     <div class="col-9 col-md-7"><input type="text" id="parent_email" name="parent_email" placeholder="Parent Email" value="{{ old('parent_email') }}" class="form-control"></div>
                     </div>
                     
@@ -114,28 +114,18 @@
                     <div class="col-9 col-md-7"><input type="text" id="contact_person" name="contact_person" placeholder="Contact Person" value="{{ old('contact_person') }}" class="form-control"></div>
                     </div>
                     <div class="row form-group">
-                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Contact Phone Number</label></div>
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Contact Person Phone Number</label></div>
                     <div class="col-9 col-md-7"><input type="text" id="contact_number" name="contact_number" placeholder="Contact Phone Number" value="{{ old('contact_number') }}" class="form-control"></div>
                     </div>
                     <div class="row form-group">
-                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Contact Email</label></div>
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Contact Person Email</label></div>
                     <div class="col-9 col-md-7"><input type="text" id="contact_email" name="contact_email" placeholder="Contact Email" value="{{ old('contact_email') }}" class="form-control"></div>
                     </div>
                     <input type="hidden" name="pic_id" value="{{ $form->id }} ">
-                    <!-- <div class="row form-group">
-                        <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">Post</label></div>
-                        <div class="col-12 col-md-9">
-                        <textarea name="blog_post" id="elm1" rows="5" placeholder="Blog Post" class="form-control"></textarea required></div>
-                    </div> -->
-
-                    <!-- <div class="row form-group">
-                        <div class="col col-md-3"><label for="file-input" class=" form-control-label">Passport (Not More Than 2MB)</label></div>
-                        <div class="col-9 col-md-7"><input type="file" id="passport_img" name="passport_img" class="form-control-file" required></div>
-                    </div> -->
                     <br>
                     <div align="center">
                         <button type="submit" class="btn btn-success btn-md">
-                            <i class="fa fa-dot-circle-o"></i> Continue 
+                            <i class="fa fa-dot-circle-o"></i> Save and Continue 
                         </button>
                     </div>
                 </form>

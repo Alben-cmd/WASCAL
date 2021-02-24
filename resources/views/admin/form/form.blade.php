@@ -66,15 +66,10 @@
                           </td>                        
                           <td>
                             <a href="{{ route('show.register', ['id' => $personal->id]) }}" class="btn btn-link text-primary">
-                              Read
+                              Read/Update
                            </a>
                           </td>
-                          <td>
-                            
-                            <a href="#" class="btn btn-link text-warning">
-                               Edit </a>
-                          </td>
-              
+                         
                           <td>
                             <a href="#"  onclick="return confirm('Are you sure?')" class="btn btn-link text-danger">                                                  
                               Delete</a>

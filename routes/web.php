@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'FormController@passport');
 
 Route::get('/wascal/register', 'FormController@passport')->name('passport');
 Route::post('/wascal/register/passport', 'FormController@storepassport')->name('store.passport');
@@ -32,7 +30,7 @@ Route::get('/wascal/register/step3b', 'FormController@createStep3b')->name('step
 Route::post('/wascal/register/step3b', 'FormController@postCreateStep3b')->name('store.form3b');
 Route::get('/wascal/register/step4', 'FormController@createStep4')->name('step4');
 Route::post('/wascal/register/step4', 'FormController@postCreateStep4')->name('store.form4');
-Route::get('/wascal/register/language/delete/{result}', 'FormController@languagedestroy')->name('delete.language');
+Route::get('/wascal/register/language/delete/{language}', 'FormController@languagedestroy')->name('delete.language');
 Route::get('/wascal/register/step5', 'FormController@createStep5')->name('step5');
 Route::post('/wascal/register/step5', 'FormController@postCreateStep5')->name('store.form5');
 Route::get('/wascal/register/computer/delete/{computer}', 'FormController@computerdestroy')->name('delete.computer');
@@ -48,8 +46,6 @@ Route::get('/wascal/register/document/delete/{documents}', 'FormController@docum
 Route::get('/wascal/register/review', 'FormController@createStep10')->name('step10');
 Route::post('/wascal/register/store', 'FormController@store')->name('final.store');
 
-
-
 //Admin section
 Auth::routes();
 Route::get('/admin', 'AdminController@home')->name('admin.home');
@@ -59,4 +55,29 @@ Route::get('/admin/register/{id}', 'AdminController@show')->name('show.register'
 Route::get('admin/register/edit/{id}', 'AdminController@edit')->name('edit.register');
 Route::post('admin/register/update/{id}', 'AdminController@update')->name('update.register');
 Route::get('admin/register/delete/{id}', 'AdminController@destroy')->name('delete.register');
+//edit
+
+Route::get('admin/register/edit/passport/{id}', 'AdminController@editpassport')->name('edit.passport');
+Route::post('admin/register/update/passport/{id}', 'AdminController@updatepassport')->name('update.passport');
+Route::get('admin/register/edit/personal/{id}', 'AdminController@editpersonal')->name('edit.personal');
+Route::post('admin/register/update/personal/{id}', 'AdminController@updatepersonal')->name('update.personal');
+Route::get('admin/register/edit/secondary/{id}', 'AdminController@editsecondary')->name('edit.secondary');
+Route::post('admin/register/update/secondary/{id}', 'AdminController@updatesecondary')->name('update.secondary');
+Route::get('admin/register/edit/result/{id}', 'AdminController@editresult')->name('edit.result');
+Route::post('admin/register/update/result/{id}', 'AdminController@updateresult')->name('update.result');
+Route::get('admin/register/edit/university/{id}', 'AdminController@edituniversity')->name('edit.university');
+Route::post('admin/register/update/university/{id}', 'AdminController@updateuniversity')->name('update.university');
+Route::get('admin/register/edit/first_degree/{id}', 'AdminController@editdegree')->name('edit.degree');
+Route::post('admin/register/update/firsr_degree/{id}', 'AdminController@updatedegree')->name('update.degree');
+Route::get('admin/register/edit/second_degree/{id}', 'AdminController@editmaster')->name('edit.master');
+Route::post('admin/register/update/second_degree/{id}', 'AdminController@updatemaster')->name('update.master');
+Route::get('admin/register/edit/language/{id}', 'AdminController@editlanguage')->name('edit.language');
+Route::post('admin/register/update/language/{id}', 'AdminController@updatelanguage')->name('update.language');
+Route::get('admin/register/edit/computer/{id}', 'AdminController@editcomputer')->name('edit.computer');
+Route::post('admin/register/update/computer/{id}', 'AdminController@updatecomputer')->name('update.computer');
+Route::get('admin/register/edit/employment/{id}', 'AdminController@editemployment')->name('edit.employment');
+Route::post('admin/register/update/employment/{id}', 'AdminController@updateemployment')->name('update.employment');
+Route::get('admin/register/edit/referee/{id}', 'AdminController@editreferee')->name('edit.referee');
+Route::post('admin/register/update/referee/{id}', 'AdminController@updatereferee')->name('update.referee');
+
 

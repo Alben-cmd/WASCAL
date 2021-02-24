@@ -15,6 +15,7 @@ use App\Computer;
 use App\Employment;
 use App\Referee;
 use App\Document;
+use Image;
 use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
@@ -31,24 +32,14 @@ class AdminController extends Controller
     
     public function home()
     {
-        $register = DB::table('forms')->orderBy('created_at', 'desc')->get();
-        return view('admin.home', compact('register'));
+        $personal = DB::table('personals')->get();
+        return view('admin.home', compact('personal'));
     }
 
     public function index()
     {
-        
-        $passport_data = DB::table('passports')->get();
         $personal_data = DB::table('personals')->get();
-        $secondary_data = DB::table('secondaries')->get();
-        $result_data = DB::table('results')->get();
-        $University_data = DB::table('universities')->get();
-        $degree_data = DB::table('degrees')->get();
-        $language_data = DB::table('languages')->get();
-        $computer_data = DB::table('Computers')->get();
-        $employment_data = DB::table('employments')->get();
-        $referee_data = DB::table('referees')->get();
-         return view('admin.form.form',compact('form','passport_data','secondary_data','personal_data','result_data','University_data','degree_data','language_data','computer_data','employment_data','referee_data'));
+         return view('admin.form.form',compact('personal_data'));
     
     }
 
@@ -81,8 +72,18 @@ class AdminController extends Controller
      */
     public function show($personal)
     {
-        $personal_data = Personal::find($personal);   
-        return view('admin.form.form_show', compact('personal_data'));
+        $personal_data = Personal::find($personal);
+        $passport_data = DB::table('passports')->get();
+        $secondary_data = DB::table('secondaries')->get();
+        $result_data = DB::table('results')->get();
+        $university_data = DB::table('universities')->get();
+        $degree_data = DB::table('degrees')->get();
+        $language_data = DB::table('languages')->get();
+        $computer_data = DB::table('computers')->get();
+        $employment_data = DB::table('employments')->get();
+        $referee_data = DB::table('referees')->get();
+        $document_data = DB::table('documents')->get();
+         return view('admin.form.form_show',compact('passport_data','secondary_data','personal_data','result_data','university_data','degree_data','language_data','computer_data','employment_data','referee_data','document_data'));
     }
 
     /**
@@ -91,37 +92,363 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($personal)
     {
-        $register = Form::find($id);
-        return view('admin.form.edit_form', compact('register'));
+        $personal_data = Personal::find($personal);
+        $passport_data = DB::table('passports')->get();
+        $secondary_data = DB::table('secondaries')->get();
+        $result_data = DB::table('results')->get();
+        $University_data = DB::table('universities')->get();
+        $degree_data = DB::table('degrees')->get();
+        $language_data = DB::table('languages')->get();
+        $computer_data = DB::table('Computers')->get();
+        $employment_data = DB::table('employments')->get();
+        $referee_data = DB::table('referees')->get();
+         return view('admin.form.edit_form',compact('passport_data','secondary_data','personal_data','result_data','University_data','degree_data','language_data','computer_data','employment_data','referee_data'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function editpassport($id)
     {
+        $passport = Passport::find($id);
+        return view('admin.form.edit.edit_form_passport', compact('passport'));
+    }
+
+    public function updatepassport(Request $request, $id)
+    {
+        $passport = Passport::find($id);
+
         $this->validate($request, [
-            'year' => 'required',
-            'acts' => 'required',
-            ]);
-        $data = array(
-            'year' => $request->input('year'),
-            'acts' => $request->input('acts'),
-        );       
-        Activity::where('id', $id)->update($data);
-        return redirect('/admin/activity')->with('success', 'Activity updated successfully'); 
-
-        $team = Activity::find($id);
-        $this->validate($request, [        
+            'passport_img' => 'required',
         ]);
+        if ($request->hasFile('passport_img')){ 
+        $path = public_path().'/images/';      
+        $originalImage = $request->file('passport_img');
+        $name = time().$originalImage->getClientOriginalName();
+        $image = Image::make($originalImage);
+        $image->resize(450, 450);
+        $image->save($path.$name); 
+        $passport->passport_img = $name;
+        $passport->save();
+        }
+         $request->session()->flash('success', 'Passport Updated');
+            return redirect()->route('admin.registred');
     }
 
+    public function editpersonal($id)
+    {
+        $personal_data = Personal::find($id);
+        return view('admin.form.edit.edit_form_personal', compact('personal_data'));
+    }
+
+    public function updatepersonal(Request $request, $id)
+    {
+        $personal_data = Personal::find($id);
+
+        $this->validate($request, [
+            'Lname' => 'required',
+            'fname' => 'required',
+            'gender'  => 'required',
+            'dob'  => 'required',
+            'nationality'  => 'required',
+            'marital_status'  => 'required',
+            'country_residence'  => 'required',
+            'address'  => 'required',
+            'phone'  => 'required',
+            'email'  => 'required|unique:forms',
+            'parent_name'  => 'required',
+            'parent_number'  => 'required',
+            ]);
+
+            $personal_data->Lname = $request->Lname;
+            $personal_data->fname = $request->fname;
+            $personal_data->oname = $request->oname;
+            $personal_data->gender = $request->gender;
+            $personal_data->dob = $request->dob;
+            $personal_data->fname = $request->fname;
+            $personal_data->nationality = $request->nationality;
+            $personal_data->marital_status = $request->marital_status;
+            $personal_data->number_children = $request->number_children;
+            $personal_data->age_children = $request->age_children;
+            $personal_data->country_residence = $request->country_residence;
+            $personal_data->address = $request->address;
+            $personal_data->phone = $request->phone;
+            $personal_data->email = $request->email;
+            $personal_data->parent_name = $request->parent_name;
+            $personal_data->parent_number = $request->parent_number;
+            $personal_data->parent_email = $request->parent_email;
+            $personal_data->contact_person = $request->contact_person;
+            $personal_data->contact_number = $request->contact_number;
+            $personal_data->contact_email = $request->contact_email;
+            $personal_data->save();
+        
+       $request->session()->flash('success', 'Personal details Updated');
+            return redirect()->route('admin.registred');
+    }
+
+    public function editsecondary($id)
+    {
+        $secondary = Secondary::find($id);
+        return view('admin.form.edit.edit_form_secondary', compact('secondary'));
+    }
+
+    public function updatesecondary(Request $request, $id)
+    {
+        $secondary = Secondary::find($id);
+
+        $this->validate($request, [
+            'secondary_school' => 'required',
+            'secondary_from' => 'required',
+            'secondary_to' => 'required',
+            'secondary_title' => 'required',
+            'secondary_date'  => 'required',
+            ]);
+
+            $secondary->pic_id =$request->pic_id;
+            $secondary->secondary_school = $request->secondary_school;
+            $secondary->secondary_from = $request->secondary_from;
+            $secondary->secondary_to = $request->secondary_to;
+            $secondary->secondary_title = $request->secondary_title;
+            $secondary->secondary_date = $request->secondary_date;
+            $secondary->save();
+        
+       $request->session()->flash('success', 'Secondary details Updated');
+            return redirect()->route('admin.registred');
+    }
+
+    public function editresult($id)
+    {
+        $result = Result::find($id);
+        return view('admin.form.edit.edit_form_result', compact('result'));
+    }
+
+    public function updateresult(Request $request, $id)
+    {
+        $result = Result::find($id);
+
+        $this->validate($request, [
+            'exam_type' => 'required',
+            'ssce_subject' => 'required',
+            'ssce_grade' => 'required',
+            'ssce_yr' => 'required',
+            ]);
+
+            $result->pic_id =$request->pic_id;
+            $result->exam_type = $request->exam_type;
+            $result->ssce_subject = $request->ssce_subject;
+            $result->ssce_grade = $request->ssce_grade;
+            $result->ssce_yr = $request->ssce_yr;
+            $result->save();
+        
+       $request->session()->flash('success', 'Secondary Result details Updated');
+            return redirect()->route('admin.registred');
+    }
+
+    public function edituniversity($id)
+    {
+        $university = University::find($id);
+        return view('admin.form.edit.edit_form_university', compact('university'));
+    }
+
+    public function updateuniversity(Request $request, $id)
+    {
+        $university = University::find($id);
+
+        $this->validate($request, [
+            'university'  => 'required',
+            'university_year'  => 'required',
+            'university_qualification'  => 'required',
+            'university_date'  => 'required',
+            'university_title'  => 'required',
+            'university_grade'  => 'required',
+            ]);
+
+            $university->pic_id =$request->pic_id;
+            $university->university = $request->university;
+            $university->university_year = $request->university_year;
+            $university->university_qualification = $request->university_qualification;
+            $university->university_date = $request->university_date;
+            $university->university_title = $request->university_title;
+            $university->university_grade = $request->university_grade;
+            $university->save();
+        
+       $request->session()->flash('success', 'University details Updated');
+            return redirect()->route('admin.registred');
+    }
+
+    public function editdegree($id)
+    {
+        $degree = Degree::find($id);
+        return view('admin.form.edit.edit_form_degree', compact('degree'));
+    }
+
+    public function updatedegree(Request $request, $id)
+    {
+        $degree = Degree::find($id);
+
+        $this->validate($request, [
+            'btec_name'  => 'required',
+             'btec_subject'  => 'required',
+             'btec_institution'  => 'required',
+             'btec_dissertation'  => 'required',
+             'btec_date_from'  => 'required',
+             'btec_date_to'  => 'required',
+            ]);
+
+            $degree->pic_id =$request->pic_id;
+            $degree->btec_name = $request->btec_name;
+            $degree->btec_subject = $request->btec_subject;
+            $degree->btec_institution = $request->btec_institution;
+            $degree->btec_dissertation = $request->btec_dissertation;
+            $degree->btec_date_from = $request->btec_date_from;
+            $degree->btec_date_to = $request->btec_date_to;
+            $degree->save();
+        
+       $request->session()->flash('success', 'First Degree details Updated');
+            return redirect()->route('admin.registred');
+    }
+
+    public function editmaster($id)
+    {
+        $master = Degree::find($id);
+        return view('admin.form.edit.edit_form_master', compact('master'));
+    }
+
+    public function updatemaster(Request $request, $id)
+    {
+        $master = Degree::find($id);
+
+        $this->validate($request, [
+            'master_name'  => 'required',
+             'master_subject'  => 'required',
+             'master_institution'  => 'required',
+             'master_dissertation'  => 'required',
+             'master_date_from'  => 'required',
+             'master_date_to'  => 'required',
+            ]);
+
+            $master->master_name = $request->master_name;
+            $master->master_subject = $request->master_subject;
+            $master->master_institution = $request->master_institution;
+            $master->master_dissertation = $request->master_dissertation;
+            $master->master_date_from = $request->master_date_from;
+            $master->master_date_to = $request->master_date_to;
+            $master->save();
+        
+       $request->session()->flash('success', 'Second Degree details Updated');
+            return redirect()->route('admin.registred');
+    }
+
+    public function editlanguage($id)
+    {
+        $language = Language::find($id);
+        return view('admin.form.edit.edit_form_language', compact('language'));
+    }
+
+    public function updatelanguage(Request $request, $id)
+    {
+        $language = Language::find($id);
+
+        $this->validate($request, [
+            'language'  => 'required',
+             'ability'  => 'required',
+             'notation'  => 'required',
+            ]);
+
+            $language->pic_id = $request->pic_id;
+            $language->language = $request->language;
+            $language->ability = $request->ability;
+            $language->notation = $request->notation;
+            $language->save();
+        
+       $request->session()->flash('success', 'Second Degree details Updated');
+            return redirect()->route('admin.registred');
+    }
+
+    public function editcomputer($id)
+    {
+        $computer = Computer::find($id);
+        return view('admin.form.edit.edit_form_computer', compact('computer'));
+    }
+
+    public function updatecomputer(Request $request, $id)
+    {
+        $computer = Computer::find($id);
+
+        $this->validate($request, [
+            'language'  => 'required',
+             'ability'  => 'required',
+             'notation'  => 'required',
+            ]);
+
+            $language->pic_id = $request->pic_id;
+            $language->language = $request->language;
+            $language->ability = $request->ability;
+            $language->notation = $request->notation;
+            $language->save();
+        
+       $request->session()->flash('success', 'Second Degree details Updated');
+            return redirect()->route('admin.registred');
+    }
+
+    public function editemployment($id)
+    {
+        $employment = Employment::find($id);
+        return view('admin.form.edit.edit_form_employment', compact('employment'));
+    }
+
+    public function updateemployment(Request $request, $id)
+    {
+        $employment = Employment::find($id);
+
+        $this->validate($request, [
+             'employment_name'  => 'required',
+             'employment_address'  => 'required',
+             'employment_date'  => 'required',
+             'employment_position'  => 'required',
+            ]);
+
+            $employment->pic_id = $request->pic_id;
+            $employment->employment_name = $request->employment_name;
+            $employment->employment_address = $request->employment_address;
+            $employment->employment_date = $request->employment_date;
+            $employment->employment_position = $request->employment_position;
+            $employment->save();
+        
+       $request->session()->flash('success', 'Employment details Updated');
+            return redirect()->route('admin.registred');
+    }
+
+    public function editreferee($id)
+    {
+        $referee = Referee::find($id);
+        return view('admin.form.edit.edit_form_referee', compact('referee'));
+    }
+
+    public function updatereferee(Request $request, $id)
+    {
+        $referee = Referee::find($id);
+
+        $this->validate($request, [
+             'referees_name'  => 'required',
+             'referees_type' => 'required',
+             'referees_address'  => 'required',
+             'referees_rank'  => 'required',
+             'referees_email'  => 'required',
+             'referees_phone'  => 'required',
+            ]);
+
+            $referee->pic_id = $request->pic_id;
+            $referee->referees_name = $request->referees_name;
+            $form->referees_type = $request->referees_type;
+            $referee->referees_address = $request->referees_address;
+            $referee->referees_rank = $request->referees_rank;
+            $referee->referees_email = $request->referees_email;
+            $referee->referees_phone = $request->referees_phone;
+            $referee->save();
+            
+       $request->session()->flash('success', 'Employment details Updated');
+            return redirect()->route('admin.registred');
+    }
     /**
      * Remove the specified resource from storage.
      *
