@@ -25,21 +25,25 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    //authentication
     public function __construct()
     {
         $this->middleware('auth');
     }
     
+
     public function home()
     {
         $personal = DB::table('personals')->get();
         return view('admin.home', compact('personal'));
     }
-
+//registered 
     public function index()
     {
         $personal_data = DB::table('personals')->get();
-         return view('admin.form.form',compact('personal_data'));
+        $passport_data = DB::table('passports')->get();
+         return view('admin.form.form',compact('personal_data', 'passport_data'));
     
     }
 
@@ -70,6 +74,8 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //calling all the tables from DB to be compared with the pic_id to get data of 1 reg
+    //find the personal id and fetch only data with same pic_id
     public function show($personal)
     {
         $personal_data = Personal::find($personal);
@@ -92,6 +98,7 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //find the personal id and fetch only data with same pic_id
     public function edit($personal)
     {
         $personal_data = Personal::find($personal);
@@ -107,12 +114,14 @@ class AdminController extends Controller
          return view('admin.form.edit_form',compact('passport_data','secondary_data','personal_data','result_data','University_data','degree_data','language_data','computer_data','employment_data','referee_data'));
     }
 
+    //in the view, finding that particular passport for editing 
     public function editpassport($id)
     {
         $passport = Passport::find($id);
         return view('admin.form.edit.edit_form_passport', compact('passport'));
     }
 
+    //updating the passport 
     public function updatepassport(Request $request, $id)
     {
         $passport = Passport::find($id);
@@ -134,6 +143,7 @@ class AdminController extends Controller
             return redirect()->route('admin.registred');
     }
 
+//in the view, finding that particular personal for editing 
     public function editpersonal($id)
     {
         $personal_data = Personal::find($id);
@@ -455,6 +465,8 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //the print function 
+
     public function destroy($id)
     {
         Form::where('id', $id)->delete();   

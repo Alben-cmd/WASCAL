@@ -2,7 +2,6 @@
 
 @section('content')
 <div class="content-wrapper">
-    <br>
      <div class="row">
         <div class="col-lg-12 grid-margin">
           <div class="d-flex justify-content-between align-items-center">
@@ -56,14 +55,16 @@
                             <br>
                             </div>
                             <div class="card-body">
-                              <strong><h4>Gender | Date of Birth | Email | Nationality </h4> </strong>
+                              <strong><h4>Gender | Date of Birth | Email | Nationality | Unique No. </h4> </strong>
                               <div class="card">                              
                                 <div class="col-md-8">
                                 <div class="card-body my-3">
                                   <p> <b> Gender:</b>{{ $personal_data->gender }}</p>  
                                   <p><b>Date of Birth:</b>{{ $personal_data->dob }}</p>
                                   <p><b>Email:</b>{{ $personal_data->email }}</p>
-                                  <p><b>Nationality:</b>{{ $personal_data->nationality }}</p> </div>
+                                  <p><b>Nationality:</b>{{ $personal_data->nationality }}</p> 
+                                  <p><b>Unique No.:</b>{{ $personal_data->unique_id }}</p>
+                                </div>
                               </div>
                             </div>
                             <br>
@@ -146,7 +147,7 @@
                           </div>
                           <div class="col-md-6">
                             <strong> <h4 align="right">
-                               </a></h4></strong>
+                           </h4></strong>
                           </div>
                         </div>
                         <hr>
@@ -295,6 +296,7 @@
                     </div>
 
                 </div>
+              </div>
                  <div class="col-md-12">
                     <div class="card">
                             <div class="card-body">
@@ -633,7 +635,7 @@
                     </div>
 
                 </div>
-            </div>
+
             </div>
         </div>
     </div>

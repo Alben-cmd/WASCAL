@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'FormController@passport');
+Route::get('/', 'FormController@passport')->name('home');
 
 Route::get('/wascal/register', 'FormController@passport')->name('passport');
 Route::post('/wascal/register/passport', 'FormController@storepassport')->name('store.passport');
@@ -46,6 +46,18 @@ Route::get('/wascal/register/document/delete/{documents}', 'FormController@docum
 Route::get('/wascal/register/review', 'FormController@createStep10')->name('step10');
 Route::post('/wascal/register/store', 'FormController@store')->name('final.store');
 
+//referee form
+Route::get('wascal/referee/form/professional', 'RefereeController@profreferee')->name('profreferee');
+Route::post('wascal/form/professional/store', 'RefereeController@postprofreferee')->name('store.profreferee');
+Route::get('wascal/referee/form/academic', 'RefereeController@academicreferee')->name('academicreferee');
+Route::post('wascal/referee/form/academic', 'RefereeController@postacademicreferee')->name('store.academicreferee');
+
+//unique no search
+Route::get('wascal/register/uniqidID', 'FormController@uniquesearch')->name('uniquesearch'); 
+
+//print
+Route::get('/wascal/register/print','FormController@printpriview')->name('printpriview');
+
 //Admin section
 Auth::routes();
 Route::get('/admin', 'AdminController@home')->name('admin.home');
@@ -55,8 +67,8 @@ Route::get('/admin/register/{id}', 'AdminController@show')->name('show.register'
 Route::get('admin/register/edit/{id}', 'AdminController@edit')->name('edit.register');
 Route::post('admin/register/update/{id}', 'AdminController@update')->name('update.register');
 Route::get('admin/register/delete/{id}', 'AdminController@destroy')->name('delete.register');
-//edit
 
+//edit
 Route::get('admin/register/edit/passport/{id}', 'AdminController@editpassport')->name('edit.passport');
 Route::post('admin/register/update/passport/{id}', 'AdminController@updatepassport')->name('update.passport');
 Route::get('admin/register/edit/personal/{id}', 'AdminController@editpersonal')->name('edit.personal');

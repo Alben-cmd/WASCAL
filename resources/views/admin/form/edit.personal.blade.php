@@ -17,8 +17,8 @@
     <div class="card-body">
       <h4 class="card-title">Edit Activity</h4>
       @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
+      <li>{{ $error }}</li>
+      @endforeach
 
       <form action="{{ route('update.personal', ['id' => $personal->id]) }}" method="POST" enctype="multipart/form-data" class="forms-sample" >
         @csrf

@@ -28,55 +28,36 @@
                     <table class="table table-striped">
                       <thead>
                         <tr>
-                          <th>
-                            #
-                          </th>
-                          <th>
-                            Name
-                          </th>
-                          <th>
-                            Email
-                          </th>
-                          <th>
-                            Nationality
-                          </th>
+                          <th>#</th>
+                          <th>Name</th>
+                          <th>Email</th>
+                          <th>Unique ID</th>
                           <th></th>
-                          <th>
-                            Action
-                          </th>
+                          <th>Action</th>
                         </tr>
-
                       </thead>
+                      <tbody>
                         @php
                          $count = 1;
                         @endphp
                         @foreach($personal_data as $personal)
                         <tr>
-                          <td>
-                            {{ $count++ }}
+                          <td>{{ $count++ }}</td>
+                          <td>{{ $personal->fname }} {{ $personal->Lname }} {{ $personal->oname }}</td> 
+                          <td>{{ $personal->email }}</td> 
+                          @foreach($passport_data as $passport)
+                          @if( $passport->id == $personal->pic_id)
+                          <td>{{ $passport->unique_id }}</td> 
+                          @endif
+                          @endforeach
+                          <td><a href="{{ route('show.register', ['id' => $personal->id]) }}" class="btn btn-link text-primary">Read/Update</a>
                           </td>
-                          <td>
-                            {{ $personal->fname }} {{ $personal->Lname }} {{ $personal->oname }}                       
-                          </td> 
-                          <td>
-                            {{ $personal->email }}                     
-                          </td> 
-                          <td>
-                            {{ $personal->nationality }}                     
-                          </td>                        
-                          <td>
-                            <a href="{{ route('show.register', ['id' => $personal->id]) }}" class="btn btn-link text-primary">
-                              Read/Update
-                           </a>
-                          </td>
-                         
-                          <td>
-                            <a href="#"  onclick="return confirm('Are you sure?')" class="btn btn-link text-danger">                                                  
-                              Delete</a>
-                          </td>
+                          <td><a href="#"  onclick="return confirm('Are you sure?')" class="btn btn-link text-danger"> Delete</a></td>
                         </tr>
                          @endforeach
                       </tbody>
+
+                          
                     </table>
                     
                   </div>

@@ -28,7 +28,7 @@
         <div class="form-group">
           <label>Passport</label>
           <br>
-                <div class="col-12 col-md-9"><input type="file" id="passport_img" name="passport_img" class="form-control-file"></div>
+                  <div class="col-12 col-md-9"><input type="file" id="passport_img" name="passport_img" class="form-control-file"></div>
             </div>
 
         

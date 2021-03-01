@@ -9,7 +9,9 @@
             
             <div class="card-header">
                 <strong>Review and Final Submission</strong>
-                
+                @foreach($passport_data as $passport)
+                <strong> Your Unique ID: <i style="color: crimson;">{{ $passport->unique_id }} </i></strong>
+                @endforeach
             </div>
             <div class="card-body card-block">
                 <ul>
@@ -84,7 +86,7 @@
                                               <tr>
                                                 <th>Marital Status</th>
                                                 <th>Number of Children</th>
-                                                <th>Ages</th>
+                                                <th>Ages of Children</th>
                                                
                                                
                                               </tr>
@@ -148,7 +150,7 @@
                                    <table class="table">
                                             <thead>
                                               <tr>
-                                                <th>Parent/Guidance name </th>
+                                                <th>Parent/Guidance Name </th>
                                                 <th>Email</th>
                                                 <th> Phone Number</th>
                                                 
@@ -575,6 +577,12 @@
             <br>
         </div>
         </form>
+        <a href="{{ route('printpriview') }}" class="btnprn btn">Print Preview</a>
+<script type="text/javascript">
+    $(document).ready(function(){
+    $('.btnprn').printPage();
+    });
+</script>
                     <br>
                     <br>
 

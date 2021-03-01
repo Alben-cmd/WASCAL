@@ -10,11 +10,14 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header" align="center">
-                <strong>Doctoral Research Programme in Climate Change and Human Habitat</strong>
-                <p>Application form</p>
-                <p>Doctor of Philosophy (Ph.D) in Climate Change and Human Habitat 
-                Federal University of Technology, Minna (FUT Minna), Niger State, Nigeria.
-                </p>
+                <strong>Doctoral Research Programme in Climate Change and Human Habitat <br>
+                Application Form<br>
+                Doctor of Philosophy (Ph.D) in Climate Change and Human Habitat 
+                Federal University of Technology, Minna (FUT Minna), Niger State, Nigeria.<br>
+                </strong>
+                @foreach($personal as $person)
+                <strong> Your Unique ID: <i style="color: crimson;">{{ $person->unique_id }} </i></strong>
+                @endforeach
             </div>
             <div class="card-header">
                 <strong>2. Secondary/Post Primary Education and Certificates Obtained (e.g. WASSCE, SSCE, Baccalaureate C or D)</strong>

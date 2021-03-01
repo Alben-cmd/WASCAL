@@ -39,10 +39,25 @@
     <div class="col-sm-4">
         <div class="page-header">
             <div class="page-title" style="margin: 0 auto;">
-                 <img src="{{ asset('images/header.png') }} " align="center">
+                 <img src="{{ asset('logo/wascal.png') }} " align="center">
             </div>
         </div>
     </div>
+    <div class="col-sm-4">
+        <div class="page-header">
+            <div class="page-title" align="center">
+                 <img src="{{ asset('logo/futminna.png') }} " align="center">
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="page-header">
+            <div class="page-title" align="right">
+                 <img src="{{ asset('logo/federal.png') }} " align="center">
+            </div>
+        </div>
+    </div>
+
 </div>
 
        
@@ -76,6 +91,7 @@
     document.getElementById('year').innerHTML = option;
 })();
 </script>
+    <script src="{{ asset('js/jquery.printpage.js')}}"></script>
     <script src="{{ asset('dashboard_assets/vendors/jquery/dist/jquery.min.js')}}"></script>
     <script src="{{ asset('dashboard_assets/vendors/popper.js/dist/umd/popper.min.js')}}"></script>
     <script src="{{ asset('dashboard_assets/vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>

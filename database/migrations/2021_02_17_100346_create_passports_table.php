@@ -16,6 +16,8 @@ class CreatePassportsTable extends Migration
         Schema::create('passports', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('passport_img');
+            $table->string('count');
+            $table->string('unique_id');
             $table->timestamps();
         });
     }
