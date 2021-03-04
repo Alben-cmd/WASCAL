@@ -93,7 +93,7 @@ class FormController extends Controller
             
             $form = new Personal();
 
-            $form->pic_id =$request->pic_id; 
+            $form->unique_id =$request->unique_id; 
             $form->Lname = $request->Lname;
             $form->fname = $request->fname;
             $form->oname = $request->oname;
@@ -369,7 +369,7 @@ class FormController extends Controller
         
          if (isset($form->id)) {
             $personal = DB::table('passports')->where('id', '=', $form->id)->get();
-            $computer_data = DB::table('Computers')->where('pic_id', '=', $form->id)->get();
+            $computer_data = DB::table('computers')->where('pic_id', '=', $form->id)->get();
         return view('form.form-step5',compact('form', 'computer_data', 'personal', $form));
         }
         else{ return redirect()->route('passport');
@@ -453,9 +453,11 @@ class FormController extends Controller
         
         
          if (isset($form->id)) {
-            $personal = DB::table('passports')->where('id', '=', $form->id)->get();
+
+            $personal = DB::table('passports')->where('id', '=', $form->id)->first();
             $referee_data = DB::table('referees')->where('pic_id', '=', $form->id)->get();
-        return view('form.form-step8',compact('form','referee_data', 'personal', $form));
+
+        return view('form.form-step8',compact('form','referee_data', 'personal','personal_data', $form));
         }
         else{ return redirect()->route('passport');
 
@@ -489,6 +491,12 @@ class FormController extends Controller
             return redirect()->back();
 
         }
+
+        public function refereedestroy($id)
+    {
+        Referee::where('id', $id)->delete();   
+        return redirect()->back()->with('success', 'Deleted');
+    }
 
         public function createStep9(Request $request)
     {
@@ -533,13 +541,13 @@ class FormController extends Controller
     {
         $form = $request->session()->get('form');
         $passport_data = DB::table('passports')->where('id', '=', $form->id)->get();
-        $personal_data = DB::table('personals')->where('pic_id', '=', $form->id)->get();
+        $personal_data = DB::table('personals')->where('unique_id', '=', $form->unique_id)->get();
         $secondary_data = DB::table('secondaries')->where('pic_id', '=', $form->id)->get();
         $result_data = DB::table('results')->where('pic_id', '=', $form->id)->get();
         $university_data = DB::table('universities')->where('pic_id', '=', $form->id)->get();
         $degree_data = DB::table('degrees')->where('pic_id', '=', $form->id)->get();
         $language_data = DB::table('languages')->where('pic_id', '=', $form->id)->get();
-        $computer_data = DB::table('Computers')->where('pic_id', '=', $form->id)->get();
+        $computer_data = DB::table('computers')->where('pic_id', '=', $form->id)->get();
         $employment_data = DB::table('employments')->where('pic_id', '=', $form->id)->get();
         $referee_data = DB::table('referees')->where('pic_id', '=', $form->id)->get();
 
@@ -556,13 +564,13 @@ class FormController extends Controller
       {
         $form = $request->session()->get('form');
         $passport_data = DB::table('passports')->where('id', '=', $form->id)->get();
-        $personal_data = DB::table('personals')->where('pic_id', '=', $form->id)->get();
+        $personal_data = DB::table('personals')->where('unique_id', '=', $form->unique_id)->get();
         $secondary_data = DB::table('secondaries')->where('pic_id', '=', $form->id)->get();
         $result_data = DB::table('results')->where('pic_id', '=', $form->id)->get();
         $university_data = DB::table('universities')->where('pic_id', '=', $form->id)->get();
         $degree_data = DB::table('degrees')->where('pic_id', '=', $form->id)->get();
         $language_data = DB::table('languages')->where('pic_id', '=', $form->id)->get();
-        $computer_data = DB::table('Computers')->where('pic_id', '=', $form->id)->get();
+        $computer_data = DB::table('computers')->where('pic_id', '=', $form->id)->get();
         $employment_data = DB::table('employments')->where('pic_id', '=', $form->id)->get();
         $referee_data = DB::table('referees')->where('pic_id', '=', $form->id)->get();
 

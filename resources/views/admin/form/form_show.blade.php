@@ -18,7 +18,7 @@
               
               <div class="col-md-12" align="center">
                  @foreach($passport_data as $passport)
-                 @if($passport->id == $personal_data->pic_id)
+                 @if($passport->unique_id == $personal_data->unique_id)
                 <img src="{{ asset('/images/'.$passport->passport_img) }}" style="height: 150px; width: 150px" class="img-fluid">
                 <a href="{{ route('edit.passport', ['id' => $passport->id]) }}" class="btn btn-link text-warning">
                                Edit </a>
@@ -34,110 +34,41 @@
                       <div class="card-body">
                         <div class="row">
                           <div class="col-md-6">
-                            <strong><h4> Personal Details</h4> </strong>
+                             <strong><h4> Personal Details</h4> </strong>     
                           </div>
                           <div class="col-md-6">
                             <strong> <h4 align="right"><a href="{{ route('edit.personal', ['id' => $personal_data->id]) }}" class="btn btn-link text-warning">
                                Edit </a></h4></strong>
                           </div>
-                        </div>
-                        <hr>
-                        
-                              <strong><h5>Last Name | First name | Other Name</h5> </strong>
+                        </div>                       
 
-                              <div class="card">                              
+                              <div class="card">                   
                                 <div class="col-md-8">
                                 <div class="card-body my-3"><p> <b> Last name: </b>{{ $personal_data->Lname }}</p>
                                   <p> <b> First Name: </b>{{ $personal_data->fname }} </p>
-                                  <p> <b> Other Name: </b>{{ $personal_data->oname }} </p></div>
-                              </div>
-                            </div>
-                            <br>
-                            </div>
-                            <div class="card-body">
-                              <strong><h4>Gender | Date of Birth | Email | Nationality | Unique No. </h4> </strong>
-                              <div class="card">                              
-                                <div class="col-md-8">
-                                <div class="card-body my-3">
+                                  <p> <b> Other Name: </b>{{ $personal_data->oname }} </p>
                                   <p> <b> Gender:</b>{{ $personal_data->gender }}</p>  
                                   <p><b>Date of Birth:</b>{{ $personal_data->dob }}</p>
                                   <p><b>Email:</b>{{ $personal_data->email }}</p>
                                   <p><b>Nationality:</b>{{ $personal_data->nationality }}</p> 
                                   <p><b>Unique No.:</b>{{ $personal_data->unique_id }}</p>
+                                  <p><b>Marital Status: </b>{{ $personal_data->marital_status }} </p>  
+                                  <p> <b>Number of Children: </b>{{ $personal_data->number_children }}</p>  
+                                  <p><b>Ages: </b>{{ $personal_data->age_children }}</p>
+                                  <p><b>Country of Residence: </b>{{ $personal_data->country_residence }}</p>  
+                                  <p><b>Address: </b>{{ $personal_data->address }}</p>
+                                  <p><b>Phone Number: </b>{{ $personal_data->phone }} </p>
+                                  <p><b>Parent/Guidance name: </b>{{ $personal_data->name_parent }}</p>
+                                   <p><b>email: </b>{{ $personal_data->parent_email}}</p> 
+                                   <p><b>Phone number: </b>{{ $personal_data->parent_number }}</p>
+                                   <p><b>Contact Person Name: </b>{{ $personal_data->contact_person }}</p>  
+                                  <p><b>Email: </b>{{ $personal_data->contact_email}}</p>  
+                                  <p><b>Phone number: </b>{{ $personal_data->contact_number }}</p>
                                 </div>
                               </div>
                             </div>
                             <br>
                             </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="card">
-                            <div class="card-body">
-                              <strong><h4>Marital Status | Number of Children | Ages</h4> </strong>
-                              <div class="card">                              
-                                <div class="col-md-8">
-                                <div class="card-body my-3">
-                                  <p><b>Marital Status: </b>{{ $personal_data->marital_status }} </p>  
-                                  <p> <b>Number of Children: </b>{{ $personal_data->number_children }}</p>  
-                                  <p><b>Ages: </b>{{ $personal_data->age_children }}</p>  </div>
-                              </div>
-                            </div>
-                            <br>
-                            </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="card">
-                            <div class="card-body">
-                              <strong><h4>Country of Residence | Address | Phone Number</h4> </strong>
-                              <div class="card">                              
-                                <div class="col-md-8">
-                                <div class="card-body my-3">
-                                  <p><b>Country of Residence: </b>{{ $personal_data->country_residence }}</p>  
-                                  <p><b>Address: </b>{{ $personal_data->address }}</p>
-                                  <p><b>Phone Number: </b>{{ $personal_data->phone }} </p>  </div>
-                              </div>
-                            </div>
-                            <br>
-                            </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="card">
-                            <div class="card-body">
-                              <strong><h4>Parent/Guidance name | Email | Phone number</h4> </strong>
-                              <div class="card">                              
-                                <div class="col-md-8">
-                                <div class="card-body my-3">
-                                  <p><b>Parent/Guidance name: </b>{{ $personal_data->name_parent }}</p>
-                                   <p><b>email: </b>{{ $personal_data->parent_email}}</p> 
-                                   <p><b>Phone number: </b>{{ $personal_data->parent_number }}</p> </div>
-                              </div>
-                            </div>
-                            <br>
-                            </div>
-                    </div>
-
-                </div>
-                <div class="col-md-12">
-                    <div class="card">
-                            <div class="card-body">
-                              <strong><h4>Contact Person Name | Email | Phone number</h4> </strong>
-                              <div class="card">                              
-                                <div class="col-md-8">
-                                <div class="card-body my-3">
-                                  <p><b>Contact Person Name: </b>{{ $personal_data->contact_person }}</p>  
-                                  <p><b>Email: </b>{{ $personal_data->contact_email}}</p>  
-                                  <p><b>Phone number: </b>{{ $personal_data->contact_number }}</p>  </div>
-                              </div>
-                            </div>
-                            <br>
-                            </div>
-                    </div>
-
-                </div>
-
                 <div class="col-md-12">
                     <div class="card">
                             <div class="card-body">
@@ -150,8 +81,7 @@
                            </h4></strong>
                           </div>
                         </div>
-                        <hr>
-                              <strong><h4> Secondary School | Period |  Title | Date</h4> </strong>
+                       
                               <div class="card">                              
                                 <div class="col-md-12">
                                 <div class="card-body my-3">

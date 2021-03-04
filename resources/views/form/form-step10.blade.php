@@ -310,15 +310,15 @@
                                                
                                               </tr>
                                             </thead>
-                                            @foreach($University_data as $University)
+                                            @foreach($university_data as $university)
                                             <tbody>
                                               <tr>
-                                                <td>{{ $University->university }}</td>
-                                                <td>{{ $University->university_year}} </td>
-                                                <td>{{ $University->university_qualification }} </td>
-                                                <td>{{ $University->university_date}}</td>
-                                                <td>{{ $University->university_title}}</td>
-                                                <td>{{ $University->university_grade}}  </td>
+                                                <td>{{ $university->university }}</td>
+                                                <td>{{ $university->university_year}} </td>
+                                                <td>{{ $university->university_qualification }} </td>
+                                                <td>{{ $university->university_date}}</td>
+                                                <td>{{ $university->university_title}}</td>
+                                                <td>{{ $university->university_grade}}  </td>
                                               </tr>
                                             </tbody>
                                             @endforeach

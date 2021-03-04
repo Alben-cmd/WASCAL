@@ -41,7 +41,7 @@
           <!-- Begin Personal Information -->
           <div class="self">
             @foreach($personal_data as $personal)
-            @if( $passport->id == $personal->pic_id)
+            @if( $passport->unique_id == $personal->unique_id)
             <h2 class="name"> {{ $personal->fname }} {{ $personal->Lname }}<br /> {{ $personal->oname }} 
             </h2>
             @endif
@@ -66,7 +66,7 @@
         <div class="entry">
           <h2>Personal Data</h2>
           @foreach($personal_data as $personal)
-          @if( $passport->id == $personal->pic_id) 
+          @if( $passport->unique_id == $personal->unique_id) 
           <div class="content">
             <h3>Gender</h3>
             <p>{{ $personal->gender }}</p>
@@ -300,12 +300,13 @@
          <!-- Begin 5th Row -->
         
         <!-- Begin 5th Row -->
-      @else
-          <h2 class="text-center text-danger">Oops! Uique Number not found!!</h2>
-      @endif
+      
       </div>
+
       <div class="clear"></div>
-      <div class="paper-bottom"></div>
+      <div class="paper-bottom" align="center">@else
+          <h2 class="text-center text-danger">Oops! Uique Number not found!!</h2>
+      @endif</div>
     </div>
     <!-- End Paper -->
   </div>

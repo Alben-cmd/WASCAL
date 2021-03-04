@@ -16,7 +16,7 @@
   <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Registerations</h4>
+                  <h4 class="card-title">Professional Referee Submissions</h4>
                   @if(Session::has('success'))
                   <div class="alert  alert-success alert-dismissible fade show">
                       <span class="badge badge-pill badge-success">Success</span>
@@ -29,9 +29,9 @@
                       <thead>
                         <tr>
                           <th>#</th>
-                          <th>Name</th>
-                          <th>Email</th>
-                          <th>Unique ID</th>
+                          <th>Candidate Name</th>
+                          <th>Referee Name</th>
+                          <th>Referee Position</th>
                           <th></th>
                           <th>Action</th>
                         </tr>
@@ -40,19 +40,15 @@
                         @php
                          $count = 1;
                         @endphp
-                        @foreach($personal_data as $personal)
+                        @foreach($prof_referee as $prof)
                         <tr>
                           <td>{{ $count++ }}</td>
-                          <td>{{ $personal->fname }} {{ $personal->Lname }} {{ $personal->oname }}</td> 
-                          <td>{{ $personal->email }}</td> 
-                          @foreach($passport_data as $passport)
-                          @if( $passport->unique_id == $personal->unique_id)
-                          <td>{{ $passport->unique_id }}</td> 
-                          @endif
-                          @endforeach
-                          <td><a href="{{ route('show.register', ['id' => $personal->id]) }}" class="btn btn-link text-primary">Read/Update</a>
+                          <td>{{ $prof->applicant_name }}</td> 
+                          <td>{{ $prof->referee_name }}</td> 
+                          <td>{{ $prof->referee_position }}</td>
+                          
+                          <td><a href="{{ route('show.profreferee', ['id' => $prof->id]) }}" class="btn btn-link text-primary">Read/Update</a>
                           </td>
-                          <td><a href="#"  onclick="return confirm('Are you sure?')" class="btn btn-link text-danger"> Delete</a></td>
                         </tr>
                          @endforeach
                       </tbody>

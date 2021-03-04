@@ -52,6 +52,11 @@ Route::post('wascal/form/professional/store', 'RefereeController@postprofreferee
 Route::get('wascal/referee/form/academic', 'RefereeController@academicreferee')->name('academicreferee');
 Route::post('wascal/referee/form/academic', 'RefereeController@postacademicreferee')->name('store.academicreferee');
 
+//referee email
+Route::get('wascal/referee/form/professional/email/{ref_id}/{id}', 'RefereeController@profmail')->name('profmail');
+Route::get('wascal/referee/form/academic/email/{ref_id}/{id}', 'RefereeController@academicmail')->name('academicmail');
+
+
 //unique no search
 Route::get('wascal/register/uniqidID', 'FormController@uniquesearch')->name('uniquesearch'); 
 
@@ -91,5 +96,10 @@ Route::get('admin/register/edit/employment/{id}', 'AdminController@editemploymen
 Route::post('admin/register/update/employment/{id}', 'AdminController@updateemployment')->name('update.employment');
 Route::get('admin/register/edit/referee/{id}', 'AdminController@editreferee')->name('edit.referee');
 Route::post('admin/register/update/referee/{id}', 'AdminController@updatereferee')->name('update.referee');
+
+//referee
+Route::get('/admin/professional_referee', 'AdminController@profreferee')->name('admin.profreferee');
+Route::get('/admin/professional_referee/edit/{id}', 'AdminController@showprofreferee')->name('show.profreferee');
+
 
 

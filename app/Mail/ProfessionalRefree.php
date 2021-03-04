@@ -7,20 +7,26 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class AcademicrefereeEmail extends Mailable
+class ProfessionalRefree extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $referee_data;
+    public $link;
+    public $unique_id;
+    public $personal;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($referee_data, $link, $unique_id, $personal)
     {
-        //
+        $this->referee_data = $referee_data;
+        $this->link = $link;
+        $this->unique_id = $unique_id;
+        $this->personal = $personal;
     }
-
     /**
      * Build the message.
      *
@@ -28,6 +34,6 @@ class AcademicrefereeEmail extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->markdown('emails.professional');
     }
 }

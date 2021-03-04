@@ -123,7 +123,7 @@
                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Contact Person Email</label></div>
                     <div class="col-9 col-md-7"><input type="text" id="contact_email" name="contact_email" placeholder="Contact Email" value="{{ old('contact_email') }}" class="form-control"></div>
                     </div>
-                    <input type="hidden" name="pic_id" value="{{ $form->id }} ">
+                    <input type="hidden" name="unique_id" value="{{ $form->unique_id }}">
                     <br>
                     <div align="center">
                         <button type="submit" class="btn btn-success btn-md">

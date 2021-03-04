@@ -13,11 +13,9 @@
                 Doctor of Philosophy (Ph.D) in Climate Change and Human Habitat 
                 Federal University of Technology, Minna (FUT Minna), Niger State, Nigeria.<br>
                 </strong>
-                @foreach($personal as $person)
-                <strong> Your Unique ID: <i style="color: crimson;">{{ $person->unique_id }} </i></strong>
-                @endforeach
+                <strong> Your Unique ID: <i style="color: crimson;">{{ $personal->unique_id }} </i></strong>
             </div>
-            <div class="card-header">
+            <div class="card-header"> 
                 <strong>7. Contact Details of Referees </strong>
                 
             </div>
@@ -90,11 +88,12 @@
                     </div>
                      <input type="hidden" name="pic_id" value="{{ $form->id }} ">
                     <hr>
+
             </form>
             @if($referee_data->count() > 0)
 
                  <div class="table-responsive">
-                  <caption><b> Kindly download the respective Reference letter to be filled by referee. </caption></b>
+                  <caption><b> Kindly Click on "send link" </caption></b>
                     <table class="table table-striped">
                       <thead>
                         <tr>
@@ -124,13 +123,13 @@
                           <td>{{ $row->referees_phone }}</td>
                           <td>
                           @if($row->referees_type == 'Head of the Department')
-                          <a href="#" class="btn btn-outline-primary btn-icon-text btn-sm"> Download HOD Form </a>
+                          <a href="{{ route('academicmail', ['ref_id' => $row->id, 'uniqid' => $personal->unique_id]) }}" class="btn btn-outline-primary btn-icon-text btn-sm">Send link to HOD</a>
                           @elseif($row->referees_type == 'Master Degree Supervisor')
-                          <a href="#" class="btn btn-outline-primary btn-icon-text btn-sm"> Download Spervisor Form</a>
+                          <a href="{{ route('academicmail', ['ref_id' => $row->id, 'uniqid' => $personal->unique_id]) }}" class="btn btn-outline-primary btn-icon-text btn-sm">Send link to Spervisor Form</a>
                           @elseif($row->referees_type == 'boss')
-                          <a href="#" class="btn btn-outline-primary btn-icon-text btn-sm"> Download Boss Form</a>
+                          <a href="{{ route('profmail', ['ref_id' => $row->id, 'uniqid' => $personal->unique_id]) }} " class="btn btn-outline-primary btn-icon-text btn-sm">Send link to Boss</a>
                           @elseif($row->referees_type == 'mrp')
-                          <a href="#" class="btn btn-outline-primary btn-icon-text btn-sm"> Download MRP Form</a>
+                          <a href="{{ route('profmail', ['ref_id' => $row->id, 'uniqid' => $personal->unique_id]) }}" class="btn btn-outline-primary btn-icon-text btn-sm">Send link to MRP</a>
                           @endif
 
                           </td>

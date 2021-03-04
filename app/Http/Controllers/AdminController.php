@@ -472,4 +472,19 @@ class AdminController extends Controller
         Form::where('id', $id)->delete();   
         return redirect('/admin/activity')->with('success', 'form Deleted Successfully!');
     }
+
+    public function profreferee()
+    {
+        $prof_referee = DB::table('profrefs')->get();
+         return view('admin.referee.referee',compact('prof_referee'));
+    
+    }
+
+    public function showprofreferee($profreferee)
+    {
+        $profreferee_data = Profref::find($profreferee);
+
+         return view('admin.referee.profreferee_show',compact('profreferee_data'));
+    }
+
 }
