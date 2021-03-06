@@ -15,6 +15,8 @@ use App\Computer;
 use App\Employment;
 use App\Referee;
 use App\Document;
+use App\Profref;
+use App\Academicref;
 use Image;
 use Illuminate\Support\Facades\DB;
 
@@ -476,15 +478,25 @@ class AdminController extends Controller
     public function profreferee()
     {
         $prof_referee = DB::table('profrefs')->get();
-         return view('admin.referee.referee',compact('prof_referee'));
-    
+         return view('admin.referee.profreferee',compact('prof_referee'));  
     }
 
     public function showprofreferee($profreferee)
     {
-        $profreferee_data = Profref::find($profreferee);
+        $prof_referee = Profref::find($profreferee);
+         return view('admin.referee.profreferee_show',compact('prof_referee'));
+    }
 
-         return view('admin.referee.profreferee_show',compact('profreferee_data'));
+    public function academicreferee()
+    {
+        $academic_referee = DB::table('academicrefs')->get();
+         return view('admin.referee.academicreferee',compact('academic_referee'));
+    }
+
+    public function showacademicreferee($academicref)
+    {
+        $academic_referee = Academicref::find($academicref);
+         return view('admin.referee.academicreferee_show',compact('academic_referee'));
     }
 
 }

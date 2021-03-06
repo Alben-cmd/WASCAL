@@ -11,7 +11,7 @@
        <div class="card-header" align="center">
                 <strong>Doctoral Research Programme in Climate Change and Human Habitat <br>
                 Application Form<br>
-                Doctor of Philosophy (Ph.D) in Climate Change and Human Habitat 
+                Doctor of Philosophy (Ph.D) in Climate Change and Human Habitat, 
                 Federal University of Technology, Minna (FUT Minna), Niger State, Nigeria.<br>
                 </strong>
                @foreach($personal as $person)
@@ -104,11 +104,11 @@
                     </div>
                     <div class="row form-group">
                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Parent/Guardian GSM</label></div>
-                    <div class="col-9 col-md-7"><input type="text" id="parent_number" name="parent_number" placeholder="Parent/ Guardian GSM" value="{{ old('parent_number') }}" class="form-control"></div>
+                    <div class="col-9 col-md-7"><input type="text" id="parent_number" name="parent_number" placeholder="Parent/Guardian GSM" value="{{ old('parent_number') }}" class="form-control"></div>
                     </div>
                     <div class="row form-group">
                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Parent/Guardian Email </label></div>
-                    <div class="col-9 col-md-7"><input type="text" id="parent_email" name="parent_email" placeholder="Parent Email" value="{{ old('parent_email') }}" class="form-control"></div>
+                    <div class="col-9 col-md-7"><input type="email" id="parent_email" name="parent_email" placeholder="Parent Email" value="{{ old('parent_email') }}" class="form-control"></div>
                     </div>
                     
                     <div class="row form-group">
@@ -121,7 +121,7 @@
                     </div>
                     <div class="row form-group">
                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Contact Person Email</label></div>
-                    <div class="col-9 col-md-7"><input type="text" id="contact_email" name="contact_email" placeholder="Contact Email" value="{{ old('contact_email') }}" class="form-control"></div>
+                    <div class="col-9 col-md-7"><input type="email" id="contact_email" name="contact_email" placeholder="Contact Email" value="{{ old('contact_email') }}" class="form-control"></div>
                     </div>
                     <input type="hidden" name="unique_id" value="{{ $form->unique_id }}">
                     <br>

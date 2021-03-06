@@ -500,10 +500,20 @@ class FormController extends Controller
 
         public function createStep9(Request $request)
     {
+
+        $form = $request->session()->get('form');
+
+         if (isset($form->id)) {
+
         $form = $request->session()->get('form');
         $document_data = DB::table('documents')->where('pic_id', '=', $form->id)->get();
         $personal = DB::table('passports')->where('id', '=', $form->id)->get();
         return view('form.form-step9',compact('form','document_data', 'personal', $form));
+        }
+        else{ 
+            return redirect()->route('passport');
+        }
+        
     }
 
         public function postCreateStep9(Request $request)
@@ -531,7 +541,7 @@ class FormController extends Controller
                 return redirect()->back();
 
             }
-            public function documentdestroy($id)
+        public function documentdestroy($id)
     {
         Document::where('id', $id)->delete();   
         return redirect()->back()->with('success', 'Deleted');
@@ -539,7 +549,10 @@ class FormController extends Controller
 
         public function createStep10(Request $request)
     {
+
         $form = $request->session()->get('form');
+         if (isset($form->id)) {
+
         $passport_data = DB::table('passports')->where('id', '=', $form->id)->get();
         $personal_data = DB::table('personals')->where('unique_id', '=', $form->unique_id)->get();
         $secondary_data = DB::table('secondaries')->where('pic_id', '=', $form->id)->get();
@@ -551,7 +564,11 @@ class FormController extends Controller
         $employment_data = DB::table('employments')->where('pic_id', '=', $form->id)->get();
         $referee_data = DB::table('referees')->where('pic_id', '=', $form->id)->get();
 
-        return view('form.form-step10',compact('form','passport_data','secondary_data','personal_data','result_data','university_data','degree_data','language_data','computer_data','employment_data','referee_data', $form));
+        return view('form.form-step10',compact('form','passport_data','secondary_data','personal_data','result_data','university_data','degree_data','language_data','computer_data','employment_data','referee_data', $form));   
+        }
+        else{ return redirect()->route('passport');
+
+        }   
     }
 
     public function store(Request $request)
@@ -563,6 +580,9 @@ class FormController extends Controller
     public function printpriview(Request $request)
       {
         $form = $request->session()->get('form');
+        if (isset($form->id)) {
+
+       
         $passport_data = DB::table('passports')->where('id', '=', $form->id)->get();
         $personal_data = DB::table('personals')->where('unique_id', '=', $form->unique_id)->get();
         $secondary_data = DB::table('secondaries')->where('pic_id', '=', $form->id)->get();
@@ -575,6 +595,11 @@ class FormController extends Controller
         $referee_data = DB::table('referees')->where('pic_id', '=', $form->id)->get();
 
         return view('form.form_print',compact('form','passport_data','secondary_data','personal_data','result_data','university_data','degree_data','language_data','computer_data','employment_data','referee_data', $form));
+        }
+        else{ return redirect()->route('passport');
+
+        }
+       
       }
       public function uniquesearch(Request $request)
     {

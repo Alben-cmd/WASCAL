@@ -12,7 +12,7 @@
           <div class="card-header" align="center">
                 <strong>Doctoral Research Programme in Climate Change and Human Habitat <br>
                 Application Form<br>
-                Doctor of Philosophy (Ph.D) in Climate Change and Human Habitat 
+                Doctor of Philosophy (Ph.D) in Climate Change and Human Habitat, 
                 Federal University of Technology, Minna (FUT Minna), Niger State, Nigeria.<br>
                 </strong>
                 @foreach($personal as $person)
@@ -23,7 +23,7 @@
 
             </div>
             <div class="card-header">
-                <strong>8. Application supporting documents</strong>
+                <strong>8. Application Supporting Documents</strong>
                 <p><b><i> (All relevant documents must be in<i style="color: crimson;"> PDF format</i> and uploaded for the applicant to be considered for admission)</i></b> </p>
                 <ol style="padding-left:45px ">
                   <li> Completed Application form (Partially completed forms will be discarded) </li>
@@ -39,7 +39,6 @@
                   <li> Support Letter from Employer (if Employed) Granting Study Leave for the Duration of the Programme, Excluding the Period for the Language Course. </li>
                   <li> Copy of Certificate of Nationality/State of Origin</li>
                   <li> Soft Copy of the Applicant’s Research Pre-Proposal/Research Interest. Note that the Centre Reserves the Right to Accept or Reject this, should you be Admitted.</li>
-                  <li> 3 Referee Letter</li>
                 </ol>
                 
             </div>
@@ -68,7 +67,7 @@
                             <option value="M.Sc. or M.Tech Official Transcript ">M.Sc. or M.Tech Official Transcript </option>
                             <option value="Curriculum Vitae (CV) ">Curriculum Vitae (CV)</option>
                             <option value="WASSCE or SSCE Certificate (Anglophone Countries)">WASSCE or SSCE Certificate (Anglophone Countries) </option>
-                            <option value="Baccalaureat Certificate (Francophone countries)">Baccalaureat Certificate (Francophone countries) </option>
+                            <option value="Baccalaureat Certificate (Francophone countries)">Baccalaureat Certificate (Francophone Countries) </option>
                             <option value="Baccalaureat (Releve du Notes)">Baccalaureat (Releve du Notes)</option>
                             <option value="Letter of Motivation ">Letter of Motivation </option>
                             <option value="Letter from Employer">Letter from Employer</option>
@@ -131,7 +130,7 @@
                  @endif
 
 
-                  @if($document_data->count() > 3)
+                  @if($document_data->count() > 7)
 
                 <div align="center">
                   <button type="submit" class="btn btn-success btn-md">

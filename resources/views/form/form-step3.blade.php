@@ -10,7 +10,7 @@
           <div class="card-header" align="center">
                 <strong>Doctoral Research Programme in Climate Change and Human Habitat <br>
                 Application Form<br>
-                Doctor of Philosophy (Ph.D) in Climate Change and Human Habitat 
+                Doctor of Philosophy (Ph.D) in Climate Change and Human Habitat, 
                 Federal University of Technology, Minna (FUT Minna), Niger State, Nigeria.<br>
                 </strong>
                 @foreach($personal as $person)

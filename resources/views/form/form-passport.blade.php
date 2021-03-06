@@ -13,7 +13,7 @@
             <div class="card-header" align="center">
                  <strong>Doctoral Research Programme in Climate Change and Human Habitat <br>
                 Application Form<br>
-                Doctor of Philosophy (Ph.D) in Climate Change and Human Habitat 
+                Doctor of Philosophy (Ph.D) in Climate Change and Human Habitat, 
                 Federal University of Technology, Minna (FUT Minna), Niger State, Nigeria.<br>
                 </strong>
             </div>
@@ -48,7 +48,7 @@
 
                     <div align="center">
                         <button type="submit" class="btn btn-success btn-md">
-                            <i class="fa fa-dot-circle-o"></i> Continue 
+                            <i class="fa fa-dot-circle-o"></i>Continue 
                         </button>
                     </div>
                 </form>

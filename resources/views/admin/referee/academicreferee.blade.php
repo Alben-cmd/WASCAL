@@ -16,7 +16,7 @@
   <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Professional Referee Submissions</h4>
+                  <h4 class="card-title">Accademic Referee Submissions</h4>
                   @if(Session::has('success'))
                   <div class="alert  alert-success alert-dismissible fade show">
                       <span class="badge badge-pill badge-success">Success</span>
@@ -39,14 +39,14 @@
                         @php
                          $count = 1;
                         @endphp
-                        @foreach($prof_referee as $prof)
+                        @foreach($academic_referee as $academic)
                         <tr>
                           <td>{{ $count++ }}</td>
-                          <td>{{ $prof->applicant_name }}</td> 
-                          <td>{{ $prof->referee_name }}</td> 
-                          <td>{{ $prof->referee_position }}</td>
+                          <td>{{ $academic->applicant_name }}</td> 
+                          <td>{{ $academic->referee_name }}</td> 
+                          <td>{{ $academic->referee_position }}</td>
                           
-                          <td><a href="{{ route('show.profreferee', ['id' => $prof->id]) }}" class="btn btn-link text-primary">Read</a>
+                          <td><a href="{{ route('show.academicreferee', ['id' => $academic->id]) }}" class="btn btn-link text-primary">Read</a>
                           </td>
                         </tr>
                          @endforeach

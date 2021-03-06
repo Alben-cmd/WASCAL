@@ -10,7 +10,7 @@
           <div class="card-header" align="center">
                 <strong>Doctoral Research Programme in Climate Change and Human Habitat <br>
                 Application Form<br>
-                Doctor of Philosophy (Ph.D) in Climate Change and Human Habitat 
+                Doctor of Philosophy (Ph.D) in Climate Change and Human Habitat, 
                 Federal University of Technology, Minna (FUT Minna), Niger State, Nigeria.<br>
                 </strong>
                 @foreach($personal as $person)
@@ -41,7 +41,7 @@
                      <div class="row">
                     
                     <div class="col-md-3"><strong>Name of Company</strong> <br><br>
-                         <input type="text" id="employment_name" name="employment_name" placeholder="Company name" class="form-control" value="{{ old('employment_name') }}" required>
+                         <input type="text" id="employment_name" name="employment_name" placeholder="Company Name" class="form-control" value="{{ old('employment_name') }}" required>
                         <br><br>
                     </div>
                     <div class="col-md-3">

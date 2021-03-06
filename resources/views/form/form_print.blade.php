@@ -35,7 +35,7 @@
         <div class="entry">
           <!-- Begin Image -->
           @foreach($passport_data as $passport)
-          <img class="portrait" src="{{ asset('/images/'.$passport->passport_img) }}" alt="John Smith" />
+          <img class="portrait" src="{{ asset('/images/'.$passport->passport_img) }}" alt="Passport" />
           @endforeach
           <!-- End Image -->
           <!-- Begin Personal Information -->
@@ -50,8 +50,7 @@
           <!-- Begin Social -->
           <div class="social">
             <ul>
-              <li><a class='north' title="Print" onclick="window.print()">Print</a></li>
-              
+              <li><a class='north' href="javascript:window.print()" title="Print"><img src="{{ asset('logo/icn-print.jpg') }} " alt="" /></a></li>
             </ul>
           </div>
           <!-- End Social -->

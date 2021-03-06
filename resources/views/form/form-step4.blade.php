@@ -9,7 +9,7 @@
         <div class="card-header" align="center">
                 <strong>Doctoral Research Programme in Climate Change and Human Habitat <br>
                 Application Form<br>
-                Doctor of Philosophy (Ph.D) in Climate Change and Human Habitat 
+                Doctor of Philosophy (Ph.D) in Climate Change and Human Habitat, 
                 Federal University of Technology, Minna (FUT Minna), Niger State, Nigeria.<br>
                 </strong>
                 @foreach($personal as $person)
@@ -18,7 +18,7 @@
             </div>
             <div class="card-header">
                 <strong>4. Language Skills </strong>
-                <p>Please indicate using abbreviation L, I or A (L=Low; I=Intermediate; A=Advanced).  For Applicants from Francophone Countries, possessing TOEFL Certificate is an added advantage.</p>
+                <p>Please Indicate Using Abbreviation L, I or A (L=Low; I=Intermediate; A=Advanced).  For Applicants from Francophone Countries, possessing TOEFL Certificate is an Added Advantage.</p>
                 
             </div>
             <div class="card-body card-block">
@@ -45,7 +45,7 @@
                             <option value="" disabled selected hidden>Please select</option>
                             <option value="English">English </option>
                             <option value="French">French</option>
-                            <option value="Other">Other</option>
+                            <option value="Portuguese">Portuguese</option>
                         </select>
                         <br>
                         <br> 

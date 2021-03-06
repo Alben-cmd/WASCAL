@@ -560,40 +560,47 @@
                             </div>
                             <br>
                             </div>
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div align="center">
+            
+                                <a href="{{ route('printpriview') }}" class="btn btn-primary btn-md">Print Preview</a>
+                                <script type="text/javascript">
+                                    $(document).ready(function(){
+                                    $('.btnprn').printPage();
+                                    });
+                                </script>
+
+            <br>
+        </div>
+                              </div>
+                              <div class="col-md-6">
+                                <!-- <form action="{{ route('final.store') }}" method="POST" enctype="multipart/form-data" class="form-horizontal">
+                                            @csrf
+                                <div align="center">
+                                    <button type="submit" class="btn btn-success btn-md">
+                                        <i class="fa fa-dot-circle-o"></i> Submit
+                                    </button>
+                                    <br>
+                                </div>
+                                </form> -->
+                              </div>
+                            </div>
+                            
+        
+
                     </div>
 
                 </div>
-                
+                 
               </div>
             </div>
             </div>
         </div>
-        <form action="{{ route('final.store') }}" method="POST" enctype="multipart/form-data" class="form-horizontal">
-                    @csrf
-        <div align="center">
-            <button type="submit" class="btn btn-success btn-md">
-                <i class="fa fa-dot-circle-o"></i> Submit
-            </button>
-            <br>
-        </div>
-        </form>
-        <a href="{{ route('printpriview') }}" class="btnprn btn">Print Preview</a>
-<script type="text/javascript">
-    $(document).ready(function(){
-    $('.btnprn').printPage();
-    });
-</script>
-                    <br>
-                    <br>
 
-     <!--  <a type="button" href=" {{ route('step1') }} " class="btn btn-warning">Back to Step 1</a>
-      <a type="button" href="{{ route('step2') }}" class="btn btn-warning">Back to Step 2</a>
-      <a type="button" href=" {{ route('step3') }} " class="btn btn-warning">Back to Step 3</a>
-      <a type="button" href="{{ route('step4') }}" class="btn btn-warning">Back to Step 4</a>
-      <a type="button" href=" {{ route('step5') }} " class="btn btn-warning">Back to Step 5</a>
-      <a type="button" href="{{ route('step6') }}" class="btn btn-warning">Back to Step 6</a>
-      <a type="button" href="{{ route('step8') }}" class="btn btn-warning">Back to Step 7</a>
-      <a type="button" href=" {{ route('step9') }} " class="btn btn-warning">Back to Step 8</a> -->
+        
+                    <br>
+                    <br>
     </div>
 </div>
 

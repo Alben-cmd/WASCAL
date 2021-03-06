@@ -12,7 +12,7 @@
             <div class="card-header" align="center">
                 <strong>Doctoral Research Programme in Climate Change and Human Habitat <br>
                 Application Form<br>
-                Doctor of Philosophy (Ph.D) in Climate Change and Human Habitat 
+                Doctor of Philosophy (Ph.D) in Climate Change and Human Habitat, 
                 Federal University of Technology, Minna (FUT Minna), Niger State, Nigeria.<br>
                 </strong>
                 @foreach($personal as $person)
@@ -39,8 +39,8 @@
                     @csrf
                     <br>
                     <div class="row form-group">
-                        <div class="col col-md-3"><label for="text-input" class=" form-control-label">Secondary/Post Primary School attended</label></div>
-                        <div class="col-9 col-md-7"><input type="text" id="secondary_school" name="secondary_school" placeholder="Secondary/Post Primary School attended" class="form-control" value="{{ old('secondary_school') }}" required></div>
+                        <div class="col col-md-3"><label for="text-input" class=" form-control-label">Secondary/Post Primary School Attended</label></div>
+                        <div class="col-9 col-md-7"><input type="text" id="secondary_school" name="secondary_school" placeholder="Secondary/Post Primary School Attended" class="form-control" value="{{ old('secondary_school') }}" required></div>
                     </div>
 
                     <div class="row form-group">
@@ -67,11 +67,11 @@
                         </script>
                     </div>
                     <div class="row form-group">
-                        <div class="col col-md-3"><label for="text-input" class=" form-control-label">Title of Certificate obtained</label></div>
-                        <div class="col-9 col-md-7"><input type="text" id="secondary_title" name="secondary_title" placeholder="Title of Certificate obtained" class="form-control" value="{{ old('secondary_title') }}"></div>
+                        <div class="col col-md-3"><label for="text-input" class=" form-control-label">Title of Certificate Obtained</label></div>
+                        <div class="col-9 col-md-7"><input type="text" id="secondary_title" name="secondary_title" placeholder="Title of Certificate Obtained" class="form-control" value="{{ old('secondary_title') }}"></div>
                     </div>
                     <div class="row form-group">
-                      <div class="col col-md-3"><label for="text-input" class=" form-control-label">Date obtained</label></div>
+                      <div class="col col-md-3"><label for="text-input" class=" form-control-label">Date Obtained</label></div>
                       <div class="col-9 col-md-7"><input type="date" id="secondary_date" name="secondary_date" class="form-control" value="{{ old('secondary_date') }} " required></div>
                   </div>
                   <input type="hidden" name="pic_id" value="{{ $form->id }} ">

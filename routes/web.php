@@ -101,5 +101,8 @@ Route::post('admin/register/update/referee/{id}', 'AdminController@updatereferee
 Route::get('/admin/professional_referee', 'AdminController@profreferee')->name('admin.profreferee');
 Route::get('/admin/professional_referee/edit/{id}', 'AdminController@showprofreferee')->name('show.profreferee');
 
+Route::get('/admin/academic_referee', 'AdminController@academicreferee')->name('admin.academicreferee');
+Route::get('/admin/academic_referee/edit/{id}', 'AdminController@showacademicreferee')->name('show.academicreferee');
+
 
 

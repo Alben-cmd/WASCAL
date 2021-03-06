@@ -36,7 +36,7 @@
           @if($unique->count() > 0)  
           @foreach($unique as $passport)
 
-          <img class="portrait" src="{{ asset('/images/'.$passport->passport_img) }}" alt="John Smith" />
+          <img class="portrait" src="{{ asset('/images/'.$passport->passport_img) }}" alt="Passport" />
           <!-- End Image -->
           <!-- Begin Personal Information -->
           <div class="self">
@@ -52,7 +52,7 @@
           <!-- Begin Social -->
           <div class="social">
             <ul>
-              <li><a class='north' onclick="window.print()">Print</a></li>
+               <li><a class='north' href="javascript:window.print()" title="Print"><img src="{{ asset('logo/icn-print.jpg') }} " alt="" /></a></li>
               
             </ul>
           </div>
