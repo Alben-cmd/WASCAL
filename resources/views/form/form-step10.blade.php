@@ -564,15 +564,11 @@
                               <div class="col-md-6">
                                 <div align="center">
             
-                                <a href="{{ route('printpriview') }}" class="btn btn-primary btn-md">Print Preview</a>
-                                <script type="text/javascript">
-                                    $(document).ready(function(){
-                                    $('.btnprn').printPage();
-                                    });
-                                </script>
+                                <a href="{{ route('information') }}" class="btn btn-primary btn-md">Submit</a>
 
             <br>
         </div>
+        
                               </div>
                               <div class="col-md-6">
                                 <!-- <form action="{{ route('final.store') }}" method="POST" enctype="multipart/form-data" class="form-horizontal">

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Form;
+
 use App\Passport;
 use App\Result;
 use App\Personal;
@@ -619,6 +619,25 @@ class FormController extends Controller
         $referee_data = DB::table('referees')->get();
         $document_data = DB::table('documents')->get();
         return view('form.uniquesearch', compact('unique','passport_data','secondary_data','personal_data','result_data','university_data','degree_data','language_data','computer_data','employment_data','referee_data','document_data'));
+    }
+
+    public function information(Request $request)
+    {
+    
+
+        $form = $request->session()->get('form');
+
+         if (isset($form->id)) {
+
+        $form = $request->session()->get('form');
+        $personal_data = DB::table('personals')->where('unique_id', '=', $form->unique_id)->get(); 
+
+        return view('form.form_information',compact('form','personal', 'personal_data', $form));
+
+        }
+        else{ 
+            return redirect()->route('passport');
+        }
     }
 
 }

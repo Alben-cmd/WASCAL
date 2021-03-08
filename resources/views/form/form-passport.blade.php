@@ -33,7 +33,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card-header">
-                            <strong>Begin Registeration <br>Passpport Upload </strong>
+                            <strong>Begin Registration <br>Passpport Upload </strong>
 
                             
                         </div>

@@ -45,6 +45,7 @@ Route::post('/wascal/register/step9', 'FormController@postCreateStep9')->name('s
 Route::get('/wascal/register/document/delete/{documents}', 'FormController@documentdestroy')->name('delete.document');
 Route::get('/wascal/register/review', 'FormController@createStep10')->name('step10');
 Route::post('/wascal/register/store', 'FormController@store')->name('final.store');
+Route::get('/wascal/register/submit', 'FormController@information')->name('information');
 
 //referee form
 Route::get('wascal/referee/form/professional', 'RefereeController@profreferee')->name('profreferee');
@@ -100,7 +101,6 @@ Route::post('admin/register/update/referee/{id}', 'AdminController@updatereferee
 //referee
 Route::get('/admin/professional_referee', 'AdminController@profreferee')->name('admin.profreferee');
 Route::get('/admin/professional_referee/edit/{id}', 'AdminController@showprofreferee')->name('show.profreferee');
-
 Route::get('/admin/academic_referee', 'AdminController@academicreferee')->name('admin.academicreferee');
 Route::get('/admin/academic_referee/edit/{id}', 'AdminController@showacademicreferee')->name('show.academicreferee');
 

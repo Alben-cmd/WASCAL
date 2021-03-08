@@ -38,7 +38,9 @@ class AdminController extends Controller
     public function home()
     {
         $personal = DB::table('personals')->get();
-        return view('admin.home', compact('personal'));
+        $prof_referee = DB::table('profrefs')->get();
+        $academic_referee = DB::table('academicrefs')->get();
+        return view('admin.home', compact('personal','prof_referee','academic_referee'));
     }
 //registered 
     public function index()

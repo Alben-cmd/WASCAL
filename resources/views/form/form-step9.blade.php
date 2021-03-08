@@ -26,7 +26,6 @@
                 <strong>8. Application Supporting Documents</strong>
                 <p><b><i> (All relevant documents must be in<i style="color: crimson;"> PDF format</i> and uploaded for the applicant to be considered for admission)</i></b> </p>
                 <ol style="padding-left:45px ">
-                  <li> Completed Application form (Partially completed forms will be discarded) </li>
                   <li> Candidates must Submit B.Sc. or B.Tech Certificate or Equivalent</li>
                   <li> Candidates must Submit M.Sc. or M.Tech Certificate or Equivalent</li>
                   <li> Candidates must Submit M.Sc. or M.Tech Official Transcript or Equivalent </li> 
@@ -73,12 +72,7 @@
                             <option value="Letter from Employer">Letter from Employer</option>
                             <option value="Letter of attestation of good behaviour from Parents/Guardian">Letter of Attestation of Good Behaviour From Parents/Guardian</option>
                             <option value="Certificate of Nationality or State of Origin">Certificate of Nationality/State of Origin</option>
-                            <option value="Research Pre-Proposal/Research Interest ">Research Pre-Proposal/Research Interest </option>
                             <option value="Applicant’s Research pre-Proposal/Research Interest">Applicant’s Research Pre-Proposal/Research Interest</option>
-                            <option value="Referee From HOD">Referee From HOD</option>
-                            <option value="Referee from Spervisor">Referee From Spervisor</option>
-                            <option value="Referee from Boss">Referee From Boss </option>
-                            <option value="Referee from MPF">Referee From MRP </option>
                         </select>
                         </div> 
                         <div class="col-md-3"><input type="file" id="doc_file" name="doc_file" class="form-control-file" required></div>
