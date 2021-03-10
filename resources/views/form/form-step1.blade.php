@@ -57,10 +57,26 @@
                       <div class="col col-md-3"><label for="text-input" class=" form-control-label">Date of Birth</label></div>
                       <div class="col-9 col-md-7"><input type="date" id="dob" name="dob" class="form-control" value="{{ old('dob') }} " required></div>
                   </div>
-                  <div class="row form-group">
-                        <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nationality</label></div>
-                        <div class="col-9 col-md-7"><input type="text" id="Nationality" name="nationality" placeholder=" Nationality" class="form-control" value="{{ old('nationality') }}" required></div>
+                  <div class="row form-group ">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nationality</label></div>
+                    <div class="col-9 col-md-7">
+                        <select name="nationality" class="standardSelect" required>
+                            <option value="" disabled selected hidden>Please select</option>
+                            <option value="Bénin">Bénin</option>
+                            <option value="Burkina Faso">Burkina Faso</option>
+                            <option value="Cape Verde">Cape Verde</option>
+                            <option value="Côte d'Ivoire">Côte d'Ivoire</option>
+                            <option value="The Gambia">The Gambia</option>
+                            <option value="Ghana">Ghana</option>
+                            <option value="Mali">Mali</option>
+                            <option value="Niger">Niger</option>
+                            <option value="Nigeria">Nigeria</option>
+                            <option value="Sénégal">Sénégal</option>
+                            <option value="Togo">Togo</option>
+                        </select>
+                      </div>
                     </div>
+                  
                     <div class="row form-group ">
                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Marital Status</label></div>
                     <div class="col-9 col-md-7">

@@ -24,6 +24,20 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
     <script src="{{asset('ckeditor/ckeditor.js')}}"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function (){
+            $("#title").change(function() {
+                // foo is the id of the other select box 
+                if ($(this).val() != "Master") {
+                    $("#grade").show();
+                }else{
+                    $("#grade").hide();
+                } 
+            });
+        });
+    </script>
 
 </head>
 
@@ -91,6 +105,7 @@
     document.getElementById('year').innerHTML = option;
 })();
 </script>
+
     <script src="{{ asset('js/jquery.printpage.js')}}"></script>
     <script src="{{ asset('dashboard_assets/vendors/jquery/dist/jquery.min.js')}}"></script>
     <script src="{{ asset('dashboard_assets/vendors/popper.js/dist/umd/popper.min.js')}}"></script>

@@ -29,7 +29,7 @@
               </div>
               <div class="col-md-12" align="center">
                  @foreach($passport_data as $passport)
-                 @if($passport->id == $personal_data->pic_id)
+                 @if($passport->id == $personal_data->unique_id)
                   <div class="col-12 col-md-9"><input type="file" id="passport_img" name="passport_img" class="form-control-file"></div>
                 <small class="form-text text-success">Only if you want to update the current Image</small>
                 
@@ -89,7 +89,7 @@
                                   Contact Person Email: <input type="email" id="contact_email" name="contact_email" class="form-control" value="{{ $personal_data->contact_email }}" required>
                                   <br>
                                   Contact Person Phone Number: <input type="text" id="contact_number" name="contact_number" class="form-control" value="{{ $personal_data->contact_number }}" required>
-                                  <input type="hidden" name="pic_id" value="{{ $personal_data->pic_id }} ">
+                                  <input type="hidden" name="unique_id" value="{{ $personal_data->unique_id }} ">
                                   <br>
                                   </div>
                               </div>
@@ -107,7 +107,7 @@
                                 <div class="col-md-8">
                                 <div class="card-body my-3">
                                   @foreach($secondary_data as $secondary)
-                                  @if( $personal_data->pic_id == $secondary->pic_id)
+                                  @if( $personal_data->unique_id == $secondary->unique_id)
                                   Secondary School : <input type="text" id="secondary_school" name="secondary_school" class="form-control" value="{{ $secondary->secondary_school }}" required>
                                   <br>
                                   Secondary School Period: From: <input type="text" id="secondary_from" name="secondary_from" class="form-control" value="{{ $secondary->secondary_from }}" required> To: <input type="text" id="secondary_to" name="secondary_to" class="form-control" value="{{ $secondary->secondary_to }}" required> 
@@ -115,7 +115,7 @@
                                   Secondary school Title : <input type="text" id="secondary_title" name="secondary_title" class="form-control" value="{{ $secondary->secondary_title }}" required>
                                   <br>
                                   Secondary school Date : <input type="date" id="secondary_date" name="secondary_date" class="form-control" value="{{ $secondary->secondary_date }}" required>
-                                  <input type="hidden" name="pic_id" value="{{ $secondary->pic_id }} ">
+                                  <input type="hidden" name="unique_id" value="{{ $secondary->unique_id }} ">
                                   <hr>
                                   
                                 @endif
@@ -137,7 +137,7 @@
                                 <div class="col-md-8">
                                 <div class="card-body my-3">
                                  @foreach($result_data as $result)
-                                  @if( $personal_data->pic_id == $result->pic_id)
+                                  @if( $personal_data->unique_id == $result->unique_id)
                                   Exam Type: <input type="text" id="exam_type" name="exam_type" class="form-control" value="{{ $result->exam_type }}" required>
                                   <br>
                                   Subject: <input type="text" id="ssce_subject" name="ssce_subject" class="form-control" value="{{ $result->ssce_subject }}" required>
@@ -145,7 +145,7 @@
                                   Grade: <input type="text" id="ssce_grade" name="ssce_grade" class="form-control" value="{{ $result->ssce_grade }}" required>
                                   <br>
                                   Year: <input type="text" id="ssce_yr" name="ssce_yr" class="form-control" value="{{ $result->ssce_yr }}" required>
-                                  <input type="hidden" name="pic_id" value="{{ $result->pic_id }} ">
+                                  <input type="hidden" name="unique_id" value="{{ $result->unique_id }} ">
                                   <hr>
                                   
                                   @endif
@@ -166,7 +166,7 @@
                                 <div class="col-md-8">
                                 <div class="card-body my-3">
                                   @foreach($University_data as $university)
-                                  @if( $personal_data->pic_id == $university->pic_id)
+                                  @if( $personal_data->unique_id == $university->unique_id)
                                    University Attended: <input type="text" id="university" name="university" class="form-control" value="{{ $university->university }}" required>
                                    <br>
                                     Year of Attendance: <input type="text" id="university_year" name="university_year" class="form-control" value="{{ $university->university_year }}" required>
@@ -178,7 +178,7 @@
                                     Title: <input type="text" id="university_title" name="university_title" class="form-control" value="{{ $university->university_title }}" required>
                                     <br>
                                     Grade: <input type="text" id="university_grade" name="university_grade" class="form-control" value="{{ $university->university_grade }}" required>
-                                    <input type="hidden" name="pic_id" value="{{ $university->pic_id }} ">
+                                    <input type="hidden" name="unique_id" value="{{ $university->unique_id }} ">
                                   <hr>
                                   @endif
                                   @endforeach
@@ -197,7 +197,7 @@
                                 <div class="col-md-8">
                                 <div class="card-body my-3">
                                   @foreach($degree_data as $degree)
-                                  @if( $personal_data->pic_id == $degree->pic_id)
+                                  @if( $personal_data->unique_id == $degree->unique_id)
                                   Name: <input type="text" id="btec_name" name="btec_name" class="form-control" value="{{ $degree->btec_name }}" required>
                                     <br>
                                     Course: <input type="text" id="btec_subject" name="btec_subject" class="form-control" value="{{  $degree->btec_subject}}" required>
@@ -209,7 +209,7 @@
                                     Period: From: <input type="text" id="btec_date_from" name="btec_date_from" class="form-control" value=" From: {{  $degree->btec_date_from }}" required>
                                     <br>
                                     Period: To: <input type="text" id="btec_date_to" name="btec_date_to" class="form-control" value=" From: {{  $degree->btec_date_to }}" required>
-                                    <input type="hidden" name="pic_id" value="{{ $degree->pic_id }} ">
+                                    <input type="hidden" name="unique_id" value="{{ $degree->unique_id }} ">
                                   
                                    @endif
                                    @endforeach
@@ -229,7 +229,7 @@
                                 <div class="col-md-8">
                                 <div class="card-body my-3">
                                   @foreach($degree_data as $uni)
-                                  @if( $personal_data->pic_id == $uni->pic_id)
+                                  @if( $personal_data->unique_id == $uni->unique_id)
                                   Name: <input type="text" id="master_name" name="master_name" class="form-control" value="{{ $uni->master_name }}" required>
                                     <br>
                                     Course: <input type="text" id="master_subject" name="master_subject" class="form-control" value="{{ $uni->master_subject }}" required>
@@ -241,7 +241,7 @@
                                     Period: From: <input type="text" id="master_date_from" name="master_date_from" class="form-control" value="{{ $uni->master_date_from }}" required>
                                     <br>
                                     Period: To: <input type="text" id="master_date_to" name="master_date_to" class="form-control" value="{{ $uni->master_date_to }}" required>
-                                    <input type="hidden" name="pic_id" value="{{ $uni->pic_id }} ">
+                                    <input type="hidden" name="unique_id" value="{{ $uni->unique_id }} ">
                                     <hr>
                                     
                                   @endif 
@@ -262,13 +262,13 @@
                                 <div class="col-md-8">
                                 <div class="card-body my-3">
                                   @foreach($language_data as $language)
-                                  @if( $personal_data->pic_id == $uni->pic_id)
+                                  @if( $personal_data->unique_id == $uni->unique_id)
                                   Language: <input type="text" id="language" name="language" class="form-control" value="{{ $language->language }}" required>
                                 
                                     Ability: <input type="text" id="ability" name="ability" class="form-control" value="{{ $language->ability }}" required>
                                     
                                     Notation: <input type="text" id="notation" name="notation" class="form-control" value="{{ $language->notation }}" required>
-                                    <input type="hidden" name="pic_id" value="{{ $language->pic_id }} ">
+                                    <input type="hidden" name="unique_id" value="{{ $language->unique_id }} ">
                                     <hr>
 
                                     
@@ -290,10 +290,10 @@
                                 <div class="col-md-8">
                                 <div class="card-body my-3">
                                   @foreach($computer_data as $computer)
-                                  @if( $personal_data->pic_id == $uni->pic_id)
+                                  @if( $personal_data->unique_id == $uni->unique_id)
                                   Skill Set: <input type="text" id="computer_skill" name="computer_skill" class="form-control" value="{{ $computer->computer_skill }}" required>
                                   Proficiency: <input type="text" id="proficiency" name="proficiency" class="form-control" value="{{ $computer->proficiency }}" required>
-                                  <input type="hidden" name="pic_id" value="{{ $computer->pic_id }} ">
+                                  <input type="hidden" name="unique_id" value="{{ $computer->unique_id }} ">
                                   <hr>
 
                                   @endif 
@@ -315,12 +315,12 @@
                                 <div class="col-md-8">
                                 <div class="card-body my-3">
                                   @foreach($employment_data as $employment)
-                                  @if( $personal_data->pic_id == $uni->pic_id)
+                                  @if( $personal_data->unique_id == $uni->unique_id)
                                   Name: <input type="text" id="employment_name" name="employment_name" class="form-control" value="{{ $employment->employment_name }}" required>
                                   Address: <input type="text" id="employment_address" name="employment_address" class="form-control" value="{{  $employment->employment_address }}" required>
                                   Employment Date: <input type="text" id="employment_date" name="employment_date" class="form-control" value="{{ $employment->employment_date }}" required>
                                   Position: <input type="text" id="employment_position" name="employment_position" class="form-control" value="{{ $employment->employment_position }}" required>
-                                  <input type="hidden" name="pic_id" value="{{ $employment->pic_id }} ">
+                                  <input type="hidden" name="unique_id" value="{{ $employment->unique_id }} ">
                                   <hr>
                                   @endif 
                                   @endforeach
@@ -340,13 +340,13 @@
                                 <div class="col-md-8">
                                 <div class="card-body my-3">
                                   @foreach($referee_data as $referee)
-                                  @if( $personal_data->pic_id == $uni->pic_id)
+                                  @if( $personal_data->unique_id == $uni->unique_id)
                                   Name: <input type="text" id="referees_name" name="referees_name" class="form-control" value="{{ $referee->referees_name }}" required>
                                   Institution address: <input type="text" id="referees_address" name="referees_address" class="form-control" value="{{ $referee->referees_address }}" required>
                                   Position: <input type="text" id="referees_rank" name="referees_rank" class="form-control" value="{{ $referee->referees_rank }}" required>
                                   Email: <input type="email" id="referees_email" name="referees_email" class="form-control" value="{{ $referee->referees_email }}" required>
                                   Phone: <input type="text" id="referees_phone" name="referees_phone" class="form-control" value="{{ $referee->referees_phone }}" required>
-                                  <input type="hidden" name="pic_id" value="{{ $referee->pic_id }} ">
+                                  <input type="hidden" name="unique_id" value="{{ $referee->unique_id }} ">
                                    <hr>
                                    @endif 
                                   @endforeach

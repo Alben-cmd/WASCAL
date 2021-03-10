@@ -15,7 +15,7 @@ class CreateLanguagesTable extends Migration
     {
         Schema::create('languages', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('pic_id');
+            $table->string('unique_id');
             $table->string('language');
             $table->string('ability');
             $table->string('notation');

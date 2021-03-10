@@ -18,7 +18,7 @@
                 @endforeach
             </div>
             <div class="card-header">
-                <strong>3. University Education </strong>
+                <strong>3. University Education (First Degree and Master Degree Must be Filled) </strong>
                 
             </div>
             <div class="card-body card-block">
@@ -50,31 +50,39 @@
                         <strong>Year</strong> <br><br><br>
                          <select id="year" name="university_year" class="standardSelect"></select>
                         <br><br>
-                        
-                    
+                                            
                     </div>
-                    <div class="col-md-2" >
-                        <strong>Qualification Obtained</strong> <br><br><br>
-                        <input type="text" id="university_qualification" name="university_qualification" placeholder="Qualification Obtained" class="form-control" required>
-                        <br><br>
+                    <div class="col-md-2">
+                      <strong>Qualification Obtained</strong> <br><br>
+                        <br>
+                    <div class="col col-md-2"><label for="text-input" class=" form-control-label"></label></div>
+                        <select name="university_qualification" class="standardSelect" id="title" required>
+                            <option value="" disabled selected hidden>Please select</option>
+                            <option value="First">First Degree</option>
+                            <option value="Master">Master Degree</option>
+                        </select>
+                      </div>
+
                    
-                    </div>
                     <div class="col-md-2">
                         <strong>Date of Qualification</strong> <br><br><br>
                        
                         <input type="date" id="university_date" name="university_date" placeholder="Date of Qualification" class="form-control"required>
                     </div>
-                    <div class="col-md-2">
-                        <strong>  Title of Degree Awarded </strong> <br><br><br>
-                       
-                        <input type="text" id="university_title" name="university_title" placeholder="Title of Degree Awarded" class="form-control" required>
+
+                      <div class="col-md-2" >
+                        <strong>Title of Degree Awarded</strong> <br><br><br>
+                        <input type="text"  name="university_title" placeholder="Qualification Obtained" class="form-control" required>
+                        <br><br>
+                   
                     </div>
-                    <div class="col-md-2">
+
+                    <div class="col-md-2" id="grade">
                         <strong>Grade Awarded </strong> <br><br>
                         <br>
-                        <input type="text" id="university_grade" name="university_grade" placeholder="Grade Awarded" class="form-control" required>
+                        <input type="text" id="university_grade" name="university_grade" placeholder="Grade Awarded" class="form-control">
                     </div>
-                    <input type="hidden" name="pic_id" value="{{ $form->id }} ">
+                    <input type="hidden" name="unique_id" value="{{ $form->unique_id }} ">
                 </div>
                     <div align="right">
                         <button type="submit" class="btn btn-success btn-md">

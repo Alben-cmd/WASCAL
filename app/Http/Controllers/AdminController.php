@@ -78,8 +78,8 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    //calling all the tables from DB to be compared with the pic_id to get data of 1 reg
-    //find the personal id and fetch only data with same pic_id
+    //calling all the tables from DB to be compared with the unique_id to get data of 1 reg
+    //find the personal id and fetch all the data
     public function show($personal)
     {
         $personal_data = Personal::find($personal);
@@ -102,7 +102,7 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    //find the personal id and fetch only data with same pic_id
+    //find the personal id and fetch all data
     public function edit($personal)
     {
         $personal_data = Personal::find($personal);
@@ -168,7 +168,7 @@ class AdminController extends Controller
             'country_residence'  => 'required',
             'address'  => 'required',
             'phone'  => 'required',
-            'email'  => 'required|unique:forms',
+            'email'  => 'required|unique:users,email,'.$id,
             'parent_name'  => 'required',
             'parent_number'  => 'required',
             ]);
@@ -217,7 +217,7 @@ class AdminController extends Controller
             'secondary_date'  => 'required',
             ]);
 
-            $secondary->pic_id =$request->pic_id;
+            $secondary->unique_id =$request->unique_id;
             $secondary->secondary_school = $request->secondary_school;
             $secondary->secondary_from = $request->secondary_from;
             $secondary->secondary_to = $request->secondary_to;
@@ -246,7 +246,7 @@ class AdminController extends Controller
             'ssce_yr' => 'required',
             ]);
 
-            $result->pic_id =$request->pic_id;
+            $result->unique_id =$request->unique_id;
             $result->exam_type = $request->exam_type;
             $result->ssce_subject = $request->ssce_subject;
             $result->ssce_grade = $request->ssce_grade;
@@ -276,7 +276,7 @@ class AdminController extends Controller
             'university_grade'  => 'required',
             ]);
 
-            $university->pic_id =$request->pic_id;
+            $university->unique_id =$request->unique_id;
             $university->university = $request->university;
             $university->university_year = $request->university_year;
             $university->university_qualification = $request->university_qualification;
@@ -308,7 +308,7 @@ class AdminController extends Controller
              'btec_date_to'  => 'required',
             ]);
 
-            $degree->pic_id =$request->pic_id;
+            $degree->unique_id =$request->unique_id;
             $degree->btec_name = $request->btec_name;
             $degree->btec_subject = $request->btec_subject;
             $degree->btec_institution = $request->btec_institution;
@@ -368,7 +368,7 @@ class AdminController extends Controller
              'notation'  => 'required',
             ]);
 
-            $language->pic_id = $request->pic_id;
+            $language->unique_id = $request->unique_id;
             $language->language = $request->language;
             $language->ability = $request->ability;
             $language->notation = $request->notation;
@@ -394,7 +394,7 @@ class AdminController extends Controller
              'notation'  => 'required',
             ]);
 
-            $language->pic_id = $request->pic_id;
+            $language->unique_id = $request->unique_id;
             $language->language = $request->language;
             $language->ability = $request->ability;
             $language->notation = $request->notation;
@@ -421,7 +421,7 @@ class AdminController extends Controller
              'employment_position'  => 'required',
             ]);
 
-            $employment->pic_id = $request->pic_id;
+            $employment->unique_id = $request->unique_id;
             $employment->employment_name = $request->employment_name;
             $employment->employment_address = $request->employment_address;
             $employment->employment_date = $request->employment_date;
@@ -451,7 +451,7 @@ class AdminController extends Controller
              'referees_phone'  => 'required',
             ]);
 
-            $referee->pic_id = $request->pic_id;
+            $referee->unique_id = $request->unique_id;
             $referee->referees_name = $request->referees_name;
             $form->referees_type = $request->referees_type;
             $referee->referees_address = $request->referees_address;

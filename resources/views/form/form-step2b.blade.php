@@ -77,7 +77,7 @@
                     <div class="col-md-2" align="center" >
                         <strong>Year</strong> <br><br> 
                         <div class="col-12 col-md-12"><input type="text" id="ssce_yr" name="ssce_yr" class="form-control" value="{{ old('ssce_yr') }} " required></div>
-                         <input type="hidden" name="pic_id" value="{{ $form->id }} ">
+                         <input type="hidden" name="unique_id" value="{{ $form->unique_id }} ">
                         <br><br>
                         
                         

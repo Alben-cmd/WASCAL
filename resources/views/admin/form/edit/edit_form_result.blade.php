@@ -32,7 +32,7 @@
         Grade: <input type="text" id="ssce_grade" name="ssce_grade" class="form-control" value="{{ $result->ssce_grade }}" required>
         <br>
         Year: <input type="text" id="ssce_yr" name="ssce_yr" class="form-control" value="{{ $result->ssce_yr }}" required>
-        <input type="hidden" name="pic_id" value="{{ $result->pic_id }} ">
+        <input type="hidden" name="unique_id" value="{{ $result->unique_id }} ">
           <br>
           <div align="center">
             <button type="submit" class="btn btn-success btn-md">

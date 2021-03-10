@@ -18,7 +18,7 @@
                 @endforeach
             </div>
             <div class="card-header">
-                <strong>5. Computer Skills </strong>
+                <strong>2. Details of Releve du Notes {Baccalauréat D’enseignement Secondaire}. Only Candidates with Baccalaureat C or D are suitable for Consideration.</strong>
                 
             </div>
             <div class="card-body card-block">
@@ -33,59 +33,65 @@
                       {{ Session::get('success') }}
                   </div>
                   @endif
-                <form action="{{ route('store.form5') }}" method="POST" enctype="multipart/form-data" class="form-horizontal">
+                <form action="{{ route('store.form2c') }}" method="POST" enctype="multipart/form-data" class="form-horizontal">
                     @csrf
                     <br>
 
-                     <div class="row">
+                <div class="row">
                     
-                    <div class="col-md-3"></div>
-                    <div class="col-md-5">
-                        <strong>Computer Skill <span style="color: red"> (All must be filled before you can proceed)</span></strong> <br><br>
-                         <select name="computer_skill" class="standardSelect">
-                            <option value="" disabled selected hidden>Please select</option>
-                            <option value="MS Word ">MS Word </option>
-                            <option value="MS Excel">MS Excel</option>
-                            <option value="MS Powerpoint">MS Powerpoint</option>
-                            <option value="SPSS">SPSS</option>
-                            <option value="GIS Application">GIS Application</option>
-                            <option value="Remote Sensing Application ">Remote Sensing Application </option>
-                        </select>
-                        <br><br>
-                        
-                    
-                    </div>
                     <div class="col-md-4" >
-                        <strong>Proficiency</strong> <br><br>
-                        <select name="proficiency" class="standardSelect">
-                            <option value="" disabled selected hidden>Please select</option>
-                            <option value="Nil">Nil</option>
-                            <option value="Beginner ">Beginner </option>
-                            <option value="Working knowledge">Working knowledge</option>
-                            <option value="Advanced">Advanced</option>
-                        </select>
+                        <strong>Épreuves</strong> <br><br><br>
+                        <input type="text" name="epreuves" placeholder="Épreuves" class="form-control" required>
                         <br><br>
+                   
+                    </div>
+                    <div class="col-md-4">
+                        <strong>Notes</strong> <br><br><br>
+                       
+                        <input type="text" name="notes" placeholder="Notes" class="form-control"required>
+                    </div>
+                    <div class="col-md-4">
+                        <strong>Coeff</strong> <br><br><br>
+                       
+                        <input type="text" name="coeff" placeholder="Coeff" class="form-control" required>
+                    </div>
+                    <div class="col-md-4">
+                        <strong>Points Obtanus</strong> <br><br>
+                        <br>
+                        <input type="text" name="points" placeholder="Grade Awarded" class="form-control" required>
+                    </div>
+                    <div class="col-md-4">
+                        <strong>Sur</strong> <br><br>
+                        <br>
+                        <input type="text" name="sur" placeholder="Sur" class="form-control" required>
+                    </div>
+                    <div class="col-md-4">
+                        <strong>Décision Du Jury</strong> <br><br>
+                        <br>
+                        <input type="text" name="decision" placeholder="Décision Du Jury" class="form-control" required>
                     </div>
                     <input type="hidden" name="unique_id" value="{{ $form->unique_id }} ">
-
-
                 </div>
-                <div align="right">
+                <br>
+                    <div align="right">
                         <button type="submit" class="btn btn-success btn-md">
                         Add</button>
                     </div>
-                     <input type="hidden" name="pic_id" value="{{ $form->id }} ">
-                    <hr>
-            </form>
-            @if($computer_data->count() > 0)
+                </form>
+                <hr>
+                @if($secondaire_data->count() > 0)
 
                  <div class="table-responsive">
                     <table class="table table-striped">
                       <thead>
                         <tr>
                           <th>#</th>
-                          <th>Computer Skill </th>
-                          <th>Proficiency</th>
+                          <th>Épreuves</th>
+                          <th>Notes</th>
+                          <th>Coeff</th>
+                          <th>Points Obtanus</th>
+                          <th>Sur</th>
+                          <th>Décision Du Jury</th>
                           <th>Action</th>
                         </tr>
                       </thead>
@@ -93,14 +99,18 @@
                         @php
                          $count = 1;
                         @endphp
-                        @foreach($computer_data as $row)
+                        @foreach($secondaire_data as $data)
                         <tr>
                           <td>
                             {{ $count++ }}
                           </td>
-                          <td class="py-1">{{ $row->computer_skill }}</td>
-                          <td>{{ $row->proficiency }}</td>
-                          <td><a href="{{ route('delete.computer', ['id' => $row->id]) }}"  onclick="return confirm('Are you sure?')" class="btn btn-outline-danger btn-icon-text btn-sm"> Delete</a></td>
+                          <td class="py-1">{{ $data->epreuves }}</td>
+                          <td>{{ $data->notes }}</td>
+                          <td>{{ $data->coeff }} </td>
+                          <td>{{ $data->points }}</td>
+                          <td>{{ $data->sur }}</td>
+                          <td>{{ $data->decision }}</td>
+                          <td><a href="{{ route('delete.secondaire', ['id' => $data->id]) }}"  onclick="return confirm('Are you sure?')" class="btn btn-outline-danger btn-icon-text btn-sm"> Delete</a></td>
                         </tr>
                          @endforeach
                         
@@ -112,12 +122,11 @@
                  @else
                  @endif
 
-
-                  @if($computer_data->count() > 5)
+                  @if($secondaire_data->count() > 1)
 
                 <div align="center">
                   <button type="submit" class="btn btn-success btn-md">
-                      <i class="fa fa-dot-circle-o"></i> <a href="{{ route('step6') }}">Continue </a> 
+                      <i class="fa fa-dot-circle-o"></i> <a href="{{ route('step3') }}">Continue </a> 
                   </button>
                 </div>
                 @else
@@ -127,16 +136,14 @@
                   </button>
                 </div>
                  @endif
-
                 
             </div>
         </div>
     </div>
 </div>
 
-                   
 
-</div>
+            
 
 @endsection
 

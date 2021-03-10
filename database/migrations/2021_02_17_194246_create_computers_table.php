@@ -15,7 +15,7 @@ class CreateComputersTable extends Migration
     {
         Schema::create('computers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('pic_id');
+            $table->string('unique_id');
             $table->string('computer_skill');
             $table->string('proficiency');
             $table->timestamps();

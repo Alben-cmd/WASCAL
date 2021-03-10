@@ -38,6 +38,18 @@
                 <form action="{{ route('store.form2') }}" method="POST" enctype="multipart/form-data" class="form-horizontal">
                     @csrf
                     <br>
+
+                    <div class="row form-group ">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Certificate Obtained</label></div>
+                    <div class="col-9 col-md-7">
+                        <select name="cert_type" class="standardSelect" required>
+                            <option value="" disabled selected hidden>Please select</option>
+                            <option value="WAEC/SSCE">WAEC/SSCE</option>
+                            <option value="Baccalaureate">Baccalaureate C or D</option>
+                        </select>
+                      </div>
+                    </div>
+
                     <div class="row form-group">
                         <div class="col col-md-3"><label for="text-input" class=" form-control-label">Secondary/Post Primary School Attended</label></div>
                         <div class="col-9 col-md-7"><input type="text" id="secondary_school" name="secondary_school" placeholder="Secondary/Post Primary School Attended" class="form-control" value="{{ old('secondary_school') }}" required></div>
@@ -74,7 +86,7 @@
                       <div class="col col-md-3"><label for="text-input" class=" form-control-label">Date Obtained</label></div>
                       <div class="col-9 col-md-7"><input type="date" id="secondary_date" name="secondary_date" class="form-control" value="{{ old('secondary_date') }} " required></div>
                   </div>
-                  <input type="hidden" name="pic_id" value="{{ $form->id }} ">
+                  <input type="hidden" name="unique_id" value="{{ $form->unique_id }} ">
                   <div align="right">
                         <button type="submit" class="btn btn-success btn-md">
                              Add 
@@ -89,7 +101,8 @@
                       <thead>
                         <tr>
                           <th>#</th>
-                          <th>School </th>
+                          <th></th>
+                          <th>School</th>
                           <th>Period in Years</th>
                           <th>Certificate Title</th>
                           <th>Date </th>
@@ -117,27 +130,27 @@
                     </table>
                     
                   </div>
-
-                 @else
-                 @endif
-                  
-                  
-                    
+                 @endif     
                 </form>
-           @if($secondary_data->count() > 0)
 
-                <div align="center">
+            @foreach($secondary_data as $data)
+
+           @If($data->cert_type == 'WAEC/SSCE')
+           <div align="center">
                   <button type="submit" class="btn btn-success btn-md">
                       <i class="fa fa-dot-circle-o"></i> <a href="{{ route('step2b') }}">Continue </a> 
                   </button>
                 </div>
-                @else
-                  <div align="center">
+                @elseif($data->cert_type == 'Baccalaureate')
+
+                <div align="center">
                   <button type="submit" class="btn btn-success btn-md">
-                      <i class="fa fa-dot-circle-o"></i> Continue
+                      <i class="fa fa-dot-circle-o"></i> <a href="{{ route('step2c') }}">Continue </a> 
                   </button>
                 </div>
-                 @endif
+                @endif
+
+                @endforeach
             </div>
         </div>
     </div>

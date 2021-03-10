@@ -41,8 +41,8 @@
                             </div>
                             <div class="col-md-8">
                                 @foreach($personal_data as $personal)
-                       <p align="center" style='color:rgb(17, 0, 255)'><span style='color:red'>Congratulation</span>  {{ $personal->Lname }} {{ $personal->fname }}!!!</p> <p> You have successfully submitted your application form for WASCAL Doctor of Philosophy (Ph.D) in Climate Change and Human Habitat. A unique ID  <i style="color: crimson;">{{ $personal->unique_id }} </i> has been generated for you to login to the portal and view your application Progress. <br>
-                        Thank you.</p>
+                       <p align="center" style='color:rgb(17, 0, 255)'><strong> <span style='color:red'>Congratulation</span>  {{ $personal->Lname }} {{ $personal->fname }}!!! <br> You have successfully submitted your application form for WASCAL Doctor of Philosophy (Ph.D) in Climate Change and Human Habitat. A unique ID  <i style="color: crimson;">{{ $personal->unique_id }} </i> has been generated for you to login to the portal and view your application Progress. <br>
+                        Thank you.</strong></p>
                         @endforeach
                         
                             </div>

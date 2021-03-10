@@ -15,7 +15,7 @@ class CreateDegreesTable extends Migration
     {
         Schema::create('degrees', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('pic_id');
+            $table->string('unique_id');
             $table->text('btec_name');
             $table->string('btec_subject');
             $table->string('btec_institution');

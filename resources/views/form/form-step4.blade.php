@@ -67,14 +67,14 @@
                         <strong>Notation</strong> <br><br>
                         <select name="notation" class="standardSelect">
                             <option value="" disabled selected hidden>Please select</option>
-                            <option value="Nill ">Nill </option>
-                            <option value="Low ">Low </option>
+                            <option value="Nil">Nil</option>
+                            <option value="Low">Low </option>
                             <option value="Intermediate">Intermediate</option>
                             <option value="Advanced">Advanced</option>
                         </select>
                         <br><br>
                     </div>
-                    <input type="hidden" name="pic_id" value="{{ $form->id }} ">
+                    <input type="hidden" name="unique_id" value="{{ $form->unique_id }} ">
 
 
                 </div>

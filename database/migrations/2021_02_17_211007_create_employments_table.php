@@ -15,7 +15,7 @@ class CreateEmploymentsTable extends Migration
     {
         Schema::create('employments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('pic_id');
+            $table->string('unique_id');
             $table->text('employment_name');
             $table->text('employment_address');
             $table->text('employment_date');

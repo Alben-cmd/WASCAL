@@ -15,13 +15,13 @@ class CreateUniversitiesTable extends Migration
     {
         Schema::create('universities', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('pic_id');
+            $table->string('unique_id');
             $table->text('university');
             $table->string('university_year');
             $table->string('university_qualification');
             $table->string('university_date');
             $table->string('university_title');
-            $table->string('university_grade');
+            $table->string('university_grade')->nullable();
             $table->timestamps();
         });
     }

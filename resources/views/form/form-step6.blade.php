@@ -61,7 +61,7 @@
                         <input type="text" id="employment_position" name="employment_position" placeholder="Position" class="form-control" value="{{ old('employment_position') }}" required>
                         <br><br>
                     </div>
-                    <input type="hidden" name="pic_id" value="{{ $form->id }} ">
+                    <input type="hidden" name="unique_id" value="{{ $form->unique_id }} ">
 
 
                 </div>
@@ -69,7 +69,7 @@
                         <button type="submit" class="btn btn-success btn-md">
                         Add</button>
                     </div>
-                     <input type="hidden" name="pic_id" value="{{ $form->id }} ">
+                    <!--  <input type="hidden" name="unique_id" value=" "> -->
                     <hr>
             </form>
             @if($employment_data->count() > 0)

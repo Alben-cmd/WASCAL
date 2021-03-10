@@ -98,7 +98,7 @@
                                               </tr>
                                             </thead>
                                             @foreach($secondary_data as $secondary)
-                                  @if( $personal_data->pic_id == $secondary->pic_id)
+                                  @if( $personal_data->unique_id == $secondary->unique_id)
                                             <tbody>
                                               <tr>
                                                 <td>{{ $secondary->secondary_school }}</td>
@@ -137,7 +137,7 @@
                                 <div class="col-md-12">
                                 <div class="card-body my-3">
                                  @foreach($result_data as $result)
-                                  @if( $personal_data->pic_id == $result->pic_id)
+                                  @if( $personal_data->unique_id == $result->unique_id)
                                   <div class="row">
                                     <div class="col-md-9">
                                       <table class="table">
@@ -184,7 +184,7 @@
                                 <div class="col-md-12">
                                 <div class="card-body my-3">
                                   @foreach($university_data as $university)
-                                  @if( $personal_data->pic_id == $university->pic_id)
+                                  @if( $personal_data->unique_id == $university->unique_id)
                                   <div class="row">
                                     <div class="col-md-9">
                                       <table class="table">
@@ -235,7 +235,7 @@
                                 <div class="col-md-12">
                                 <div class="card-body my-3">
                                   @foreach($degree_data as $degree)
-                                  @if( $personal_data->pic_id == $degree->pic_id)
+                                  @if( $personal_data->unique_id == $degree->unique_id)
                                   <div class="row">
                                     <div class="col-md-9">
                                       <table class="table">
@@ -286,7 +286,7 @@
                                 <div class="col-md-12">
                                 <div class="card-body my-3">
                                   @foreach($degree_data as $uni)
-                                  @if( $personal_data->pic_id == $uni->pic_id)
+                                  @if( $personal_data->unique_id == $uni->unique_id)
                                   <div class="row">
                                     <div class="col-md-9">
                                       <table class="table">
@@ -337,7 +337,7 @@
                                 <div class="col-md-12">
                                 <div class="card-body my-3">
                                   @foreach($language_data as $language)
-                                  @if( $personal_data->pic_id == $language->pic_id)
+                                  @if( $personal_data->unique_id == $language->unique_id)
                                   <div class="row">
                                     <div class="col-md-9">
                                       <table class="table">
@@ -381,7 +381,7 @@
                                 <div class="col-md-12">
                                 <div class="card-body my-3">
                                   @foreach($computer_data as $computer)
-                                  @if( $personal_data->pic_id == $computer->pic_id)
+                                  @if( $personal_data->unique_id == $computer->unique_id)
                                   <div class="row">
                                     <div class="col-md-9">
                                       <table class="table">
@@ -440,7 +440,7 @@
                                                
                                               </tr>
                                             </thead>@foreach($employment_data as $employment)
-                                  @if( $personal_data->pic_id == $employment->pic_id)
+                                  @if( $personal_data->unique_id == $employment->unique_id)
                                             <tbody>
                                               <tr>
                                                 <td>{{ $employment->employment_name }}</td>
@@ -476,14 +476,32 @@
                                 <div class="col-md-12">
                                 <div class="card-body my-3">
                                   @foreach($referee_data as $referee)
-                                  @if( $personal_data->pic_id == $referee->pic_id)
+                                  @if( $personal_data->unique_id == $referee->unique_id)
                                   <div class="row">
                                     <div class="col-md-9">
                                       <table class="table">
                                             <thead>
                                               <tr>
+                                                <th>Type</th>
                                                 <th>Name</th>
                                                 <th>Address</th>
+                                               
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                              <tr>
+                                                <td>{{ $referee->referees_type }}</td>
+                                                <td>{{ $referee->referees_name }}</td>
+                                                <td>{{ $referee->referees_address }}  </td>
+
+                                                
+                                              </tr>
+                                            </tbody>
+                                      </table>
+                                      <table class="table">
+                                            <thead>
+                                              <tr>
+                                                
                                                 <th>Rank/Position</th>
                                                 <th>Email</th>
                                                 <th>Phone Number</th>
@@ -493,9 +511,8 @@
                                             </thead>
                                             <tbody>
                                               <tr>
-                                                <td>{{ $referee->referees_type }}</td>
-                                                <td>{{ $referee->referees_name }}</td>
-                                                <td>{{ $referee->referees_address }}  </td>
+                                               
+                                               
                                                 <td>{{ $referee->referees_rank }} </td>
                                                 <td>{{ $referee->referees_email }}</td>
                                                 <td>{{ $referee->referees_phone }}</td>
@@ -503,10 +520,11 @@
                                       <h4 align="right"><a href="{{ route('edit.referee', ['id' => $referee->id]) }}" class="btn btn-link text-warning">Edit </a></h4>
                                     </div></td>
                                               </tr>
-                                            </tbody>@endif 
-                                  @endforeach
+                                            </tbody>
                                       </table>
-
+                                      <hr>
+                                      @endif 
+                                      @endforeach
                                     </div>
                                     
                                   </div>
@@ -539,7 +557,7 @@
                                                
                                               </tr>
                                             </thead>@foreach($document_data as $document)
-                                  @if( $personal_data->pic_id == $document->pic_id)
+                                  @if( $personal_data->unique_id == $document->unique_id)
                                             <tbody>
                                               <tr>
                                                 <td>{{ $document->doc_name }}</td>

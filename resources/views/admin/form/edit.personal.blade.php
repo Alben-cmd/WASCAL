@@ -71,7 +71,7 @@
                                   Contact Person Email: <input type="email" id="contact_email" name="contact_email" class="form-control" value="{{ $personal_data->contact_email }}" required>
                                   <br>
                                   Contact Person Phone Number: <input type="text" id="contact_number" name="contact_number" class="form-control" value="{{ $personal_data->contact_number }}" required>
-                                  <input type="hidden" name="pic_id" value="{{ $personal_data->pic_id }} ">
+                                  <input type="hidden" name="unique_id" value="{{ $personal_data->unique_id }} ">
                                   <br>
                                   </div>
                               </div>

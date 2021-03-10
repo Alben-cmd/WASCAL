@@ -24,7 +24,7 @@
             </div>
             <div class="card-header">
                 <strong>8. Application Supporting Documents</strong>
-                <p><b><i> (All relevant documents must be in<i style="color: crimson;"> PDF format</i> and uploaded for the applicant to be considered for admission)</i></b> </p>
+                <p><b><i> (All relevant documents must be in<i style="color: crimson;"> PDF format</i> and not more than 5MB in size and uploaded for the applocant to be considered for admission)</i></b> </p>
                 <ol style="padding-left:45px ">
                   <li> Candidates must Submit B.Sc. or B.Tech Certificate or Equivalent</li>
                   <li> Candidates must Submit M.Sc. or M.Tech Certificate or Equivalent</li>
@@ -37,7 +37,7 @@
                   <li> Letter of Attestation of Good Behaviour From the Applicant’s Parents/Guardian with Detailed contact Address and Phone Numbers(s)</li>
                   <li> Support Letter from Employer (if Employed) Granting Study Leave for the Duration of the Programme, Excluding the Period for the Language Course. </li>
                   <li> Copy of Certificate of Nationality/State of Origin</li>
-                  <li> Soft Copy of the Applicant’s Research Pre-Proposal/Research Interest. Note that the Centre Reserves the Right to Accept or Reject this, should you be Admitted.</li>
+                  <li> Soft Copy of the Applicant’s Research Pre-Proposal/Research Interest. <span style="color: crimson"><strong>Note that the Centre Reserves the Right to Accept or Reject this, should you be Admitted.</strong></span></li>
                 </ol>
                 
             </div>
@@ -79,7 +79,7 @@
                    </div>
                    <br>
                    <br>
-                   <input type="hidden" name="pic_id" value="{{ $form->id }} ">
+                   <input type="hidden" name="unique_id" value="{{ $form->unique_id }} ">
                     <div align="right">
                         <button type="submit" class="btn btn-success btn-md">
                             Add 
@@ -109,7 +109,7 @@
                             {{ $count++ }}
                           </td>
                           <td class="py-1">{{ $document->doc_name }}</td>
-                          <td> <a href="{{ asset('/files/'.$document->doc_file) }}">Download</a> </td>
+                          <td> <a href="{{ asset('/files/'.$document->doc_file) }}" style="color: blue">Download</a> </td>
 
                           <td><a href="{{ route('delete.document', ['id' => $document->id]) }}"  onclick="return confirm('Are you sure?')" class="btn btn-outline-danger btn-icon-text btn-sm"> Delete</a></td>
                         </tr>

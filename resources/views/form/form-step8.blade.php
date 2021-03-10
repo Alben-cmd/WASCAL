@@ -78,7 +78,7 @@
                         <input type="text" id="referees_phone" name="referees_phone" placeholder="Phone Number" class="form-control" value="{{ old('referees_phone') }}" required>
                         <br><br>
                     </div>
-                    <input type="hidden" name="pic_id" value="{{ $form->id }} ">
+                    <input type="hidden" name="unique_id" value="{{ $form->unique_id }} ">
 
 
                 </div>
@@ -86,7 +86,7 @@
                         <button type="submit" class="btn btn-success btn-md">
                         Add</button>
                     </div>
-                     <input type="hidden" name="pic_id" value="{{ $form->id }} ">
+                     <!-- <input type="hidden" name="pic_id" value="{{ $form->id }} "> -->
                     <hr>
 
             </form>
@@ -125,11 +125,11 @@
                           @if($row->referees_type == 'Head of the Department')
                           <a href="{{ route('academicmail', ['ref_id' => $row->id, 'uniqid' => $personal->unique_id]) }}" class="btn btn-outline-primary btn-icon-text btn-sm">Send link to HOD</a>
                           @elseif($row->referees_type == 'Master Degree Supervisor')
-                          <a href="{{ route('academicmail', ['ref_id' => $row->id, 'uniqid' => $personal->unique_id]) }}" class="btn btn-outline-primary btn-icon-text btn-sm">Send link to Spervisor Form</a>
+                          <a href="{{ route('academicmail', ['ref_id' => $row->id, 'uniqid' => $personal->unique_id]) }}" class="btn btn-outline-primary btn-icon-text btn-sm">Send link to Spervisor</a>
                           @elseif($row->referees_type == 'boss')
                           <a href="{{ route('profmail', ['ref_id' => $row->id, 'uniqid' => $personal->unique_id]) }} " class="btn btn-outline-primary btn-icon-text btn-sm">Send link to Boss</a>
-                          @elseif($row->referees_type == 'mrp')
-                          <a href="{{ route('profmail', ['ref_id' => $row->id, 'uniqid' => $personal->unique_id]) }}" class="btn btn-outline-primary btn-icon-text btn-sm">Send link to MRP</a>
+                          @elseif($row->referees_type == 'MRP')
+                          <a href="{{ route('academicmail', ['ref_id' => $row->id, 'uniqid' => $personal->unique_id]) }}" class="btn btn-outline-primary btn-icon-text btn-sm">Send link to MRP</a>
                           @endif
 
                           </td>

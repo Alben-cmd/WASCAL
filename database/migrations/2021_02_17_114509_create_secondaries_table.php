@@ -15,7 +15,8 @@ class CreateSecondariesTable extends Migration
     {
         Schema::create('secondaries', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('pic_id');
+            $table->string('unique_id');
+            $table->string('cert_type');
             $table->text('secondary_school');
             $table->string('secondary_from');
             $table->string('secondary_to');

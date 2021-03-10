@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRefereesTable extends Migration
+class CreateSecondairesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,15 @@ class CreateRefereesTable extends Migration
      */
     public function up()
     {
-        Schema::create('referees', function (Blueprint $table) {
+        Schema::create('secondaires', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->text('epreuves');
+            $table->text('notes');
+            $table->text('coeff');
+            $table->string('points');
+            $table->text('sur');
+            $table->text('decision');
             $table->string('unique_id');
-            $table->text('referees_type');
-            $table->text('referees_name');
-            $table->text('referees_address');
-            $table->text('referees_rank');
-            $table->text('referees_email');
-            $table->string('referees_phone');
             $table->timestamps();
         });
     }
@@ -33,6 +33,6 @@ class CreateRefereesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('referees');
+        Schema::dropIfExists('secondaires');
     }
 }

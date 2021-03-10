@@ -92,7 +92,7 @@
                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Title of Dissertation</label></div>
                     <div class="col-9 col-md-7"><input type="text" id="master_dissertation" name="master_dissertation" placeholder="Title of Dissertation" class="form-control" value="{{ old('master_dissertation') }}" required></div>
                 </div>
-                 <input type="hidden" name="pic_id" value="{{ $form->id }} ">
+                 <input type="hidden" name="unique_id" value="{{ $form->unique_id }} ">
                 <div class="row form-group">
                         <div class="col col-md-3"><label for="text-input" class=" form-control-label">Period of Study</label></div>
                         <div class="col-9 col-md-7">
