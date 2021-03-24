@@ -13,62 +13,62 @@
 
 Route::get('/', 'FormController@passport')->name('home');
 
-Route::get('/register', 'FormController@passport')->name('passport');
-Route::post('/wascal/register/passport', 'FormController@storepassport')->name('store.passport');
-Route::get('/register/step1', 'FormController@createStep1')->name('step1');
-Route::post('/register/step1', 'FormController@postCreateStep1')->name('store.form1');
-Route::get('/register/step2', 'FormController@createStep2')->name('step2');
-Route::post('/register/step2', 'FormController@postCreateStep2')->name('store.form2');
-Route::get('/register/school/delete/{school}', 'FormController@schooldestroy')->name('delete.school');
-Route::get('/register/step2b', 'FormController@createStep2b')->name('step2b');
-Route::post('/register/step2b', 'FormController@postCreateStep2b')->name('store.form2b');
-Route::get('/register/result/delete/{result}', 'FormController@resultdestroy')->name('delete.result');
+Route::get('wascal/register', 'FormController@passport')->name('passport');
+Route::post('wascal/register/passport', 'FormController@storepassport')->name('store.passport');
+Route::get('wascal/register/step1', 'FormController@createStep1')->name('step1');
+Route::post('wascal/register/step1', 'FormController@postCreateStep1')->name('store.form1');
+Route::get('wascal/register/step2', 'FormController@createStep2')->name('step2');
+Route::post('wascal/register/step2', 'FormController@postCreateStep2')->name('store.form2');
+Route::get('wascal/register/school/delete/{school}', 'FormController@schooldestroy')->name('delete.school');
+Route::get('wascal/register/step2b', 'FormController@createStep2b')->name('step2b');
+Route::post('wascal/register/step2b', 'FormController@postCreateStep2b')->name('store.form2b');
+Route::get('wascal/register/result/delete/{result}', 'FormController@resultdestroy')->name('delete.result');
 
 
-Route::get('/register/step2c', 'FormController@createStep2c')->name('step2c');
-Route::post('/register/step2c', 'FormController@postCreateStep2c')->name('store.form2c');
-Route::get('/register/step2c/delete/{secondaire}', 'FormController@secondairedestroy')->name('delete.secondaire');
+Route::get('wascal/register/step2c', 'FormController@createStep2c')->name('step2c');
+Route::post('wascal/register/step2c', 'FormController@postCreateStep2c')->name('store.form2c');
+Route::get('wascal/register/step2c/delete/{secondaire}', 'FormController@secondairedestroy')->name('delete.secondaire');
 
-Route::get('/register/step3', 'FormController@createStep3')->name('step3');
-Route::post('/register/step3', 'FormController@postCreateStep3')->name('store.form3');
-Route::get('/register/university/delete/{university}', 'FormController@universitydestroy')->name('delete.university');
-Route::get('/register/step3b', 'FormController@createStep3b')->name('step3b');
-Route::post('/register/step3b', 'FormController@postCreateStep3b')->name('store.form3b');
-Route::get('/register/step4', 'FormController@createStep4')->name('step4');
-Route::post('/register/step4', 'FormController@postCreateStep4')->name('store.form4');
-Route::get('/register/language/delete/{language}', 'FormController@languagedestroy')->name('delete.language');
-Route::get('/register/step5', 'FormController@createStep5')->name('step5');
-Route::post('/register/step5', 'FormController@postCreateStep5')->name('store.form5');
-Route::get('/register/computer/delete/{computer}', 'FormController@computerdestroy')->name('delete.computer');
-Route::get('/register/step6', 'FormController@createStep6')->name('step6');
-Route::post('/register/step6', 'FormController@postCreateStep6')->name('store.form6');
-Route::get('/register/employment/delete/{employment}', 'FormController@computerdestroy')->name('delete.employment');
-Route::get('/register/step8', 'FormController@createStep8')->name('step8');
-Route::post('/register/step8', 'FormController@postCreateStep8')->name('store.form8');
-Route::get('/register/referee/delete/{referee}', 'FormController@refereedestroy')->name('delete.referee');
-Route::get('/register/step9', 'FormController@createStep9')->name('step9');
-Route::post('/register/step9', 'FormController@postCreateStep9')->name('store.form9');
-Route::get('/register/document/delete/{documents}', 'FormController@documentdestroy')->name('delete.document');
-Route::get('/register/review', 'FormController@createStep10')->name('step10');
-Route::post('/register/store', 'FormController@store')->name('final.store');
-Route::get('/register/submit', 'FormController@information')->name('information');
+Route::get('wascal/register/step3', 'FormController@createStep3')->name('step3');
+Route::post('wascal/register/step3', 'FormController@postCreateStep3')->name('store.form3');
+Route::get('wascal/register/university/delete/{university}', 'FormController@universitydestroy')->name('delete.university');
+Route::get('wascal/register/step3b', 'FormController@createStep3b')->name('step3b');
+Route::post('wascal/register/step3b', 'FormController@postCreateStep3b')->name('store.form3b');
+Route::get('wascal/register/step4', 'FormController@createStep4')->name('step4');
+Route::post('wascal/register/step4', 'FormController@postCreateStep4')->name('store.form4');
+Route::get('wascal/register/language/delete/{language}', 'FormController@languagedestroy')->name('delete.language');
+Route::get('wascal/register/step5', 'FormController@createStep5')->name('step5');
+Route::post('wascal/register/step5', 'FormController@postCreateStep5')->name('store.form5');
+Route::get('wascal/register/computer/delete/{computer}', 'FormController@computerdestroy')->name('delete.computer');
+Route::get('wascal/register/step6', 'FormController@createStep6')->name('step6');
+Route::post('wascal/register/step6', 'FormController@postCreateStep6')->name('store.form6');
+Route::get('wascal/register/employment/delete/{employment}', 'FormController@computerdestroy')->name('delete.employment');
+Route::get('wascal/register/step8', 'FormController@createStep8')->name('step8');
+Route::post('wascal/register/step8', 'FormController@postCreateStep8')->name('store.form8');
+Route::get('wascal/register/referee/delete/{referee}', 'FormController@refereedestroy')->name('delete.referee');
+Route::get('wascal/register/step9', 'FormController@createStep9')->name('step9');
+Route::post('wascal/register/step9', 'FormController@postCreateStep9')->name('store.form9');
+Route::get('wascal/register/document/delete/{documents}', 'FormController@documentdestroy')->name('delete.document');
+Route::get('wascal/register/review', 'FormController@createStep10')->name('step10');
+Route::post('wascal/register/store', 'FormController@store')->name('final.store');
+Route::get('wascal/register/submit', 'FormController@information')->name('information');
 
 //referee form
-Route::get('/referee/form/professional', 'RefereeController@profreferee')->name('profreferee');
-Route::post('/form/professional/store', 'RefereeController@postprofreferee')->name('store.profreferee');
-Route::get('/referee/form/academic', 'RefereeController@academicreferee')->name('academicreferee');
-Route::post('/referee/form/academic', 'RefereeController@postacademicreferee')->name('store.academicreferee');
+Route::get('wascal/referee/form/professional', 'RefereeController@profreferee')->name('profreferee');
+Route::post('wascal/form/professional/store', 'RefereeController@postprofreferee')->name('store.profreferee');
+Route::get('wascal/referee/form/academic', 'RefereeController@academicreferee')->name('academicreferee');
+Route::post('wascal/referee/form/academic', 'RefereeController@postacademicreferee')->name('store.academicreferee');
 
 //referee email
-Route::get('/referee/form/professional/email/{ref_id}/{id}', 'RefereeController@profmail')->name('profmail');
-Route::get('/referee/form/academic/email/{ref_id}/{id}', 'RefereeController@academicmail')->name('academicmail');
+Route::get('wascal/referee/form/professional/email/{ref_id}/{id}', 'RefereeController@profmail')->name('profmail');
+Route::get('wascal/referee/form/academic/email/{ref_id}/{id}', 'RefereeController@academicmail')->name('academicmail');
 
 
 //unique no search
-Route::get('/register/uniqidID', 'FormController@uniquesearch')->name('uniquesearch'); 
+Route::get('wascal/register/uniqidID', 'FormController@uniquesearch')->name('uniquesearch'); 
 
 //print
-Route::get('/register/print','FormController@printpriview')->name('printpriview');
+Route::get('wascal/register/print','FormController@printpriview')->name('printpriview');
 
 //Admin section
 Auth::routes();

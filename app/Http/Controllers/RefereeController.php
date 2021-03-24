@@ -159,7 +159,7 @@ class RefereeController extends Controller
     {
         $referee_data = DB::table('referees')->where('id', '=', $ref_id)->first();
         $personal = DB::table('personals')->where('unique_id', '=', $unique_id)->first();
-        $link = 'https://wascal.futminna.edu.ng/register/public/wascal/referee/form/professional';
+        $link = 'https://wascal.futminna.edu.ng/register/public/referee/form/professional';
         Mail::to($referee_data->referees_email)->send(new ProfessionalRefree($referee_data, $link, $unique_id, $personal));
             return redirect()->back()->with('success', 'A message has been sent to your referee!');;
     }
@@ -168,7 +168,7 @@ class RefereeController extends Controller
     {
         $referee_data = DB::table('referees')->where('id', '=', $ref_id)->first();
         $personal = DB::table('personals')->where('unique_id', '=', $unique_id)->first();
-        $link = 'https://wascal.futminna.edu.ng/register/public/wascal/referee/form/academic';    
+        $link = 'https://wascal.futminna.edu.ng/register/public/referee/form/academic';    
         Mail::to($referee_data->referees_email)->send(new AcademicRefree($referee_data, $link, $unique_id, $personal));
         return redirect()->back()->with('success', 'A message has been sent to your referee!');;
     }

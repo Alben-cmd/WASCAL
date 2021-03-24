@@ -146,7 +146,7 @@
         <div class="entry">
           <h2>Secondary School</h2>
           @foreach($secondary_data as $secondary)
-          @if( $passport->id == $secondary->pic_id)
+          @if( $passport->unique_id == $secondary->unique_id)
           <div class="content">
             <h3>{{ $secondary->secondary_school }}</h3>
             <ul class="skills">
@@ -163,7 +163,7 @@
         <div class="entry">
           <h2>Secondary Results</h2>
           @foreach($result_data as $result)
-          @if( $passport->id == $secondary->pic_id)
+          @if( $passport->unique_id == $secondary->unique_id)
           <div class="content">
             <h3>{{ $result->exam_type }}</h3>
             <ul class="skills">
@@ -180,7 +180,7 @@
          <div class="entry">
           <h2>University</h2>
           @foreach($university_data as $university)
-          @if( $passport->id == $university->pic_id)
+          @if( $passport->unique_id == $university->unique_id)
           <div class="content">
             <h3>{{ $university->university }}</h3>
             <ul class="skills">
@@ -199,7 +199,7 @@
         <div class="entry">
           <h2>First Degree</h2>
          @foreach($degree_data as $degree)
-         @if( $passport->id == $degree->pic_id)
+         @if( $passport->unique_id == $degree->unique_id)
           <div class="content">
             <h3>{{ $degree->btec_name }}</h3>
             <ul class="skills">
@@ -217,7 +217,7 @@
         <div class="entry">
           <h2>Second Degree</h2>
           @foreach($degree_data as $uni)
-          @if( $passport->id == $uni->pic_id)
+          @if( $passport->unique_id == $uni->unique_id)
           <div class="content">
             <h3>{{ $uni->master_name }}</h3>
             <ul class="skills">
@@ -234,7 +234,7 @@
         <div class="entry">
           <h2>Language Skill</h2>
           @foreach($language_data as $language)
-          @if( $passport->id == $language->pic_id)
+          @if( $passport->unique_id == $language->unique_id)
           <div class="content">
             <h3>{{ $language->language }}</h3>
             <ul class="skills">
@@ -250,7 +250,7 @@
          <div class="entry">
           <h2>Computer Skill</h2>
           @foreach($computer_data as $computer)
-          @if( $passport->id == $computer->pic_id)
+          @if( $passport->unique_id == $computer->unique_id)
           <div class="content">
             <h3>{{ $computer->computer_skill }}</h3>
             <ul class="skills">
@@ -265,7 +265,7 @@
         <div class="entry">
           <h2>Employment</h2>
           @foreach($employment_data as $employment)
-          @if( $passport->id == $employment->pic_id)
+          @if( $passport->unique_id == $employment->unique_id)
           <div class="content">
             <h3>{{ $employment->employment_name }}</h3>
             <ul class="skills">
@@ -281,7 +281,7 @@
         <div class="entry">
           <h2>Referees</h2>
           @foreach($referee_data as $referee)
-          @if( $passport->id == $referee->pic_id)
+          @if( $passport->unique_id == $referee->unique_id)
           <div class="content">
             <h3>{{ $referee->referees_name }}</h3>
             <ul class="skills">

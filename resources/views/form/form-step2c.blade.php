@@ -58,7 +58,7 @@
                     <div class="col-md-4">
                         <strong>Points Obtanus</strong> <br><br>
                         <br>
-                        <input type="text" name="points" placeholder="Grade Awarded" class="form-control" required>
+                        <input type="text" name="points" placeholder="Points Obtanus" class="form-control" required>
                     </div>
                     <div class="col-md-4">
                         <strong>Sur</strong> <br><br>
@@ -122,7 +122,7 @@
                  @else
                  @endif
 
-                  @if($secondaire_data->count() > 1)
+                  @if($secondaire_data->count() > 0)
 
                 <div align="center">
                   <button type="submit" class="btn btn-success btn-md">

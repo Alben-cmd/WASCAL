@@ -56,10 +56,10 @@
                       <strong>Qualification Obtained</strong> <br><br>
                         <br>
                     <div class="col col-md-2"><label for="text-input" class=" form-control-label"></label></div>
-                        <select name="university_qualification" class="standardSelect" id="title" required>
+                        <select name="university_qualification" id="qualification" class="standardSelect"  required>
                             <option value="" disabled selected hidden>Please select</option>
-                            <option value="First">First Degree</option>
-                            <option value="Master">Master Degree</option>
+                            <option value="first">First Degree</option>
+                            <option value="master">Master Degree</option>
                         </select>
                       </div>
 
@@ -67,12 +67,12 @@
                     <div class="col-md-2">
                         <strong>Date of Qualification</strong> <br><br><br>
                        
-                        <input type="date" id="university_date" name="university_date" placeholder="Date of Qualification" class="form-control"required>
+                        <input type="date" name="university_date" placeholder="Date of Qualification" class="form-control"required>
                     </div>
 
                       <div class="col-md-2" >
                         <strong>Title of Degree Awarded</strong> <br><br><br>
-                        <input type="text"  name="university_title" placeholder="Qualification Obtained" class="form-control" required>
+                        <input type="text"  name="university_title" placeholder="Title of Degree" class="form-control" required>
                         <br><br>
                    
                     </div>
@@ -80,7 +80,7 @@
                     <div class="col-md-2" id="grade">
                         <strong>Grade Awarded </strong> <br><br>
                         <br>
-                        <input type="text" id="university_grade" name="university_grade" placeholder="Grade Awarded" class="form-control">
+                        <input type="text" id="grade" name="university_grade" placeholder="Grade Awarded" class="form-control">
                     </div>
                     <input type="hidden" name="unique_id" value="{{ $form->unique_id }} ">
                 </div>

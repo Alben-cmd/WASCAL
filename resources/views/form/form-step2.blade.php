@@ -101,7 +101,6 @@
                       <thead>
                         <tr>
                           <th>#</th>
-                          <th></th>
                           <th>School</th>
                           <th>Period in Years</th>
                           <th>Certificate Title</th>
@@ -133,15 +132,15 @@
                  @endif     
                 </form>
 
-            @foreach($secondary_data as $data)
-
-           @If($data->cert_type == 'WAEC/SSCE')
+           
+                @if($secondary_one)
+           @If($secondary_one->cert_type == 'WAEC/SSCE')
            <div align="center">
                   <button type="submit" class="btn btn-success btn-md">
                       <i class="fa fa-dot-circle-o"></i> <a href="{{ route('step2b') }}">Continue </a> 
                   </button>
                 </div>
-                @elseif($data->cert_type == 'Baccalaureate')
+                @elseif($secondary_one->cert_type == 'Baccalaureate')
 
                 <div align="center">
                   <button type="submit" class="btn btn-success btn-md">
@@ -149,8 +148,8 @@
                   </button>
                 </div>
                 @endif
+                @endif
 
-                @endforeach
             </div>
         </div>
     </div>

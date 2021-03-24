@@ -59,6 +59,7 @@ class FormController extends Controller
         
         if (isset($form->id)) {
         $personal = DB::table('passports')->where('id', '=', $form->id)->get();
+        $personal_data = DB::table('personals')->where('unique_id', '=', $form->unique_id)->get();
 
         return view('form.form-step1',compact('form','personal', $form));
         }
@@ -116,8 +117,12 @@ class FormController extends Controller
             $personal->contact_number = $request->contact_number;
             $personal->contact_email = $request->contact_email;
 
-            $request->session()->put('personal', $personal);
             $personal->save();
+
+            $passport = Passport::where('unique_id', $request->unique_id)->first();
+            $passport->count = 2;
+            $passport->save();
+
             return redirect()->route('step2');
 
     }/**
@@ -135,13 +140,10 @@ class FormController extends Controller
             $secondary_data = DB::table('secondaries')->Where('unique_id', '=', $form->unique_id)->get();
             $secondary_one = DB::table('secondaries')->Where('unique_id', '=', $form->unique_id)->first();
 
-
         return view('form.form-step2',compact('form','secondary_data','personal', 'secondary_one', $form));
         }
          else{ return redirect()->route('passport');
-
         }
-
     }
 
     public function postCreateStep2(Request $request)
@@ -165,6 +167,11 @@ class FormController extends Controller
             $secondary->secondary_to = $request->secondary_to;
             $secondary->secondary_title = $request->secondary_title;
             $secondary->secondary_date = $request->secondary_date;
+
+            $passport = Passport::where('unique_id', $request->unique_id)->first();
+            $passport->count = 3;
+            $passport->save();
+
             $secondary->save();
 
             $request->session()->flash('success', 'School Added');
@@ -210,7 +217,15 @@ class FormController extends Controller
             $form->ssce_grade = $request->ssce_grade;
             $form->ssce_yr = $request->ssce_yr;
             
+            $passport = Passport::where('unique_id', $request->unique_id)->first();
+            $passport->count = 4;
+            $passport->save();
+
             $form->save();
+
+            $passport = Passport::where('unique_id', $request->unique_id)->first();
+            $passport->count = 2;
+            $passport->save();
 
             $request->session()->flash('success', 'Result Added');
             return redirect()->back();
@@ -259,6 +274,11 @@ class FormController extends Controller
             $secondary->decision = $request->decision;
             
             $secondary->save();
+
+            $passport = Passport::where('unique_id', $request->unique_id)->first();
+            $passport->count = 5;
+            $passport->save();
+
 
             $request->session()->flash('success', 'Result Added');
             return redirect()->back();
@@ -309,6 +329,11 @@ class FormController extends Controller
             $form->university_grade = $request->university_grade;
 
             $form->save();
+
+            $passport = Passport::where('unique_id', $request->unique_id)->first();
+            $passport->count = 6;
+            $passport->save();
+
 
             $request->session()->flash('success', 'Result Added');
             return redirect()->back();
@@ -373,6 +398,11 @@ class FormController extends Controller
 
             $form->save();
 
+            $passport = Passport::where('unique_id', $request->unique_id)->first();
+            $passport->count = 7;
+            $passport->save();
+
+
             $request->session()->flash('success', 'Result Added');
             return redirect()->route('step4');;
         }
@@ -405,6 +435,11 @@ class FormController extends Controller
             $form->notation = $request->notation;
 
             $form->save();
+
+            $passport = Passport::where('unique_id', $request->unique_id)->first();
+            $passport->count = 8;
+            $passport->save();
+
 
             $request->session()->flash('success', 'Result Added');
             return redirect()->back();
@@ -451,6 +486,11 @@ class FormController extends Controller
             
             $form->save();
 
+            $passport = Passport::where('unique_id', $request->unique_id)->first();
+            $passport->count = 9;
+            $passport->save();
+
+
             $request->session()->flash('success', 'Result Added');
             return redirect()->back();
         }
@@ -496,6 +536,11 @@ class FormController extends Controller
             
             $form->save();
 
+            $passport = Passport::where('unique_id', $request->unique_id)->first();
+            $passport->count = 10;
+            $passport->save();
+
+
             $request->session()->flash('success', 'Result Added');
             return redirect()->back();
         }
@@ -540,6 +585,11 @@ class FormController extends Controller
             $form->referees_phone = $request->referees_phone;
 
             $form->save();
+
+            $passport = Passport::where('unique_id', $request->unique_id)->first();
+            $passport->count = 11;
+            $passport->save();
+
 
             $request->session()->flash('success', 'Result Added');
             return redirect()->back();
@@ -591,6 +641,11 @@ class FormController extends Controller
             
                 $form->save();
 
+                $passport = Passport::where('unique_id', $request->unique_id)->first();
+            $passport->count = 12;
+            $passport->save();
+
+
                 $request->session()->flash('success', 'Result Added');
                 return redirect()->back();
 
@@ -605,11 +660,12 @@ class FormController extends Controller
     {
 
         $form = $request->session()->get('form');
-         if (isset($form->id)) {
+        if (isset($form->id)) {
 
         $passport_data = DB::table('passports')->where('id', '=', $form->id)->get();
         $personal_data = DB::table('personals')->where('unique_id', '=', $form->unique_id)->get();
         $secondary_data = DB::table('secondaries')->where('unique_id', '=', $form->unique_id)->get();
+        $secondaire_data = DB::table('secondaires')->where('unique_id', '=', $form->unique_id)->get();
         $result_data = DB::table('results')->where('unique_id', '=', $form->unique_id)->get();
         $university_data = DB::table('universities')->where('unique_id', '=', $form->unique_id)->get();
         $degree_data = DB::table('degrees')->where('unique_id', '=', $form->unique_id)->get();
@@ -618,18 +674,18 @@ class FormController extends Controller
         $employment_data = DB::table('employments')->where('unique_id', '=', $form->unique_id)->get();
         $referee_data = DB::table('referees')->where('unique_id', '=', $form->unique_id)->get();
 
-        return view('form.form-step10',compact('form','passport_data','secondary_data','personal_data','result_data','university_data','degree_data','language_data','computer_data','employment_data','referee_data', $form));   
+        return view('form.form-step10',compact('form','passport_data','secondary_data','secondaire_data','personal_data','result_data','university_data','degree_data','language_data','computer_data','employment_data','referee_data', $form));   
         }
         else{ return redirect()->route('passport');
 
         }   
     }
 
-    public function store(Request $request)
-    {
-        $request->session()->flash('success', 'Your Registration was successful');
-        return redirect('/');
-    }
+    // public function store(Request $request)
+    // {
+    //     $request->session()->flash('success', 'Your Registration was successful');
+    //     return redirect('/');
+    // }
 
     public function printpriview(Request $request)
       {

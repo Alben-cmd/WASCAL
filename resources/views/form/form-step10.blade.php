@@ -86,9 +86,7 @@
                                               <tr>
                                                 <th>Marital Status</th>
                                                 <th>Number of Children</th>
-                                                <th>Ages of Children</th>
-                                               
-                                               
+                                                <th>Ages of Children</th>                                              
                                               </tr>
                                             </thead>
                                             <tbody>
@@ -98,8 +96,7 @@
                                                 <td>{{ $personal->age_children }} </td>
                                               </tr>
                                             </tbody>
-                                      </table> 
-                                
+                                      </table>                                 
                               </div>
                               </div>
                             </div>
@@ -119,9 +116,7 @@
                                               <tr>
                                                 <th>Country of Residence</th>
                                                 <th>Address</th>
-                                                <th>Phone Number</th>
-                                                
-                                               
+                                                <th>Phone Number</th>                                             
                                               </tr>
                                             </thead>
                                             <tbody>
@@ -186,9 +181,7 @@
                                               <tr>
                                                 <th>Contact Person Name </th>
                                                 <th>email</th>
-                                                <th>Phone number</th>
-                                                
-                                               
+                                                <th>Phone number</th>                                              
                                               </tr>
                                             </thead>
                                             <tbody>
@@ -213,7 +206,7 @@
                     <div class="card">
                             <div class="card-body">
                              
-                              <strong><h4> Secondary School </h4> </strong>
+                              <strong><h4> Secondary School</h4></strong>
                               <div class="card">                              
                                 <div class="col-md-8">
                                 <div class="card-body my-3">
@@ -225,9 +218,7 @@
                                                 <th>Period</th>
                                                 <th>Title</th>
                                                 <th>Date</th>
-                                                
-                                               
-                                              </tr>
+                                           </tr>
                                             </thead>
                                             @foreach($secondary_data as $secondary)
                                             <tbody>
@@ -249,6 +240,51 @@
                     </div>
 
                 </div>
+                @if($secondaire_data->count() > 0)
+                <div class="col-md-12">
+                    <div class="card">
+                            <div class="card-body">
+                             
+                              <strong><h4>Releve du Notes</h4> </strong>
+                              <div class="card">                              
+                                <div class="col-md-8">
+                                <div class="card-body my-3">
+                                  
+                                  <table class="table">
+                                            <thead>
+                                              <tr>
+                                                <th>Épreuves</th>
+                                                <th>Notes</th>
+                                                <th>Coeff</th>
+                                                <th>Points Obtanus</th>
+                                                <th>Sur</th>
+                                                <th>Décision Du Jury</th>
+                                           </tr>
+                                            </thead>
+                                            @foreach($secondaire_data as $secondaire)
+                                            <tbody>
+                                              <tr>
+                                                <td>{{ $secondaire->epreuves }}</td>
+                                                <td>{{ $secondaire->notes }}</td>
+                                                <td>{{ $secondaire->coeff }} </td>
+                                                <td>{{ $secondaire->points }}</td>
+                                                <td>{{ $secondaire->sur }}</td>
+                                                <td>{{ $secondaire->decision }}</td>
+                                              </tr>
+                                            </tbody>
+                                             @endforeach
+                                      </table>
+                                 
+                                </div>
+                              </div>
+                            </div>
+                            <br>
+                            </div>
+                    </div>
+
+                </div>
+                @endif
+                @if($result_data->count() > 0)
                 <div class="col-md-12">
                     <div class="card">
                             <div class="card-body">
@@ -264,11 +300,9 @@
                                                 <th>Year</th>
                                                 <th>Subject</th>
                                                 <th>Grade</th>
-                                                
-                                               
                                               </tr>
-                                            </thead>@foreach($result_data as $result)
-                                            <tbody>
+                                              </thead>@foreach($result_data as $result)
+                                              <tbody>
 
                                               <tr>
                                                 <td>{{ $result->exam_type }}</td>
@@ -278,9 +312,7 @@
                                               </tr>
                                             </tbody> 
                                             @endforeach
-                                      </table>
-                                 
-                                  
+                                      </table>                                  
                                 </div>
                               </div>
                             </div>
@@ -289,6 +321,7 @@
                     </div>
 
                 </div>
+                @endif
                 <div class="col-md-12">
                     <div class="card">
                             <div class="card-body">
@@ -300,7 +333,7 @@
                                    <table class="table">
                                             <thead>
                                               <tr>
-                                                <th>University Name </th>
+                                                <th>University Name</th>
                                                 <th>Year</th>
                                                 <th>Qualification</th>
                                                 <th>Date</th>
@@ -349,10 +382,7 @@
                                                 <th>Course</th>
                                                 <th>Institution</th>
                                                 <th>Dissertation</th>
-                                                <th>Period</th>
-                                               
-                                                
-                                               
+                                                <th>Period</th>  
                                               </tr>
                                             </thead>
                                            @foreach($degree_data as $degree)
@@ -393,10 +423,7 @@
                                                 <th>Institution</th>
                                                 <th>Dissertation</th>
                                                 <th>Period</th>
-                                               
-                                                
-                                               
-                                              </tr>
+                                            </tr>
                                             </thead>
                                            @foreach($degree_data as $uni)
                                             <tbody>
