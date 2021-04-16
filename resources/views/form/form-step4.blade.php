@@ -7,7 +7,7 @@
     <br>
     <div class="col-md-12">
         <div class="card-header" align="center">
-                <strong>Doctoral Research Programme in Climate Change and Human Habitat <br>
+                <strong>Doctorate Research Programme in Climate Change and Human Habitat <br>
                 Application Form<br>
                 Doctor of Philosophy (Ph.D) in Climate Change and Human Habitat, 
                 Federal University of Technology, Minna (FUT Minna), Niger State, Nigeria.<br>
@@ -18,7 +18,8 @@
             </div>
             <div class="card-header">
                 <strong>4. Language Skills </strong>
-                <p>Please Indicate Using Abbreviation L, I or A (L=Low; I=Intermediate; A=Advanced).  For Applicants from Francophone Countries, possessing TOEFL Certificate is an Added Advantage.</p>
+                <p>Please Indicate Using Abbreviation L, I or A (L=Low; I=Intermediate; A=Advanced).  <br>
+                 <span style="color:red">For Applicants from Francophone Countries, possessing TOEFL Certificate is an Added Advantage.</span> </p>
                 
             </div>
             <div class="card-body card-block">

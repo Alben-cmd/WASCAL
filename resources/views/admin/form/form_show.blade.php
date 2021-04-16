@@ -18,11 +18,9 @@
               
               <div class="col-md-12" align="center">
                  @foreach($passport_data as $passport)
-                 @if($passport->unique_id == $personal_data->unique_id)
                 <img src="{{ asset('/images/'.$passport->passport_img) }}" style="height: 150px; width: 150px" class="img-fluid">
                 <a href="{{ route('edit.passport', ['id' => $passport->id]) }}" class="btn btn-link text-warning">
                                Edit </a>
-                @endif
                 @endforeach
                 <br>
               </div>
@@ -98,7 +96,7 @@
                                               </tr>
                                             </thead>
                                             @foreach($secondary_data as $secondary)
-                                  @if( $personal_data->unique_id == $secondary->unique_id)
+                                 
                                             <tbody>
                                               <tr>
                                                 <td>{{ $secondary->secondary_school }}</td>
@@ -107,28 +105,28 @@
                                                 <td>{{ $secondary->secondary_date }}</td>
                                               </tr>
                                             </tbody>
+                                            @endforeach
                                       </table>
                                       
                                     </div>
+                                     @foreach($secondary_data as $secondary)
                                     <div class="col-md-3">
                                       <h4 align="right">
                                         <a href="{{ route('edit.secondary', ['id' => $secondary->id]) }}" class="btn btn-link text-warning">Edit </a>
                                       </h4>
                                     </div>
+                                    @endforeach
                                   </div>
-                                  <hr>
-                                  
-                                @endif
-                                @endforeach
+                                  <hr>                              
                               </div>
                               </div>
                             </div>
                             <br>
                             </div>
                     </div>
-
-
                 </div>
+
+                @if( $result_data->count() > 0)
                 <div class="col-md-12">
                     <div class="card">
                             <div class="card-body">
@@ -136,8 +134,8 @@
                               <div class="card">                              
                                 <div class="col-md-12">
                                 <div class="card-body my-3">
-                                 @foreach($result_data as $result)
-                                  @if( $personal_data->unique_id == $result->unique_id)
+
+                                 
                                   <div class="row">
                                     <div class="col-md-9">
                                       <table class="table">
@@ -147,27 +145,27 @@
                                                 <th>Year</th>
                                                 <th>Subject</th>
                                                 <th>Grade</th>
+                                                <th>Action</th>
                                               </tr>
                                             </thead>
+                                            @foreach($result_data as $result)
                                             <tbody>
                                               <tr>
                                                 <td>{{ $result->exam_type }}</td>
                                                 <td>{{ $result->ssce_yr }}</td>
                                                 <td>{{ $result->ssce_subject }}</td>
                                                 <td>{{ $result->ssce_grade }}</td>
+                                                <td><a href="{{ route('edit.result', ['id' => $result->id]) }}" class="btn btn-link text-warning">Edit</a> </td>
                                               </tr>
                                             </tbody>
+                                            @endforeach
                                       </table>
                                     </div>
-                                    <div class="col-md-3">
-                                      <h4 align="right">
-                                        <a href="{{ route('edit.result', ['id' => $result->id]) }}" class="btn btn-link text-warning">Edit </a>
-                                      </h4>
-                                    </div>
+
+                                   
                                   </div>
+
                                   
-                                  @endif
-                                  @endforeach
                                 </div>
                               </div>
                             </div>
@@ -176,6 +174,88 @@
                     </div>
 
                 </div>
+                @endif
+
+                @if( $secondaire_data->count() > 0)
+                <div class="col-md-12">
+                    <div class="card">
+                            <div class="card-body">
+                              <strong><h4>Releve du Notes</h4> </strong>
+                              <div class="card">                              
+                                <div class="col-md-12">
+                                <div class="card-body my-3">
+                                 
+                                  <div class="row">
+                                    <div class="col-md-9">
+                                      <table class="table">
+                                            <thead>
+                                              <tr>
+                                                <th>Épreuves</th>
+                                                <th>Notes</th>
+                                                <th>Coeff</th>
+                                                <th>Points Obtanus</th>
+                                                <th>Sur</th>
+                                                <th>Décision Du Jury</th>
+                                         
+                                              </tr>
+                                            </thead>
+                                            @foreach($secondaire_data as $secondaire)
+                                            <tbody>
+                                              <tr>
+                                                <td>{{ $secondaire->epreuves }}</td>
+                                                <td>{{ $secondaire->notes }}</td>
+                                                <td>{{ $secondaire->coeff }}</td>
+                                                <td>{{ $secondaire->points }}</td>
+                                                <td>{{ $secondaire->sur }}</td>
+                                                <td>{{ $secondaire->decision }}</td>
+                                                
+                                              </tr>
+                                            </tbody>
+                                            @endforeach
+                                      </table>
+                                    </div>
+                                    <div class="col-md-3">
+                                      
+                                      <h4 align="right">
+                                       
+                                      </h4>
+                                    </div>
+                                  </div>
+
+                                  
+                                  <div class="row">
+                                    <div class="col-md-9">
+                                      <table class="table">
+                                            
+                                            <tbody>
+                                              <tr>
+                                                <td><b>Total:</b></td>
+                                                <td></td>
+                                                <td><b>Coeff: </b><?php echo $balance = DB::table('secondaires')->where('unique_id', $secondaire->unique_id)->sum('coeff'); ?></td>
+                                                <td><b>Points: </b><?php echo $balance = DB::table('secondaires')->where('unique_id', $secondaire->unique_id)->sum('points'); ?></td>
+                                                <td><b>Sur:</b> <?php echo $balance = DB::table('secondaires')->where('unique_id', $secondaire->unique_id)->sum('sur'); ?></td></td>
+                                                <td></td>
+
+                                                <td>
+                                                  
+                                                  
+                                              </tr>
+                                            </tbody>
+                                      </table>
+                                    </div>
+                                    
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div>
+                            <br>
+                            </div>
+                    </div>
+
+                </div>
+                @endif
+
                 <div class="col-md-12">
                     <div class="card">
                             <div class="card-body">
@@ -184,7 +264,6 @@
                                 <div class="col-md-12">
                                 <div class="card-body my-3">
                                   @foreach($university_data as $university)
-                                  @if( $personal_data->unique_id == $university->unique_id)
                                   <div class="row">
                                     <div class="col-md-9">
                                       <table class="table">
@@ -216,8 +295,6 @@
                                     </div>
                                   </div>
 
-                                  
-                                  @endif
                                   @endforeach
                               </div>
                             </div>
@@ -235,7 +312,6 @@
                                 <div class="col-md-12">
                                 <div class="card-body my-3">
                                   @foreach($degree_data as $degree)
-                                  @if( $personal_data->unique_id == $degree->unique_id)
                                   <div class="row">
                                     <div class="col-md-9">
                                       <table class="table">
@@ -267,8 +343,7 @@
                                     </div>
                                   </div>
                                   <hr>
-                                   
-                                   @endif
+
                                    @endforeach
                                  </div>
                               </div>
@@ -286,7 +361,6 @@
                                 <div class="col-md-12">
                                 <div class="card-body my-3">
                                   @foreach($degree_data as $uni)
-                                  @if( $personal_data->unique_id == $uni->unique_id)
                                   <div class="row">
                                     <div class="col-md-9">
                                       <table class="table">
@@ -305,7 +379,7 @@
                                                 <td>{{ $uni->master_subject}}</td>
                                                 <td>{{ $uni->master_institution }}</td>
                                                 <td>{{ $uni->master_dissertation }}</td>
-                                                <td>{{ $uni->master_date_from}} <b> -< /b> {{ $uni->master_date_from}}</td>
+                                                <td>{{ $uni->master_date_from}} <b> -</b> {{ $uni->master_date_from}}</td>
                                               </tr>
                                             </tbody>
                                       </table>
@@ -317,9 +391,7 @@
                                     </div>
                                   </div>
                                   <hr>
-                                
-                                  
-                                  @endif 
+
                                   @endforeach
                                  </div>
                               </div>
@@ -337,7 +409,7 @@
                                 <div class="col-md-12">
                                 <div class="card-body my-3">
                                   @foreach($language_data as $language)
-                                  @if( $personal_data->unique_id == $language->unique_id)
+
                                   <div class="row">
                                     <div class="col-md-9">
                                       <table class="table">
@@ -362,8 +434,7 @@
                                     </div>
                                   </div>
                                   <hr>
-                                
-                                  @endif 
+
                                   @endforeach
                                 </div>
                               </div>
@@ -381,7 +452,7 @@
                                 <div class="col-md-12">
                                 <div class="card-body my-3">
                                   @foreach($computer_data as $computer)
-                                  @if( $personal_data->unique_id == $computer->unique_id)
+
                                   <div class="row">
                                     <div class="col-md-9">
                                       <table class="table">
@@ -401,7 +472,7 @@
                                       <h4 align="right"><a href="{{ route('edit.computer', ['id' => $computer->id]) }}" class="btn btn-link text-warning">Edit </a></h4>
                                     </div></td>
                                               </tr>
-                                            </tbody>@endif 
+                                            </tbody>
                                   @endforeach
                                       </table>
                                     </div>
@@ -440,7 +511,6 @@
                                                
                                               </tr>
                                             </thead>@foreach($employment_data as $employment)
-                                  @if( $personal_data->unique_id == $employment->unique_id)
                                             <tbody>
                                               <tr>
                                                 <td>{{ $employment->employment_name }}</td>
@@ -451,7 +521,7 @@
                                       <h4 align="right"><a href="{{ route('edit.employment', ['id' => $employment->id]) }}" class="btn btn-link text-warning">Edit </a></h4>
                                     </div></td>
                                               </tr>
-                                            </tbody>@endif 
+                                            </tbody>
                                   @endforeach
                                       </table>
                                     </div>
@@ -476,7 +546,7 @@
                                 <div class="col-md-12">
                                 <div class="card-body my-3">
                                   @foreach($referee_data as $referee)
-                                  @if( $personal_data->unique_id == $referee->unique_id)
+                      
                                   <div class="row">
                                     <div class="col-md-9">
                                       <table class="table">
@@ -523,7 +593,7 @@
                                             </tbody>
                                       </table>
                                       <hr>
-                                      @endif 
+           
                                       @endforeach
                                     </div>
                                     
@@ -557,14 +627,14 @@
                                                
                                               </tr>
                                             </thead>@foreach($document_data as $document)
-                                  @if( $personal_data->unique_id == $document->unique_id)
+                                  
                                             <tbody>
                                               <tr>
                                                 <td>{{ $document->doc_name }}</td>
                                                 <td><a href="{{ asset('/files/'.$document->doc_file) }}">Download</a>  </td>
 
                                               </tr>
-                                            </tbody>@endif 
+                                            </tbody>
                                   @endforeach
                                       </table>
                                     </div>

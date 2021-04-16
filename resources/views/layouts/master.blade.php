@@ -17,10 +17,15 @@
     <link rel="stylesheet" href="{{ asset('dashboard_assets/vendors/flag-icon-css/css/flag-icon.min.css')}}">
     <link rel="stylesheet" href="{{ asset('dashboard_assets/vendors/selectFX/css/cs-skin-elastic.css')}}">
     <link rel="stylesheet" href="{{ asset('dashboard_assets/vendors/jqvmap/dist/jqvmap.min.css') }}">
+    
+
     <link rel="stylesheet" href="{{ asset('dashboard_assets/css/style.css') }}">
+
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+
     <script src="{{asset('ckeditor/ckeditor.js')}}"></script>
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+
     <script>
         $(document).ready(function (){
             $("#qualification").change(function() {

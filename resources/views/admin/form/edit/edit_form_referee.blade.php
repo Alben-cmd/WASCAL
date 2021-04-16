@@ -31,7 +31,7 @@
       Position: <input type="text" id="referees_rank" name="referees_rank" class="form-control" value="{{ $referee->referees_rank }}" required>
       Email: <input type="email" id="referees_email" name="referees_email" class="form-control" value="{{ $referee->referees_email }}" required>
       Phone: <input type="text" id="referees_phone" name="referees_phone" class="form-control" value="{{ $referee->referees_phone }}" required>
-      <input type="hidden" name="unique_id" value="{{ $referee->unique_id }} ">
+      <input type="hidden" name="pic_id" value="{{ $referee->pic_id }} ">
         <br>
           <div align="center">
             <button type="submit" class="btn btn-success btn-md">

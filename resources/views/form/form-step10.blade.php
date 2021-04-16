@@ -270,9 +270,27 @@
                                                 <td>{{ $secondaire->points }}</td>
                                                 <td>{{ $secondaire->sur }}</td>
                                                 <td>{{ $secondaire->decision }}</td>
+                                                
                                               </tr>
+
                                             </tbody>
                                              @endforeach
+                                             <tbody>
+                                               <tr>
+                                                <td><b>Total:</b></td>
+                                                <td></td>
+                                                <td>
+                                                  <?php echo $balance = DB::table('secondaires')->where('unique_id', $secondaire->unique_id)->sum('coeff'); ?>
+                                                    
+                                                  </td>
+                                                <td>
+                                                  <?php echo $balance = DB::table('secondaires')->where('unique_id', $secondaire->unique_id)->sum('points'); ?>
+                                                  </td>
+                                                  <td>
+                                                  <?php echo $balance = DB::table('secondaires')->where('unique_id', $secondaire->unique_id)->sum('sur'); ?></td>
+                                                  <td></td>
+                                              </tr>
+                                             </tbody>
                                       </table>
                                  
                                 </div>

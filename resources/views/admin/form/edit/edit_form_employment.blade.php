@@ -29,7 +29,7 @@
         Address: <input type="text" id="employment_address" name="employment_address" class="form-control" value="{{  $employment->employment_address }}" required>
         Employment Date: <input type="text" id="employment_date" name="employment_date" class="form-control" value="{{ $employment->employment_date }}" required>
         Position: <input type="text" id="employment_position" name="employment_position" class="form-control" value="{{ $employment->employment_position }}" required>
-        <input type="hidden" name="unique_id" value="{{ $employment->unique_id }} ">
+        <input type="hidden" name="pic_id" value="{{ $employment->pic_id }} ">
         <br>
           <div align="center">
             <button type="submit" class="btn btn-success btn-md">

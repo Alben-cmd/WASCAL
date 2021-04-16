@@ -83,17 +83,18 @@ class AdminController extends Controller
     public function show($personal)
     {
         $personal_data = Personal::find($personal);
-        $passport_data = DB::table('passports')->get();
-        $secondary_data = DB::table('secondaries')->get();
-        $result_data = DB::table('results')->get();
-        $university_data = DB::table('universities')->get();
-        $degree_data = DB::table('degrees')->get();
-        $language_data = DB::table('languages')->get();
-        $computer_data = DB::table('computers')->get();
-        $employment_data = DB::table('employments')->get();
-        $referee_data = DB::table('referees')->get();
-        $document_data = DB::table('documents')->get();
-         return view('admin.form.form_show',compact('passport_data','secondary_data','personal_data','result_data','university_data','degree_data','language_data','computer_data','employment_data','referee_data','document_data'));
+        $passport_data = DB::table('passports')->where('unique_id', '=', $personal_data->unique_id)->get();
+        $secondary_data = DB::table('secondaries')->where('unique_id', '=', $personal_data->unique_id)->get();
+        $secondaire_data = DB::table('secondaires')->where('unique_id', '=', $personal_data->unique_id)->get();
+        $result_data = DB::table('results')->where('unique_id', '=', $personal_data->unique_id)->get();
+        $university_data = DB::table('universities')->where('unique_id', '=', $personal_data->unique_id)->get();
+        $degree_data = DB::table('degrees')->where('unique_id', '=', $personal_data->unique_id)->get();
+        $language_data = DB::table('languages')->where('unique_id', '=', $personal_data->unique_id)->get();
+        $computer_data = DB::table('computers')->where('unique_id', '=', $personal_data->unique_id)->get();
+        $employment_data = DB::table('employments')->where('unique_id', '=', $personal_data->unique_id)->get();
+        $referee_data = DB::table('referees')->where('unique_id', '=', $personal_data->unique_id)->get();
+        $document_data = DB::table('documents')->where('unique_id', '=', $personal_data->unique_id)->get();
+        return view('admin.form.form_show',compact('passport_data','secondary_data','secondaire_data','personal_data','result_data','university_data','degree_data','language_data','computer_data','employment_data','referee_data','document_data')); 
     }
 
     /**

@@ -32,7 +32,7 @@
         Secondary school Title : <input type="text" id="secondary_title" name="secondary_title" class="form-control" value="{{ $secondary->secondary_title }}" required>
         <br>
         Secondary school Date : <input type="date" id="secondary_date" name="secondary_date" class="form-control" value="{{ $secondary->secondary_date }}" required>
-        <input type="hidden" name="unique_id" value="{{ $secondary->unique_id }} ">
+        <input type="hidden" name="pic_id" value="{{ $secondary->pic_id }} ">
         
           <br>
           <div align="center">

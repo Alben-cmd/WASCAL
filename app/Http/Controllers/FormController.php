@@ -59,7 +59,6 @@ class FormController extends Controller
         
         if (isset($form->id)) {
         $personal = DB::table('passports')->where('id', '=', $form->id)->get();
-        $personal_data = DB::table('personals')->where('unique_id', '=', $form->unique_id)->get();
 
         return view('form.form-step1',compact('form','personal', $form));
         }
@@ -91,6 +90,7 @@ class FormController extends Controller
              'email'  => 'required|unique:personals',
              'parent_name'  => 'required',
              'parent_number'  => 'required',
+
              ]);
             
             $personal = new Personal();
@@ -256,21 +256,25 @@ class FormController extends Controller
         $validatedData = $request->validate([
 
             'epreuves' => 'required',
-            'notes' => 'required',
-            'coeff' => 'required',
-            'points' => 'required',
-            'sur' => 'required',
+            'notes' => 'required|integer',
+            'coeff' => 'required|integer',
+            'sur' => 'required|integer',
             'decision' => 'required',
              
         ]);
+
+        $point1 = $request->notes; 
+        $point2 = $request->coeff;
+        $point = $point1 * $point2;
+
             $secondary = new Secondaire();
 
             $secondary->unique_id =$request->unique_id;
             $secondary->epreuves = $request->epreuves;
             $secondary->notes = $request->notes;
             $secondary->coeff = $request->coeff;
-            $secondary->points = $request->points;
             $secondary->sur = $request->sur;
+            $secondary->points = $point;
             $secondary->decision = $request->decision;
             
             $secondary->save();
@@ -696,6 +700,7 @@ class FormController extends Controller
         $passport_data = DB::table('passports')->where('id', '=', $form->id)->get();
         $personal_data = DB::table('personals')->where('unique_id', '=', $form->unique_id)->get();
         $secondary_data = DB::table('secondaries')->where('unique_id', '=', $form->unique_id)->get();
+        $secondaire_data = DB::table('secondaires')->where('unique_id', '=', $form->unique_id)->get();
         $result_data = DB::table('results')->where('unique_id', '=', $form->unique_id)->get();
         $university_data = DB::table('universities')->where('unique_id', '=', $form->unique_id)->get();
         $degree_data = DB::table('degrees')->where('unique_id', '=', $form->unique_id)->get();
@@ -704,7 +709,7 @@ class FormController extends Controller
         $employment_data = DB::table('employments')->where('unique_id', '=', $form->unique_id)->get();
         $referee_data = DB::table('referees')->where('unique_id', '=', $form->unique_id)->get();
 
-        return view('form.form_print',compact('form','passport_data','secondary_data','personal_data','result_data','university_data','degree_data','language_data','computer_data','employment_data','referee_data', $form));
+        return view('form.form_print',compact('form','passport_data','secondary_data','secondaire_data','personal_data','result_data','university_data','degree_data','language_data','computer_data','employment_data','referee_data', $form));
         }
         else{ return redirect()->route('passport');
 

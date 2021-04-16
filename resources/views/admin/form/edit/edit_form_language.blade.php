@@ -30,7 +30,7 @@
         Ability: <input type="text" id="ability" name="ability" class="form-control" value="{{ $language->ability }}" required>
         
         Notation: <input type="text" id="notation" name="notation" class="form-control" value="{{ $language->notation }}" required>
-        <input type="hidden" name="unique_id" value="{{ $language->unique_id }} ">
+        <input type="hidden" name="pic_id" value="{{ $language->pic_id }} ">
           <br>
           <div align="center">
             <button type="submit" class="btn btn-success btn-md">

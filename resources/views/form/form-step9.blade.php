@@ -10,7 +10,7 @@
     <div class="col-md-12">
         <div class="card">
           <div class="card-header" align="center">
-                <strong>Doctoral Research Programme in Climate Change and Human Habitat <br>
+                <strong>Doctorate Research Programme in Climate Change and Human Habitat <br>
                 Application Form<br>
                 Doctor of Philosophy (Ph.D) in Climate Change and Human Habitat, 
                 Federal University of Technology, Minna (FUT Minna), Niger State, Nigeria.<br>
@@ -38,6 +38,7 @@
                   <li> Support Letter from Employer (if Employed) Granting Study Leave for the Duration of the Programme, Excluding the Period for the Language Course. </li>
                   <li> Copy of Certificate of Nationality/State of Origin</li>
                   <li> Soft Copy of the Applicant’s Research Pre-Proposal/Research Interest. <span style="color: crimson"><strong>Note that the Centre Reserves the Right to Accept or Reject this, should you be Admitted.</strong></span></li>
+                  <li>Upload documents <span style="color: crimson">NOT MORE THAN <b>5 MB</b></span></li>
                 </ol>
                 
             </div>

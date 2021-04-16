@@ -119,7 +119,6 @@
           </div>
           </div>
 
-
           <div class="entry">
           <h2>Contact Person</h2>
           <div class="content">
@@ -136,24 +135,8 @@
           </div>
           </div>
           @endforeach
-        <!-- End 3rd Row -->
-        <!-- Begin 4th Row -->
-        <div class="entry">
-          <h2>Secondary School</h2>
-          @foreach($secondary_data as $secondary)
-          <div class="content">
-            <h3>{{ $secondary->secondary_school }}</h3>
-            <ul class="skills">
-              <li>{{ $secondary->secondary_from}} <b> - </b> {{ $secondary->secondary_to}}</li>
-              <li>{{ $secondary->secondary_title }} </li>
-              <li>{{ $secondary->secondary_date }}</li>
-            </ul>
-          </div>
-          @endforeach
-        </div>
-        
 
-        <div class="entry">
+          <div class="entry">
           <h2>Secondary Results</h2>
           @foreach($result_data as $result)
           <div class="content">
@@ -167,6 +150,57 @@
           </div>
           @endforeach
         </div>
+
+        @if($secondaire_data->count() > 0)
+        <div class="entry">
+          <h2>Releve du Notes</h2>
+          @foreach($secondaire_data as $secondaire)
+          <div class="content">
+            <h3>{{ $secondaire->epreuves }}</h3>
+            <ul class="skills">
+              <li><b> Notes: </b> {{ $secondaire->notes }}</li>
+              <li><b> Coeff: </b>{{ $secondaire->coeff }}</li>
+              <li><b> Points: </b>{{ $secondaire->points }}</li>
+              <li><b> Sur: </b>{{ $secondaire->sur }}</li>
+              <li><b> Décision:</b>{{ $secondaire->decision }}</li>
+             
+            </ul>
+          </div>
+          @endforeach
+          <div class="content">
+            <ul class="skills">
+              <li><b>Total: </b></li>
+              <li><b>Coeff:</b><?php echo $balance = DB::table('secondaires')->where('unique_id', $secondaire->unique_id)->sum('coeff'); ?></li>
+              <li><b>POints:</b><?php echo $balance = DB::table('secondaires')->where('unique_id', $secondaire->unique_id)->sum('points'); ?></li>
+              <li><b>Sur:</b><?php echo $balance = DB::table('secondaires')->where('unique_id', $secondaire->unique_id)->sum('sur'); ?></li>
+              
+              <li>
+                
+               
+              </li>
+
+            </ul>
+          </div>
+        </div>
+        @endif
+
+        @if($result_data->count() > 0)
+        <div class="entry">
+          <h2>Secondary School</h2>
+          @foreach($secondary_data as $secondary)
+          <div class="content">
+            <h3>{{ $secondary->secondary_school }}</h3>
+            <ul class="skills">
+              <li>{{ $secondary->secondary_from}} <b> - </b> {{ $secondary->secondary_to}}</li>
+              <li>{{ $secondary->secondary_title }} </li>
+              <li>{{ $secondary->secondary_date }}</li>
+            </ul>
+          </div>
+          @endforeach
+        </div>
+        @endif        
+
+        
 
          <div class="entry">
           <h2>University</h2>

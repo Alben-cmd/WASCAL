@@ -36,7 +36,7 @@
         Period: From: <input type="text" id="master_date_from" name="master_date_from" class="form-control" value="{{ $master->master_date_from }}" required>
         <br>
         Period: To: <input type="text" id="master_date_to" name="master_date_to" class="form-control" value="{{ $master->master_date_to }}" required>
-        <input type="hidden" name="unique_id" value="{{ $master->unique_id }} ">
+        <input type="hidden" name="pic_id" value="{{ $master->pic_id }} ">
           <br>
           <div align="center">
             <button type="submit" class="btn btn-success btn-md">

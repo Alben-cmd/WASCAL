@@ -36,7 +36,7 @@
         Period: From: <input type="text" id="btec_date_from" name="btec_date_from" class="form-control" value=" From: {{  $degree->btec_date_from }}" required>
         <br>
         Period: To: <input type="text" id="btec_date_to" name="btec_date_to" class="form-control" value=" From: {{  $degree->btec_date_to }}" required>
-        <input type="hidden" name="unique_id" value="{{ $degree->unique_id }} ">
+        <input type="hidden" name="pic_id" value="{{ $degree->pic_id }} ">
           <br>
           <div align="center">
             <button type="submit" class="btn btn-success btn-md">

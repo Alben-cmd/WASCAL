@@ -11,11 +11,12 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header" align="center">
-                 <strong>Doctoral Research Programme in Climate Change and Human Habitat <br>
+                 <strong>Doctorate Research Programme in Climate Change and Human Habitat <br>
                 Application Form<br>
                 Doctor of Philosophy (Ph.D) in Climate Change and Human Habitat, 
                 Federal University of Technology, Minna (FUT Minna), Niger State, Nigeria.<br>
                 </strong>
+                <p><span style="color: red">Eligible Countries: </span>Bénin, Burkina Faso, Cape Verde, Côte d'Ivoire, Ghana, Mali, Niger, Nigeria, Sénégal, The Gambia and Togo</p>
             </div>
             @if(Session::has('success'))
                   <div class="alert  alert-success alert-dismissible fade show">
@@ -33,7 +34,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card-header">
-                            <strong>Begin Registration <br>Passpport Upload </strong>
+                            <strong>Begin Registration <br>Passport Upload </strong>
 
                             
                         </div>
@@ -48,14 +49,14 @@
 
                     <div align="center">
                         <button type="submit" class="btn btn-success btn-md">
-                            <i class="fa fa-dot-circle-o"></i>Continue 
+                            <i class="fa fa-dot-circle-o"></i> Continue 
                         </button>
                     </div>
                 </form>
                     </div>
                     <div class="col-md-6">
                         <div class="card-header">
-                            <strong>Continue Registeration
+                            <strong>Continue Registration
                                 <br>
                                 Using unique ID
 

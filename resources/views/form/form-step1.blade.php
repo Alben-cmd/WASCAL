@@ -9,7 +9,7 @@
     <br>
     <div class="col-md-12">
        <div class="card-header" align="center">
-                <strong>Doctoral Research Programme in Climate Change and Human Habitat <br>
+                <strong>Doctorate Research Programme in Climate Change and Human Habitat <br>
                 Application Form<br>
                 Doctor of Philosophy (Ph.D) in Climate Change and Human Habitat, 
                 Federal University of Technology, Minna (FUT Minna), Niger State, Nigeria.<br>
@@ -22,10 +22,10 @@
                 <strong>1. Personal Data</strong>
                 
             </div>
-            <div class="card-body card-block">
+            <div class="card-body card-block class-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
+                    <li style="color: crimson;">{{ $error }}</li>
                     @endforeach
                 </ul>
                 <form action=" {{ route('store.form1') }}" method="POST" enctype="multipart/form-data" class="form-horizontal">

@@ -8,7 +8,7 @@
     <div class="col-md-12">
         <div class="card">
           <div class="card-header" align="center">
-                <strong>Doctoral Research Programme in Climate Change and Human Habitat <br>
+                <strong>Doctorate Research Programme in Climate Change and Human Habitat <br>
                 Application Form<br>
                 Doctor of Philosophy (Ph.D) in Climate Change and Human Habitat, 
                 Federal University of Technology, Minna (FUT Minna), Niger State, Nigeria.<br>
@@ -45,27 +45,24 @@
                         <br><br>
                    
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-2">
                         <strong>Notes</strong> <br><br><br>
                        
                         <input type="text" name="notes" placeholder="Notes" class="form-control"required>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-2">
                         <strong>Coeff</strong> <br><br><br>
                        
                         <input type="text" name="coeff" placeholder="Coeff" class="form-control" required>
                     </div>
-                    <div class="col-md-4">
-                        <strong>Points Obtanus</strong> <br><br>
-                        <br>
-                        <input type="text" name="points" placeholder="Points Obtanus" class="form-control" required>
-                    </div>
-                    <div class="col-md-4">
+                    
+                    <div class="col-md-2">
                         <strong>Sur</strong> <br><br>
                         <br>
                         <input type="text" name="sur" placeholder="Sur" class="form-control" required>
                     </div>
-                    <div class="col-md-4">
+                  
+                    <div class="col-md-5">
                         <strong>Décision Du Jury</strong> <br><br>
                         <br>
                         <input type="text" name="decision" placeholder="Décision Du Jury" class="form-control" required>
@@ -107,13 +104,22 @@
                           <td class="py-1">{{ $data->epreuves }}</td>
                           <td>{{ $data->notes }}</td>
                           <td>{{ $data->coeff }} </td>
-                          <td>{{ $data->points }}</td>
+                          <td>{{ ($data->notes * $data->coeff) }} </td>
                           <td>{{ $data->sur }}</td>
                           <td>{{ $data->decision }}</td>
                           <td><a href="{{ route('delete.secondaire', ['id' => $data->id]) }}"  onclick="return confirm('Are you sure?')" class="btn btn-outline-danger btn-icon-text btn-sm"> Delete</a></td>
                         </tr>
                          @endforeach
-                        
+                         <tr class="alert-primary">
+                         
+                          <td colspan="3">Total</td>
+                          <td><b><?php echo $balance = DB::table('secondaires')->where('unique_id', $data->unique_id)->sum('coeff'); ?></b></td>
+                          <td><b><?php echo $balance = DB::table('secondaires')->where('unique_id', $data->unique_id)->sum('points'); ?></b></td>
+                          <td><b><?php echo $balance = DB::table('secondaires')->where('unique_id', $data->unique_id)->sum('sur'); ?></b></td>
+                          <td></td>
+                          <td></td>
+                         
+                         </tr>
                       </tbody>
                     </table>
                     

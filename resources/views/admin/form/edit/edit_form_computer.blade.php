@@ -27,7 +27,7 @@
                               
        Skill Set: <input type="text" id="computer_skill" name="computer_skill" class="form-control" value="{{ $computer->computer_skill }}" required>
         Proficiency: <input type="text" id="proficiency" name="proficiency" class="form-control" value="{{ $computer->proficiency }}" required>
-        <input type="hidden" name="unique_id" value="{{ $computer->unique_id }} ">
+        <input type="hidden" name="pic_id" value="{{ $computer->pic_id }} ">
           <br>
           <div align="center">
             <button type="submit" class="btn btn-success btn-md">
