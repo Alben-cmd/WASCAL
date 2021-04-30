@@ -607,29 +607,26 @@
                             </div>
                             <div class="row">
                               <div class="col-md-6">
-                                <div align="center">
+                                <!-- <div align="center">
             
                                 <a href="{{ route('information') }}" class="btn btn-primary btn-md">Submit</a>
 
             <br>
-        </div>
-        
-                              </div>
-                              <div class="col-md-6">
-                                <!-- <form action="{{ route('final.store') }}" method="POST" enctype="multipart/form-data" class="form-horizontal">
+        </div> -->
+         <form action="{{ route('final.store') }}" method="POST" class="form-horizontal">
                                             @csrf
                                 <div align="center">
-                                    <button type="submit" class="btn btn-success btn-md">
+                                  <input type="hidden" name="unique_id" value="{{ $form->unique_id }} ">
+                                    <button type="submit" class="btn btn-primary btn-md">
                                         <i class="fa fa-dot-circle-o"></i> Submit
                                     </button>
                                     <br>
                                 </div>
-                                </form> -->
-                              </div>
-                            </div>
-                            
+                                </form>
         
-
+                              </div>
+                             
+                            </div>
                     </div>
 
                 </div>

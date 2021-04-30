@@ -42,7 +42,7 @@ Route::post('/register/step5', 'FormController@postCreateStep5')->name('store.fo
 Route::get('/register/computer/delete/{computer}', 'FormController@computerdestroy')->name('delete.computer');
 Route::get('/register/step6', 'FormController@createStep6')->name('step6');
 Route::post('/register/step6', 'FormController@postCreateStep6')->name('store.form6');
-Route::get('/register/employment/delete/{employment}', 'FormController@computerdestroy')->name('delete.employment');
+Route::get('/register/employment/delete/{employment}', 'FormController@employmentdestroy')->name('delete.employment');
 Route::get('/register/step8', 'FormController@createStep8')->name('step8');
 Route::post('/register/step8', 'FormController@postCreateStep8')->name('store.form8');
 Route::get('/register/referee/delete/{referee}', 'FormController@refereedestroy')->name('delete.referee');

@@ -34,7 +34,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card-header">
-                            <strong>Begin Registration <br>Passport Upload </strong>
+                            <strong>Begin Application <br>Passport Upload </strong>
 
                             
                         </div>
@@ -56,7 +56,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="card-header">
-                            <strong>Continue Registration
+                            <strong>Continue Application
                                 <br>
                                 Using unique ID
 

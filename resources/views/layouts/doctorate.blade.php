@@ -1,5 +1,6 @@
-<strong>Doctorate Research Programme in Climate Change and Human Habitat 
-	<br>
+ <strong>
+ 	Doctorate Research Programme in Climate Change and Human Habitat 
+ 	<br>
 	Application Form
 	<br>
 	Doctor of Philosophy (Ph.D) in Climate Change and Human Habitat, 

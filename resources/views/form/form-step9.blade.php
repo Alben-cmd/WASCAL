@@ -10,14 +10,7 @@
     <div class="col-md-12">
         <div class="card">
           <div class="card-header" align="center">
-                <strong>Doctorate Research Programme in Climate Change and Human Habitat <br>
-                Application Form<br>
-                Doctor of Philosophy (Ph.D) in Climate Change and Human Habitat, 
-                Federal University of Technology, Minna (FUT Minna), Niger State, Nigeria.<br>
-                </strong>
-                @foreach($personal as $person)
-                <strong> Your Unique ID: <i style="color: crimson;">{{ $person->unique_id }} </i></strong>
-                @endforeach
+               @include('layouts.doctorate')
             </div>
             <div class="card-header" align="center">
 
@@ -33,7 +26,7 @@
                   <li> WASSCE or SSCE Certificate (Anglophone Countries)</li>
                   <li> Baccalaureat Certificate (Francophone Countries)</li>
                   <li> Baccalaureat (Releve du Notes)</li>
-                  <li> Letter of Motivation</li>
+                  <li> Letter of Motivation (Personal statement should include the student’s academic and personal qualities as well as his/her research interests in the area of Climate Change and Human Habitat. )</li>
                   <li> Letter of Attestation of Good Behaviour From the Applicant’s Parents/Guardian with Detailed contact Address and Phone Numbers(s)</li>
                   <li> Support Letter from Employer (if Employed) Granting Study Leave for the Duration of the Programme, Excluding the Period for the Language Course. </li>
                   <li> Copy of Certificate of Nationality/State of Origin</li>

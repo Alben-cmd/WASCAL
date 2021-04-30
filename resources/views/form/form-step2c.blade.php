@@ -8,14 +8,7 @@
     <div class="col-md-12">
         <div class="card">
           <div class="card-header" align="center">
-                <strong>Doctorate Research Programme in Climate Change and Human Habitat <br>
-                Application Form<br>
-                Doctor of Philosophy (Ph.D) in Climate Change and Human Habitat, 
-                Federal University of Technology, Minna (FUT Minna), Niger State, Nigeria.<br>
-                </strong>
-                @foreach($personal as $person)
-                <strong> Your Unique ID: <i style="color: crimson;">{{ $person->unique_id }} </i></strong>
-                @endforeach
+                @include('layouts.doctorate')
             </div>
             <div class="card-header">
                 <strong>2. Details of Releve du Notes {Baccalauréat D’enseignement Secondaire}. Only Candidates with Baccalaureat C or D are suitable for Consideration.</strong>

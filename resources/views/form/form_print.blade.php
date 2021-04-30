@@ -160,7 +160,7 @@
             <ul class="skills">
               <li><b> Notes: </b> {{ $secondaire->notes }}</li>
               <li><b> Coeff: </b>{{ $secondaire->coeff }}</li>
-              <li><b> Points: </b>{{ $secondaire->points }}</li>
+              <li><b> Points Obtanus: </b>{{ $secondaire->points }}</li>
               <li><b> Sur: </b>{{ $secondaire->sur }}</li>
               <li><b> Décision:</b>{{ $secondaire->decision }}</li>
              
