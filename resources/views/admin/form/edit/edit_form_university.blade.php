@@ -36,7 +36,7 @@
         Title: <input type="text" id="university_title" name="university_title" class="form-control" value="{{ $university->university_title }}" required>
         <br>
         Grade: <input type="text" id="university_grade" name="university_grade" class="form-control" value="{{ $university->university_grade }}" required>
-        <input type="hidden" name="pic_id" value="{{ $university->pic_id }} ">
+        <input type="hidden" name="unique_id" value="{{ $university->unique_id }} ">
           <br>
           <div align="center">
             <button type="submit" class="btn btn-success btn-md">

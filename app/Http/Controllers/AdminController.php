@@ -17,6 +17,7 @@ use App\Referee;
 use App\Document;
 use App\Profref;
 use App\Academicref;
+use App\Secondaire;
 use Image;
 use Illuminate\Support\Facades\DB;
 
@@ -45,10 +46,9 @@ class AdminController extends Controller
 //registered 
     public function index()
     {
-        $personal_data = DB::table('personals')->get();
+        $personal_data = DB::table('personals')->Paginate(20);
         $passport_data = DB::table('passports')->get();
          return view('admin.form.form',compact('personal_data', 'passport_data'));
-    
     }
 
     /**
@@ -227,6 +227,42 @@ class AdminController extends Controller
             $secondary->save();
         
        $request->session()->flash('success', 'Secondary details Updated');
+            return redirect()->route('admin.registred');
+    }
+
+    public function editsecondaire($id)
+    {
+        $secondaire = Secondaire::find($id);
+        return view('admin.form.edit.edit_form_secondaire', compact('secondaire'));
+    }
+
+    public function updatesecondaire(Request $request, $id)
+    {
+        $secondaire = Secondaire::find($id);
+
+        $this->validate($request, [
+            'epreuves' => 'required',
+            'notes' => 'required|integer',
+            'coeff' => 'required|integer',
+            'sur' => 'required|integer',
+            'decision' => 'required',
+            ]);
+
+            $point1 = $request->notes; 
+            $point2 = $request->coeff;
+            $point = $point1 * $point2;
+
+
+            $secondaire->unique_id =$request->unique_id;
+            $secondaire->epreuves = $request->epreuves;
+            $secondaire->notes = $request->notes;
+            $secondaire->coeff = $request->coeff;
+            $secondaire->sur = $request->sur;
+            $secondaire->points = $point;
+            $secondaire->decision = $request->decision;
+            $secondaire->save();
+        
+       $request->session()->flash('success', 'secondaire details Updated');
             return redirect()->route('admin.registred');
     }
 
@@ -454,7 +490,7 @@ class AdminController extends Controller
 
             $referee->unique_id = $request->unique_id;
             $referee->referees_name = $request->referees_name;
-            $form->referees_type = $request->referees_type;
+            $referee->referees_type = $request->referees_type;
             $referee->referees_address = $request->referees_address;
             $referee->referees_rank = $request->referees_rank;
             $referee->referees_email = $request->referees_email;

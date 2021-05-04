@@ -36,12 +36,13 @@
                         </tr>
                       </thead>
                       <tbody>
-                        @php
-                         $count = 1;
-                        @endphp
+                        <?php 
+                          $i = ($personal_data->currentpage()-1)*$personal_data->perpage() + 1; 
+                        ?>
+                        
                         @foreach($personal_data as $personal)
                         <tr>
-                          <td>{{ $count++ }}</td>
+                          <td>{{ $i++ }}</td>
                           <td>{{ $personal->fname }} {{ $personal->Lname }} {{ $personal->oname }}</td> 
                           <td>{{ $personal->email }}</td> 
                           @foreach($passport_data as $passport)
@@ -58,7 +59,15 @@
 
                           
                     </table>
+                    <br>
+                    <br>
                     
+                    <div class="col-md-12" style="margin: 0 auto!important">
+                      <ul class="pagination" style="justify-content: center">
+                        <li>{{ $personal_data->links() }}</li>
+                      </ul>
+                    </div>
+
                   </div>
                   
                 </div>

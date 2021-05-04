@@ -24,6 +24,13 @@
                       {{ Session::get('success') }}
                   </div>
                   @endif
+
+                  @if(Session::has('error'))
+                  <div class="alert  alert-danger alert-dismissible fade show">
+                      <span class="badge badge-pill badge-danger">Error</span>
+                      {{ Session::get('error') }}
+                  </div>
+                  @endif
             
             <div class="card-body card-block">
                 <ul>

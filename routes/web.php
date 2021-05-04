@@ -104,6 +104,9 @@ Route::post('admin/register/update/employment/{id}', 'AdminController@updateempl
 Route::get('admin/register/edit/referee/{id}', 'AdminController@editreferee')->name('edit.referee');
 Route::post('admin/register/update/referee/{id}', 'AdminController@updatereferee')->name('update.referee');
 
+Route::get('admin/register/edit/secondaire/{id}', 'AdminController@editsecondaire')->name('edit.secondaire');
+Route::post('admin/register/update/secondaire/{id}', 'AdminController@updatesecondaire')->name('update.secondaire');
+
 //referee
 Route::get('/admin/professional_referee', 'AdminController@profreferee')->name('admin.profreferee');
 Route::get('/admin/professional_referee/edit/{id}', 'AdminController@showprofreferee')->name('show.profreferee');

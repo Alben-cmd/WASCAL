@@ -15,22 +15,29 @@
 <div class="col-12 grid-margin stretch-card">
   <div class="card">
     <div class="card-body">
-      <strong><h4>Language </h4> </strong>
+      <strong><h4>Secondary School </h4> </strong>
       <div class="card">                              
         <div class="col-md-8">
           @foreach ($errors->all() as $error)
             <li>{{ $error }}</li>
           @endforeach
 
-      <form action="{{ route('update.language', ['id' => $language->id]) }}" method="POST" enctype="multipart/form-data" class="forms-sample" >
+      <form action="{{ route('update.secondaire', ['id' => $secondaire->id]) }}" method="POST" enctype="multipart/form-data" class="forms-sample" >
         @csrf
                               
-       Language: <input type="text" id="language" name="language" class="form-control" value="{{ $language->language }}" required>
-                                
-        Ability: <input type="text" id="ability" name="ability" class="form-control" value="{{ $language->ability }}" required>
+      Épreuves : <input type="text" name="epreuves" class="form-control" value="{{ $secondaire->epreuves }}" required>
+        <br>
+      Notes: <input type="text" name="notes" class="form-control" value="{{ $secondaire->notes }}" required>
+        <br>
+      Coeff : <input type="text"  name="coeff" class="form-control" value="{{ $secondaire->coeff }}" required>
+        <br>
+      Sur : <input type="text" name="sur" class="form-control" value="{{ $secondaire->sur }}" required>
+     <br>
+     Décision Du Jury : <input type="text" name="decision" class="form-control" value="{{ $secondaire->decision }}" required>
+ 
+
+        <input type="hidden" name="unique_id" value="{{ $secondaire->unique_id }} ">
         
-        Notation: <input type="text" id="notation" name="notation" class="form-control" value="{{ $language->notation }}" required>
-        <input type="hidden" name="unique_id" value="{{ $language->unique_id }} ">
           <br>
           <div align="center">
             <button type="submit" class="btn btn-success btn-md">

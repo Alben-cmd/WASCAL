@@ -58,7 +58,7 @@ class FormController extends Controller
         $form = $request->session()->get('form');
         
         if (isset($form->id)) {
-        $personal = DB::table('passports')->where('id', '=', $form->id)->get();
+        $personal = DB::table('passports')->where('id', '=', $form->id)->first();
 
         return view('form.form-step1',compact('form','personal', $form));
         }
@@ -136,7 +136,7 @@ class FormController extends Controller
         
          
           if (isset($form->id)) {
-            $personal = DB::table('passports')->where('id', '=', $form->id)->get();
+            $personal = DB::table('passports')->where('id', '=', $form->id)->first();
             $secondary_data = DB::table('secondaries')->Where('unique_id', '=', $form->unique_id)->get();
             $secondary_one = DB::table('secondaries')->Where('unique_id', '=', $form->unique_id)->first();
 
@@ -189,7 +189,7 @@ class FormController extends Controller
         
          
           if (isset($form->id)) {
-            $personal = DB::table('passports')->where('id', '=', $form->id)->get();
+            $personal = DB::table('passports')->where('id', '=', $form->id)->first();
             $result_data = DB::table('results')->where('unique_id', '=', $form->unique_id)->get();
         return view('form.form-step2b',compact('form','result_data','personal', $personal, $form));
         }
@@ -238,7 +238,7 @@ class FormController extends Controller
         
          
           if (isset($form->id)) {
-            $personal = DB::table('passports')->where('id', '=', $form->id)->get();
+            $personal = DB::table('passports')->where('id', '=', $form->id)->first();
             $secondaire_data = DB::table('secondaires')->where('unique_id', '=', $form->unique_id)->get();
         return view('form.form-step2c',compact('form','secondaire_data','personal', $personal, $form));
         }
@@ -294,7 +294,7 @@ class FormController extends Controller
         
         
          if (isset($form->id)) {
-            $personal = DB::table('passports')->where('id', '=', $form->id)->get();
+            $personal = DB::table('passports')->where('id', '=', $form->id)->first();
             $university_data = DB::table('universities')->where('unique_id', '=', $form->unique_id)->get();
         return view('form.form-step3',compact('form','university_data', 'personal' , $form));
         }
@@ -349,7 +349,7 @@ class FormController extends Controller
         $form = $request->session()->get('form');
         
          if (isset($form->id)) {
-            $personal = DB::table('passports')->where('id', '=', $form->id)->get();
+            $personal = DB::table('passports')->where('id', '=', $form->id)->first();
 
         return view('form.form-step3b',compact('form', 'personal', $form));
          }
@@ -409,7 +409,7 @@ class FormController extends Controller
         public function createStep4(Request $request)
     {
         $form = $request->session()->get('form');
-        $personal = DB::table('passports')->where('id', '=', $form->id)->get();
+        $personal = DB::table('passports')->where('id', '=', $form->id)->first();
         
          if (isset($form->id)) {
         $language_data = DB::table('languages')->where('unique_id', '=', $form->unique_id)->get();
@@ -456,7 +456,7 @@ class FormController extends Controller
         
         
          if (isset($form->id)) {
-            $personal = DB::table('passports')->where('id', '=', $form->id)->get();
+            $personal = DB::table('passports')->where('id', '=', $form->id)->first();
             $computer_data = DB::table('computers')->where('unique_id', '=', $form->unique_id)->get();
         return view('form.form-step5',compact('form', 'computer_data', 'personal', $form));
         }
@@ -506,7 +506,7 @@ class FormController extends Controller
         
         
          if (isset($form->id)) {
-            $personal = DB::table('passports')->where('id', '=', $form->id)->get();
+            $personal = DB::table('passports')->where('id', '=', $form->id)->first();
             $employment_data = DB::table('employments')->where('unique_id', '=', $form->unique_id)->get();
         return view('form.form-step6',compact('form', 'employment_data', 'personal', $form));
         }
@@ -616,7 +616,7 @@ class FormController extends Controller
 
         $form = $request->session()->get('form');
         $document_data = DB::table('documents')->where('unique_id', '=', $form->unique_id)->get();
-        $personal = DB::table('passports')->where('id', '=', $form->id)->get();
+        $personal = DB::table('passports')->where('id', '=', $form->id)->first();
         return view('form.form-step9',compact('form','document_data', 'personal', $form));
         }
         else{ 
@@ -723,16 +723,16 @@ class FormController extends Controller
         }
        
       }
-      public function uniquesearch(Request $request)
-    {
+    public function uniquesearch(Request $request)
+        {
         $search_text = $_GET['query'];
         $unique = Passport::where('unique_id', 'like', '%'.$search_text.'%')->first();
 
-
+        if ($unique){
         if($unique->count == 1):
             $request->session()->put('form',  $unique);
              return redirect()->route('step1');
-        elseif($unique->count == 2):
+            elseif($unique->count == 2):
             $request->session()->put('form',  $unique);
             return redirect()->route('step2');
             elseif($unique->count == 3):
@@ -765,12 +765,15 @@ class FormController extends Controller
             elseif($unique->count == 12):
             $request->session()->put('form',  $unique);
             return redirect()->route('step9');
-        elseif($unique->count == 13):
+            elseif($unique->count == 13):
             $request->session()->put('form',  $unique);
             return redirect()->route('printpriview');
-
-
         endif;
+        }
+        else{ 
+            $request->session()->flash('error', 'Uniqid ID not found!');
+            return redirect()->back();
+        }
 
     }
 
@@ -782,7 +785,7 @@ class FormController extends Controller
          if (isset($form->id)) {
 
         $form = $request->session()->get('form');
-        $personal_data = DB::table('personals')->where('unique_id', '=', $form->unique_id)->get(); 
+        $personal_data = DB::table('personals')->where('unique_id', '=', $form->unique_id)->first(); 
 
         return view('form.form_information',compact('form','personal', 'personal_data', $form));
 

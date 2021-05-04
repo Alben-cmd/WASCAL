@@ -9958,7 +9958,9 @@ pre code {
 .table {
   width: 100%;
   margin-bottom: 1rem;
+  word-break: break-all;
   color: #212529;
+
 }
 
 .table th,
@@ -9984,11 +9986,13 @@ pre code {
 
 .table-bordered {
   border: 1px solid #c9ccd7;
+   width: 740px;
 }
 
 .table-bordered th,
 .table-bordered td {
   border: 1px solid #c9ccd7;
+
 }
 
 .table-bordered thead th,
@@ -10001,6 +10005,7 @@ pre code {
 .table-borderless thead th,
 .table-borderless tbody + tbody {
   border: 0;
+
 }
 
 .table-striped tbody tr:nth-of-type(odd) {
@@ -10009,6 +10014,7 @@ pre code {
 
 .table-hover tbody tr:hover {
   color: #212529;
+
   background-color: #eaeaf1;
 }
 
