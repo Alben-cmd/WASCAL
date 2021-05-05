@@ -56,11 +56,12 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function adminsearch()
     {
-        //
+        $search_text = $_GET['admin_search'];
+        $adminsearch = Personal::where('unique_id', 'like', '%'.$search_text.'%')->first();
+        return view('admin.form.search', compact('adminsearch'));
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -145,7 +146,7 @@ class AdminController extends Controller
         $passport->save();
         }
          $request->session()->flash('success', 'Passport Updated');
-            return redirect()->route('admin.registred');
+            return redirect()->route('show.register', ['id' => $id]);
     }
 
 //in the view, finding that particular personal for editing 
@@ -197,7 +198,7 @@ class AdminController extends Controller
             $personal_data->save();
         
        $request->session()->flash('success', 'Personal details Updated');
-            return redirect()->route('admin.registred');
+           return redirect()->route('show.register', ['id' => $id]);
     }
 
     public function editsecondary($id)
@@ -227,7 +228,7 @@ class AdminController extends Controller
             $secondary->save();
         
        $request->session()->flash('success', 'Secondary details Updated');
-            return redirect()->route('admin.registred');
+            return redirect()->route('show.register', ['id' => $id]);
     }
 
     public function editsecondaire($id)
@@ -263,7 +264,7 @@ class AdminController extends Controller
             $secondaire->save();
         
        $request->session()->flash('success', 'secondaire details Updated');
-            return redirect()->route('admin.registred');
+            return redirect()->route('show.register', ['id' => $id]);
     }
 
     public function editresult($id)
@@ -291,7 +292,7 @@ class AdminController extends Controller
             $result->save();
         
        $request->session()->flash('success', 'Secondary Result details Updated');
-            return redirect()->route('admin.registred');
+            return redirect()->route('show.register', ['id' => $id]);
     }
 
     public function edituniversity($id)
@@ -323,7 +324,7 @@ class AdminController extends Controller
             $university->save();
         
        $request->session()->flash('success', 'University details Updated');
-            return redirect()->route('admin.registred');
+            return redirect()->route('show.register', ['id' => $id]);
     }
 
     public function editdegree($id)
@@ -355,7 +356,7 @@ class AdminController extends Controller
             $degree->save();
         
        $request->session()->flash('success', 'First Degree details Updated');
-            return redirect()->route('admin.registred');
+            return redirect()->route('show.register', ['id' => $id]);
     }
 
     public function editmaster($id)
@@ -386,7 +387,7 @@ class AdminController extends Controller
             $master->save();
         
        $request->session()->flash('success', 'Second Degree details Updated');
-            return redirect()->route('admin.registred');
+            return redirect()->route('show.register', ['id' => $id]);
     }
 
     public function editlanguage($id)
@@ -412,7 +413,7 @@ class AdminController extends Controller
             $language->save();
         
        $request->session()->flash('success', 'Second Degree details Updated');
-            return redirect()->route('admin.registred');
+           return redirect()->route('show.register', ['id' => $id]);
     }
 
     public function editcomputer($id)
@@ -438,7 +439,7 @@ class AdminController extends Controller
             $language->save();
         
        $request->session()->flash('success', 'Second Degree details Updated');
-            return redirect()->route('admin.registred');
+            return redirect()->route('show.register', ['id' => $id]);
     }
 
     public function editemployment($id)
@@ -466,7 +467,7 @@ class AdminController extends Controller
             $employment->save();
         
        $request->session()->flash('success', 'Employment details Updated');
-            return redirect()->route('admin.registred');
+            return redirect()->route('show.register', ['id' => $id]);
     }
 
     public function editreferee($id)

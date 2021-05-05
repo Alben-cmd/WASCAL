@@ -23,8 +23,6 @@ Route::get('/register/school/delete/{school}', 'FormController@schooldestroy')->
 Route::get('/register/step2b', 'FormController@createStep2b')->name('step2b');
 Route::post('/register/step2b', 'FormController@postCreateStep2b')->name('store.form2b');
 Route::get('/register/result/delete/{result}', 'FormController@resultdestroy')->name('delete.result');
-
-
 Route::get('/register/step2c', 'FormController@createStep2c')->name('step2c');
 Route::post('/register/step2c', 'FormController@postCreateStep2c')->name('store.form2c');
 Route::get('/register/step2c/delete/{secondaire}', 'FormController@secondairedestroy')->name('delete.secondaire');
@@ -80,7 +78,10 @@ Route::get('admin/register/edit/{id}', 'AdminController@edit')->name('edit.regis
 Route::post('admin/register/update/{id}', 'AdminController@update')->name('update.register');
 Route::get('admin/register/delete/{id}', 'AdminController@destroy')->name('delete.register');
 
-//edit
+//Admin search
+Route::get('/admin/uniqidID', 'AdminController@adminsearch')->name('adminsearch'); 
+
+//Admin edit
 Route::get('admin/register/edit/passport/{id}', 'AdminController@editpassport')->name('edit.passport');
 Route::post('admin/register/update/passport/{id}', 'AdminController@updatepassport')->name('update.passport');
 Route::get('admin/register/edit/personal/{id}', 'AdminController@editpersonal')->name('edit.personal');
