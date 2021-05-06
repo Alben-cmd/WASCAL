@@ -46,7 +46,7 @@
                           <td>{{ $academic->referee_name }}</td> 
                           <td>{{ $academic->referee_position }}</td>
                           
-                          <td><a href="{{ route('show.academicreferee', ['id' => $academic->id]) }}" class="btn btn-link text-primary">Read</a>
+                          <td><a href="{{ route('show.academicreferee', ['id' => $academic->id]) }}" class="btn btn-link text-primary">Read</a> | <a href="{{ route('delete.academicreferee', ['id' => $academic->id]) }}" class="btn btn-link text-danger">Delete</a>
                           </td>
                         </tr>
                          @endforeach

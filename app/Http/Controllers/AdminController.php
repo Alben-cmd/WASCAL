@@ -512,7 +512,7 @@ class AdminController extends Controller
     public function destroy($id)
     {
         Form::where('id', $id)->delete();   
-        return redirect('/admin/activity')->with('success', 'form Deleted Successfully!');
+        return redirect('/admin/activity')->with('success', 'Form Deleted Successfully!');
     }
 
     public function profreferee()
@@ -527,6 +527,12 @@ class AdminController extends Controller
          return view('admin.referee.profreferee_show',compact('prof_referee'));
     }
 
+    public function destroyprofreferee($id)
+    {
+        Profref::where('id', $id)->delete();   
+        return redirect()->back()->with('success', 'Form Deleted Successfully!');
+    }
+
     public function academicreferee()
     {
         $academic_referee = DB::table('academicrefs')->get();
@@ -537,6 +543,12 @@ class AdminController extends Controller
     {
         $academic_referee = Academicref::find($academicref);
          return view('admin.referee.academicreferee_show',compact('academic_referee'));
+    }
+
+    public function destroyacademicreferee($id)
+    {
+        Academicref::where('id', $id)->delete();   
+        return redirect()->back()->with('success', 'Form Deleted Successfully!');
     }
 
 }
