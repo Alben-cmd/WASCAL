@@ -46,7 +46,7 @@
                           <td>{{ $prof->referee_name }}</td> 
                           <td>{{ $prof->referee_position }}</td>
                           
-                          <td><a href="{{ route('show.profreferee', ['id' => $prof->id]) }}" class="btn btn-link text-primary">Read</a> | <a href="{{ route('delete.profreferee', ['id' => $prof->id]) }}" class="btn btn-link text-danger">Delete</a>
+                          <td><a href="{{ route('show.profreferee', ['id' => $prof->id]) }}" class="btn btn-link text-primary">Read</a> | <a href="{{ route('delete.profreferee', ['id' => $prof->id]) }}" onclick="return confirm('Are you sure?')"  class="btn btn-link text-danger">Delete</a>
                           </td>
                         </tr>
                          @endforeach

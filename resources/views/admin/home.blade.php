@@ -20,7 +20,8 @@
                     <a href=" {{ route('admin.registred') }} "><h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{ $personal->count() }}</h3></a>
                     
                      <i class="ti-user icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
-                  </div>  
+                  </div> 
+                   <p class="mb-0 mt-2 text-success">Completed: {{ $passport_success->count() }}</p> 
                 </div>
               </div>
             </div>

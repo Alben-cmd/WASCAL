@@ -32,7 +32,9 @@
                           <th>Name</th>
                           <th>Email</th>
                           <th>Unique ID</th>
-                          <th>Action</th>
+                          <th></th>
+                          <th>Status</th>
+                          <th style="text-align: center;">Action</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -48,8 +50,14 @@
                           @foreach($passport_data as $passport)
                           @if( $passport->unique_id == $personal->unique_id)
                           <td>{{ $passport->unique_id }}</td> 
+                          @if($passport->count == 13)
+                          <td><td style="color: green">completed</td></td>
+                          @else
+                          <td><td style="color: red">Incomplete</td></td>
+                          @endif
                           @endif
                           @endforeach
+                          
                           <td><a href="{{ route('show.register', ['id' => $personal->id]) }}" class="btn btn-link text-primary">Read/Update</a>
                           </td>
                           <!-- <td><a href="#"  onclick="return confirm('Are you sure?')" class="btn btn-link text-danger"> Delete</a></td> -->

@@ -39,9 +39,10 @@ class AdminController extends Controller
     public function home()
     {
         $personal = DB::table('personals')->get();
+        $passport_success = DB::table('passports')->where('count', '=', 13)->get();
         $prof_referee = DB::table('profrefs')->get();
         $academic_referee = DB::table('academicrefs')->get();
-        return view('admin.home', compact('personal','prof_referee','academic_referee'));
+        return view('admin.home', compact('personal','prof_referee','academic_referee', 'passport_unsuccess', 'passport_success' ));
     }
 //registered 
     public function index()
