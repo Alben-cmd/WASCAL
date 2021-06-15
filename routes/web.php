@@ -76,6 +76,8 @@ Route::post('admin/register/store', 'AdminController@store')->name('store.regist
 Route::get('/admin/register/{id}', 'AdminController@show')->name('show.register');
 Route::get('admin/register/edit/{id}', 'AdminController@edit')->name('edit.register');
 Route::post('admin/register/update/{id}', 'AdminController@update')->name('update.register');
+Route::get('admin/register/delete/{unique_id}', 'AdminController@destroyall')->name('delete.all');
+
 Route::get('admin/register/destroyprofreferee/{id}', 'AdminController@destroyprofreferee')->name('delete.profreferee');
 Route::get('admin/register/destroyacademicreferee/{id}', 'AdminController@destroyacademicreferee')->name('delete.academicreferee');
 

@@ -47,7 +47,7 @@
                     </div>
                     <div class="row form-group">
                       <div class="col col-md-3"><label for="text-input" class=" form-control-label" style="text-align:justify;">In what capacity, how long and how well have you known the applicant (e.g. as his/her teacher, HOD, Major Supervisor or Director of MRP during Master’s degree programme)?</label></div>
-                      <div class="col-9 col-md-7"><textarea name="application_capacity" id="elm1" rows="4" class="form-control"></textarea required></div>
+                      <div class="col-9 col-md-7"><textarea name="application_capacity" id="elm1" rows="4" class="form-control" required></textarea ></div>
                   </div>
                   <div class="row form-group">
                       <div class="col col-md-3"></div>
@@ -55,12 +55,12 @@
                   </div>
                     <div class="row form-group">
                         <div class="col col-md-3"><label for="text-input" class=" form-control-label">Course Name and code</label></div>
-                        <div class="col-9 col-md-7"><input type="text" name="applicant_coursename" placeholder=" Course Name and code" class="form-control" value="{{ old('applicant_coursename') }}" required></div>
+                        <div class="col-9 col-md-7"><input type="text" name="applicant_coursename" placeholder=" Course Name and code" class="form-control" value="{{ old('applicant_coursename') }}" maxlength = "200" required></div>
                     </div>
 
                     <div class="row form-group">
                         <div class="col col-md-3"><label for="text-input" class=" form-control-label">Course Score</label></div>
-                        <div class="col-9 col-md-7"><input type="text" name="application_score" placeholder=" Applicant’s Responsibilities" class="form-control" value="{{ old('application_score') }}" required></div>
+                        <div class="col-9 col-md-7"><input type="text" name="application_score" placeholder=" Applicant’s Responsibilities" class="form-control" value="{{ old('application_score') }}" maxlength = "200" required></div>
                         <hr>
                     </div>
                     <div class="row form-group">
@@ -73,11 +73,11 @@
                     </div>
                     <div class="row form-group">
                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Read widely in English</label></div>
-                    <div class="col-9 col-md-7"><input type="text" name="application_read" placeholder=" Applicant’s Responsibilities" class="form-control" value="{{ old('application_read') }}" required></div>
+                    <div class="col-9 col-md-7"><input type="text" name="application_read" placeholder=" Applicant’s Responsibilities" class="form-control" value="{{ old('application_read') }}" maxlength = "200" required></div>
                     </div>
                     <div class="row form-group">
                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Express himself/herself in written English </label></div>
-                    <div class="col-9 col-md-7"><input type="text" name="application_write" placeholder=" Applicant’s Responsibilities" class="form-control" value="{{ old('application_write') }}" required></div>
+                    <div class="col-9 col-md-7"><input type="text" name="application_write" placeholder=" Applicant’s Responsibilities" class="form-control" value="{{ old('application_write') }}" maxlength = "200" required></div>
                     </div>
                     <hr>
                     <div class="row form-group">
@@ -228,11 +228,11 @@
                    <hr>
                     <div class="row form-group">
                     <div class="col col-md-3"><label for="text-input" class=" form-control-label" style="text-align:justify;">Please make a general comment on the applicants academic strength and potential of completing the programme</label></div>
-                    <div class="col-9 col-md-7"><textarea name="application_strength" id="elm1" rows="4" placeholder="" class="form-control"></textarea required></div>
+                    <div class="col-9 col-md-7"><textarea name="application_strength" id="elm1" rows="4" placeholder="" class="form-control" required></textarea ></div>
                     </div>
                     <div class="row form-group">
                     <div class="col col-md-3"><label for="text-input" class=" form-control-label" style="text-align:justify;">Please comment on the applicant's personality (bearing in mind moral character, emotional and physical stability)</label></div>
-                    <div class="col-9 col-md-7"><textarea name="application_personality" id="elm1" rows="4" placeholder="" class="form-control"></textarea required></div>
+                    <div class="col-9 col-md-7"><textarea name="application_personality" id="elm1" rows="4" placeholder="" class="form-control" required></textarea ></div>
                     </div>
                     <div class="row form-group ">
                     <div class="col col-md-3"><label for="text-input" class=" form-control-label" style="text-align:justify;">Should the situation arise, would you accept the applicant as a research student</label></div>
@@ -246,11 +246,11 @@
                     </div>
                     <div class="row form-group">
                     <div class="col col-md-3"><label for="text-input" class=" form-control-label" style="text-align:justify;">If you have knowledge of the applicant’s recent study it would be helpful if you could indicate the standard achieved</label></div>
-                    <div class="col-9 col-md-7"><textarea name="application_recentstudy" id="elm1" rows="4" placeholder="" class="form-control"></textarea required></div>
+                    <div class="col-9 col-md-7"><textarea name="application_recentstudy" id="elm1" rows="4" placeholder="" class="form-control" required></textarea ></div>
                     </div>
                     <div class="row form-group">
                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Comment freely on the candidate</label></div>
-                    <div class="col-9 col-md-7"><textarea name="application_comment" id="elm1" rows="4" placeholder="" class="form-control"></textarea required></div>
+                    <div class="col-9 col-md-7"><textarea name="application_comment" id="elm1" rows="4" placeholder="" class="form-control" required></textarea ></div>
                     </div>
                     <hr>
                     <div class="row form-group">

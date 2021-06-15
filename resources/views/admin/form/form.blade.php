@@ -16,7 +16,7 @@
   <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Registerations</h4>
+                  <h4 class="card-title">Registrations</h4>
                   @if(Session::has('success'))
                   <div class="alert  alert-success alert-dismissible fade show">
                       <span class="badge badge-pill badge-success">Success</span>
@@ -60,7 +60,7 @@
                           
                           <td><a href="{{ route('show.register', ['id' => $personal->id]) }}" class="btn btn-link text-primary">Read/Update</a>
                           </td>
-                          <!-- <td><a href="#"  onclick="return confirm('Are you sure?')" class="btn btn-link text-danger"> Delete</a></td> -->
+                          <td><a href="{{ route('delete.all', ['unique_id' => $personal->id]) }}"  onclick="return confirm('Are you sure?')" class="btn btn-link text-danger"> Delete</a></td>
                         </tr>
                          @endforeach
                       </tbody>

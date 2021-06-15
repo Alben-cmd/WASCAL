@@ -510,9 +510,10 @@ class AdminController extends Controller
      */
     //the print function 
 
-    public function destroy($id)
+    public function destroyall($id, $unique_id)
     {
-        Form::where('id', $id)->delete();   
+        Personal::where('unique_id', $unique_id)->delete(); 
+        University::where('unique_id', $unique_id)->delete();  
         return redirect('/admin/activity')->with('success', 'Form Deleted Successfully!');
     }
 

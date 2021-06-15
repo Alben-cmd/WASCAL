@@ -17,7 +17,7 @@ class CreateAcademicrefsTable extends Migration
             $table->bigIncrements('id');
             $table->string('applicant_name');
             $table->string('applicant_study');
-            $table->string('application_capacity');
+            $table->text('application_capacity');
             $table->string('applicant_coursename');
             $table->string('application_score');
             $table->string('application_understand');
@@ -36,7 +36,7 @@ class CreateAcademicrefsTable extends Migration
             $table->text('application_personality');
             $table->text('application_strength');
             $table->text('application_recentstudy');
-            $table->string('application_comment');
+            $table->text('application_comment');
             $table->string('referee_name');
             $table->string('referee_position');
             $table->text('referee_rank');
