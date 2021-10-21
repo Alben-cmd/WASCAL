@@ -152,7 +152,8 @@
                       </div>
                     </div>
                     <div class="row form-group ">
-                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Relationships with Colleagues</label></div>
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Relationships with Colleagues</label>
+                    </div>
                     <div class="col-9 col-md-7">
                         <select name="application_relationship" class="standardSelect" required>
                             <option value="" disabled selected hidden>Please select</option>

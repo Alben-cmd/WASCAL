@@ -151,7 +151,7 @@
 
                                                 <th>Initiative and Creativity</th>
                                                 <th>Time Keeping</th>
-                                                <th>Reasons below Average or Poor</th>
+                                                <th>Relationships with: Colleagues  </th>
                                               </tr>
                                             </thead>
                                             <tbody>
@@ -159,11 +159,17 @@
 
                                                 <td>{{ $prof_referee->application_creative }}</td>
                                                 <td>{{ $prof_referee->application_time }}</td>
-                                                <td>{{ $prof_referee->application_reason }}</td>
+                                                <td>{{ $prof_referee->application_eelationship  }}</td>
                                                 
                                               </tr>
                                             </tbody>
                                       </table>
+                                      <hr>
+                                      <div class="card-body my-3">
+                                        <p><b>Reasons below Average or Poor: </b><br> {{ $prof_referee->application_reason }} </p>
+                                      </div>
+        
+                                </div>
                                     </div>
                                     <div class="col-md-3">                                     
                                     </div>
@@ -207,14 +213,16 @@
                                       <table class="table">
                                             <thead>
                                               <tr>
-                                                <th>Institution/Organisation</th>
-                                                <th>Institution/Organisation's address</th>                                               
+                                                <th>Institution/Organisation and address</th>
+                                                <th>Institution/Organisation's address</th>
+                                                <th>Office/Mobile Phone Number</th>                                               
                                               </tr>
                                             </thead>
                                             <tbody>
                                               <tr>
                                                 <td>{{ $prof_referee->referee_institution }}</td>
-                                                <td>{{ $prof_referee->referee_address }}</td>                                                
+                                                <td>{{ $prof_referee->referee_address }}</td> 
+                                                <td>{{ $prof_referee->referee_phone }} </td>                                               
                                               </tr>
                                             </tbody>
                                       </table>

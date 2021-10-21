@@ -35,6 +35,7 @@ class RefereeController extends Controller
              'application_ability'  => 'required',
              'application_release'  => 'required',
              'application_performance'  => 'required',
+             'application_relationship' => 'required',
              'application_ethics'  => 'required',
              'application_creative'  => 'required',
              'application_time'  => 'required',
@@ -42,6 +43,7 @@ class RefereeController extends Controller
              'referee_name'  => 'required',
              'referee_position'  => 'required',
              'referee_rank'  => 'required',
+             'referee_phone' => 'required',
              'referee_institution'  => 'required',
              'referee_address'  => 'required',
              ]);
@@ -64,10 +66,12 @@ class RefereeController extends Controller
             $referee->application_ethics = $request->application_ethics;
             $referee->application_creative = $request->application_creative;
             $referee->application_time = $request->application_time;
+            $referee->application_relationship = $request->application_relationship;
             $referee->application_reason = $request->application_reason;
             $referee->referee_name = $request->referee_name;
             $referee->referee_position = $request->referee_position;
             $referee->referee_rank = $request->referee_rank;
+            $referee->referee_phone = $request->referee_phone;
             $referee->referee_institution = $request->referee_institution;
             $referee->referee_address = $request->referee_address;
             $referee->save();
